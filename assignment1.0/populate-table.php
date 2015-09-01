@@ -75,6 +75,9 @@ if ($file) {
 // -- Table structure for table `tblTeachers`
     $query = "DROP TABLE IF EXISTS tblTeachers";
     $results = $thisDatabaseAdmin->delete($query);
+    
+    if($results) $outputBuffer[] =  "<p>Table Teachers dropped. </p>";
+    
     $query = "CREATE TABLE IF NOT EXISTS tblTeachers ( ";
     $query .= "fldLastName varchar(100) NOT NULL, ";
     $query .= "fldFirstName varchar(100) NOT NULL, ";
@@ -83,26 +86,35 @@ if ($file) {
     $query .= "fldPhone varchar(7) NOT NULL, ";
     $query .= "PRIMARY KEY (pmkNetId)";
     $query .= ") ENGINE=InnoDB DEFAULT CHARSET=utf8";
-    $results = $thisDatabaseAdmin->insert($query);
-    $outputBuffer[] = "<p>tblTeachers Created.</p>";
+
+    $results = $thisDatabaseAdmin->testquery($query, "", 0, 6, 0, 0, false, false);
+    $results = $thisDatabaseAdmin->insert($query, "", 0, 6, 0, 0, false, false);
+    if($results) $outputBuffer[] = "<p>tblTeachers Created.</p>";
     
 // -- Table structure for table `tblCourses`
     $query = "DROP TABLE IF EXISTS tblCourses";
     $results = $thisDatabaseAdmin->delete($query);
+    if($results) $outputBuffer[] = "<p>Table Courses dropped. </p>";
+    
     $query = "CREATE TABLE IF NOT EXISTS tblCourses ( ";
     $query .= "pmkCourseId int(11) NOT NULL AUTO_INCREMENT, ";
     $query .= "fldCourseNumber int(11) NOT NULL, ";
     $query .= "fldCourseName varchar(250) NOT NULL, ";
     $query .= "fldDepartment varchar(5) NOT NULL, ";
     $query .= "fldCredits tinyint(4) NOT NULL DEFAULT '3',";
-    $query .= "PRIMARY KEY (`pmkCourseId`)";
+    $query .= "PRIMARY KEY (pmkCourseId)";
     $query .= ") ENGINE=InnoDB DEFAULT CHARSET=utf8";
-    $results = $thisDatabaseAdmin->insert($query);
-    $outputBuffer[] = "<p>tblCourses Created.</p>";
+    
+    $results = $thisDatabaseAdmin->testquery($query, "", 0, 6, 2, 0, false, false);
+    $results = $thisDatabaseAdmin->insert($query, "", 0, 6, 2, 0, false, false);
+    
+    if($results) $outputBuffer[] = "<p>tblCourses Created.</p>";
     
 // -- Table structure for table `tblSections`
     $query = "DROP TABLE IF EXISTS tblSections";
     $results = $thisDatabaseAdmin->delete($query);
+    if($results) $outputBuffer[] = "<p>tblSections dropped.</p>";
+    
     $query = "CREATE TABLE IF NOT EXISTS tblSections ( ";
     $query .= "fnkCourseId int(11) NOT NULL, ";
     $query .= "fldCRN int(11) NOT NULL, ";
@@ -118,10 +130,10 @@ if ($file) {
      $query .= "fldRoom varchar(5) NOT NULL, ";
     $query .= "PRIMARY KEY (`fnkCourseId`,`fldCRN`,`fnkTeacherNetId`)";
     $query .= ") ENGINE=InnoDB DEFAULT CHARSET=utf8";
+$results = $thisDatabaseAdmin->testquery($query, "", 0, 11, 0, 0, false, false);
+    $results = $thisDatabaseAdmin->insert($query, "", 0, 11, 0, 0, false, false);
 
-    $results = $thisDatabaseAdmin->insert($query);
-
-    $outputBuffer[] = "<p>tblSections Created.</p>";
+    if($results) $outputBuffer[] = "<p>tblSections Created.</p>";
 } else {
     if ($debug)
         print "<p>File Opened Failed.</p>\n";
@@ -152,6 +164,7 @@ foreach ($records as $oneClass) {
     if (!($subj == $oneClass[0] and
             $num == $oneClass[1] and
             $title == $oneClass[2])) {
+        $results = $thisDatabaseWriter->testquery($query, $data);
         $results = $thisDatabaseWriter->insert($query, $data);
         $pmkCourseId = $thisDatabaseWriter->lastInsert();
         if ($results) {
@@ -187,8 +200,8 @@ foreach ($records as $oneClass) {
         print "</pre></p>";
     }
     $debug=false;
-    
-    $results = $thisDatabaseWriter->insert($query, $data);
+    $results = $thisDatabaseWriter->testquery($query, $data, 0, 0, 0, 0, false, false);
+    $results = $thisDatabaseWriter->insert($query, $data, 0, 0, 0, 0, false, false);
     if ($results) {
         $style = "background-color: green;";
     } else {
