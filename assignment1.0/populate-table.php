@@ -74,6 +74,7 @@ if ($file) {
 //Create tables if they dont exisit
 // -- Table structure for table `tblTeachers`
     $query = "DROP TABLE IF EXISTS tblTeachers";
+    
     $results = $thisDatabaseAdmin->delete($query);
     
     if($results) $outputBuffer[] =  "<p>Table Teachers dropped. </p>";
@@ -87,12 +88,12 @@ if ($file) {
     $query .= "PRIMARY KEY (pmkNetId)";
     $query .= ") ENGINE=InnoDB DEFAULT CHARSET=utf8";
 
-    $results = $thisDatabaseAdmin->testquery($query, "", 0, 6, 0, 0, false, false);
     $results = $thisDatabaseAdmin->insert($query, "", 0, 6, 0, 0, false, false);
     if($results) $outputBuffer[] = "<p>tblTeachers Created.</p>";
     
 // -- Table structure for table `tblCourses`
     $query = "DROP TABLE IF EXISTS tblCourses";
+    
     $results = $thisDatabaseAdmin->delete($query);
     if($results) $outputBuffer[] = "<p>Table Courses dropped. </p>";
     
@@ -105,7 +106,6 @@ if ($file) {
     $query .= "PRIMARY KEY (pmkCourseId)";
     $query .= ") ENGINE=InnoDB DEFAULT CHARSET=utf8";
     
-    $results = $thisDatabaseAdmin->testquery($query, "", 0, 6, 2, 0, false, false);
     $results = $thisDatabaseAdmin->insert($query, "", 0, 6, 2, 0, false, false);
     
     if($results) $outputBuffer[] = "<p>tblCourses Created.</p>";
@@ -130,7 +130,7 @@ if ($file) {
      $query .= "fldRoom varchar(5) NOT NULL, ";
     $query .= "PRIMARY KEY (`fnkCourseId`,`fldCRN`,`fnkTeacherNetId`)";
     $query .= ") ENGINE=InnoDB DEFAULT CHARSET=utf8";
-$results = $thisDatabaseAdmin->testquery($query, "", 0, 11, 0, 0, false, false);
+
     $results = $thisDatabaseAdmin->insert($query, "", 0, 11, 0, 0, false, false);
 
     if($results) $outputBuffer[] = "<p>tblSections Created.</p>";
@@ -164,7 +164,7 @@ foreach ($records as $oneClass) {
     if (!($subj == $oneClass[0] and
             $num == $oneClass[1] and
             $title == $oneClass[2])) {
-        $results = $thisDatabaseWriter->testquery($query, $data);
+      
         $results = $thisDatabaseWriter->insert($query, $data);
         $pmkCourseId = $thisDatabaseWriter->lastInsert();
         if ($results) {
@@ -200,7 +200,7 @@ foreach ($records as $oneClass) {
         print "</pre></p>";
     }
     $debug=false;
-    $results = $thisDatabaseWriter->testquery($query, $data, 0, 0, 0, 0, false, false);
+    
     $results = $thisDatabaseWriter->insert($query, $data, 0, 0, 0, 0, false, false);
     if ($results) {
         $style = "background-color: green;";

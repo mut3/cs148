@@ -27,7 +27,8 @@ print '<section id="tables2" class="float_left">';
 print '<table>';
 
 $query = 'SHOW TABLES';
-$results = $thisDatabaseReader->select($query, "", 0, 0);
+
+$results = $thisDatabaseReader->select($query, "", 0, 0, 0, 0, false, false);
 
 // loop through all the tables in the database, display fields and properties
 foreach ($results as $row) {
@@ -42,7 +43,7 @@ foreach ($results as $row) {
 
     //get the fields and any information about them
     $query = 'SHOW COLUMNS FROM ' . $row[0];
-    $results2 = $thisDatabaseReader->select($query, "", 0, 0);
+    $results2 = $thisDatabaseReader->select($query, "", 0, 0, 0, 0, false, false);
 
     foreach ($results2 as $row2) {
         print '<tr>';
@@ -63,7 +64,7 @@ if ($tableName != "") {
     print '<aside id="records">';
 
     $query = 'SHOW COLUMNS FROM ' . $tableName;
-    $info = $thisDatabaseReader->select($query, "", 0, 0);
+    $info = $thisDatabaseReader->select($query,  "", 0, 0, 0, 0, false, false);
 
     $span = count($info);
 
@@ -71,7 +72,7 @@ if ($tableName != "") {
     print '<table>';
 
     $query = 'SELECT * FROM ' . $tableName;
-    $a = $thisDatabaseReader->select($query, "", 0, 0);
+    $a = $thisDatabaseReader->select($query,  "", 0, 0, 0, 0, false, false);
 
     print '<tr>';
     print '<th colspan=' . $span . '>' . $query;
@@ -103,7 +104,7 @@ if ($tableName != "") {
 
     //now print out each record
     $query = 'SELECT * FROM ' . $tableName;
-    $info2 = $thisDatabaseReader->select($query, "", 0, 0);
+    $info2 = $thisDatabaseReader->select($query, "", 0, 0, 0, 0, false, false);
 
     $highlight = 0; // used to highlight alternate rows
     foreach ($info2 as $rec) {
