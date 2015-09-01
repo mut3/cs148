@@ -74,7 +74,7 @@ if ($file) {
 //Create tables if they dont exisit
 // -- Table structure for table `tblTeachers`
     $query = "DROP TABLE IF EXISTS tblTeachers";
-    $results = $thisDatabaseWriter->delete($query);
+    $results = $thisDatabaseAdmin->delete($query);
     $query = "CREATE TABLE IF NOT EXISTS tblTeachers ( ";
     $query .= "fldLastName varchar(100) NOT NULL, ";
     $query .= "fldFirstName varchar(100) NOT NULL, ";
@@ -83,12 +83,12 @@ if ($file) {
     $query .= "fldPhone varchar(7) NOT NULL, ";
     $query .= "PRIMARY KEY (pmkNetId)";
     $query .= ") ENGINE=InnoDB DEFAULT CHARSET=utf8";
-    $results = $thisDatabaseWriter->insert($query);
+    $results = $thisDatabaseAdmin->insert($query);
     $outputBuffer[] = "<p>tblTeachers Created.</p>";
     
 // -- Table structure for table `tblCourses`
     $query = "DROP TABLE IF EXISTS tblCourses";
-    $results = $thisDatabaseWriter->delete($query);
+    $results = $thisDatabaseAdmin->delete($query);
     $query = "CREATE TABLE IF NOT EXISTS tblCourses ( ";
     $query .= "pmkCourseId int(11) NOT NULL AUTO_INCREMENT, ";
     $query .= "fldCourseNumber int(11) NOT NULL, ";
@@ -97,12 +97,12 @@ if ($file) {
     $query .= "fldCredits tinyint(4) NOT NULL DEFAULT '3',";
     $query .= "PRIMARY KEY (`pmkCourseId`)";
     $query .= ") ENGINE=InnoDB DEFAULT CHARSET=utf8";
-    $results = $thisDatabaseWriter->insert($query);
+    $results = $thisDatabaseAdmin->insert($query);
     $outputBuffer[] = "<p>tblCourses Created.</p>";
     
 // -- Table structure for table `tblSections`
     $query = "DROP TABLE IF EXISTS tblSections";
-    $results = $thisDatabaseWriter->delete($query);
+    $results = $thisDatabaseAdmin->delete($query);
     $query = "CREATE TABLE IF NOT EXISTS tblSections ( ";
     $query .= "fnkCourseId int(11) NOT NULL, ";
     $query .= "fldCRN int(11) NOT NULL, ";
@@ -119,7 +119,7 @@ if ($file) {
     $query .= "PRIMARY KEY (`fnkCourseId`,`fldCRN`,`fnkTeacherNetId`)";
     $query .= ") ENGINE=InnoDB DEFAULT CHARSET=utf8";
 
-    $results = $thisDatabaseWriter->insert($query);
+    $results = $thisDatabaseAdmin->insert($query);
 
     $outputBuffer[] = "<p>tblSections Created.</p>";
 } else {

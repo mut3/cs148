@@ -117,6 +117,10 @@ require_once('lib/custom-functions.php');
         $dbUserName = get_current_user() . '_writer';
         $whichPass = "w";
         $thisDatabaseWriter = new Database($dbUserName, $whichPass, $dbName);
+        
+        $dbUserName = get_current_user() . '_admin';
+        $whichPass = "a";
+        $thisDatabaseAdmin = new Database($dbUserName, $whichPass, $dbName);
         ?>	
 
     </head>
