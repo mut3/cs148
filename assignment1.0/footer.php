@@ -1,6 +1,6 @@
 <!-- @@@@@@@@@@@@@@@@@@@@@@     Footer            @@@@@@@@@@@@@@@@@@@@@@@@@@ -->
 <footer>
-    <p>Web site designed by Robert M. Erickson.</p>
+    <p>Web site not designed by Robert M. Erickson.</p>
 </footer>
 <!-- @@@@@@@@@@@@@@@@@@@@ Ends Footer             @@@@@@@@@@@@@@@@@@@@@@@@@@ -->
 

@@ -5,10 +5,10 @@ require_once('lib/custom-functions.php');
 <!DOCTYPE html>
 <html lang="en">
     <head>
-        <title>Google Link text so put something relevant here</title>
+        <title>Think of her name as Kira</title>
         <meta charset="utf-8">
-        <meta name="author" content="Mark me wrong">
-        <meta name="description" content="Mark me wrong for not changing this">
+        <meta name="author" content="Mark me right">
+        <meta name="description" content="Mark me right for changing this">
 
         <meta name="viewport" content="width=device-width, initial-scale=1">
 
