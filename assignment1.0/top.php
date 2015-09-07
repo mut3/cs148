@@ -7,8 +7,8 @@ require_once('lib/custom-functions.php');
     <head>
         <title>Think of her name as Kira</title>
         <meta charset="utf-8">
-        <meta name="author" content="Mark me right">
-        <meta name="description" content="Mark me right for changing this">
+        <meta name="author" content="Mark Me Wright">
+        <meta name="description" content="A website edited for an assignment by a smartass college kid who thinks of himself as pretty funny.">
 
         <meta name="viewport" content="width=device-width, initial-scale=1">
 
