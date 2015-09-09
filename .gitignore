@@ -1,3 +1,4 @@
 .htaccess
 bin/pass.php
 .users.ini
+ADMIN/

@@ -18,9 +18,9 @@
 <h2>
 	<ul>        
         <li><a href="assignment1.0/index.php">Assignment1.0</a></li>
-        	<ul>
+        	<!-- <ul>
             	<li><a href="assignment1.0/Assign1Specs.pdf">Spec Sheet</a></li>
-			</ul>
+			</ul> -->
     </ul>
 </h2>  
 </html>
