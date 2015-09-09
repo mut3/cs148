@@ -22,6 +22,7 @@ function securityCheck($path_parts, $yourURL, $form = false) {
     $whiteListPages[] = "index.php";
     $whiteListPages[] = "populate-table.php";
     $whiteListPages[] = "populate-enrolled.php";
+    $whiteListPages[] = "tryme.php";
 
     //add all the folders to this array
     $whiteListFolders = array();
