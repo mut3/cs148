@@ -1,5 +1,6 @@
 <?php
 include "top.php";
+print '<table>';
 $tableName = "tblEnrolls";
 $columns = 2;
 $query = 'SELECT * FROM ' . $tableName;
@@ -20,4 +21,5 @@ $query = 'SELECT * FROM ' . $tableName;
         }
         print '</tr>';
     }
+print '</table>';
 ?>
