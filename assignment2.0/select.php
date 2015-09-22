@@ -4,7 +4,7 @@ print '<table>';
 $tableName = "tblEnrolls";
 $columns = 2;
 $query = 'SELECT * FROM ' . $tableName;
-    $info2 = $thisDatabaseReader->testQuery($query, "", 0, 0, 0, 0, false, false);
+    $thisDatabaseReader->testQuery($query, "", 0, 0, 0, 0, false, false);
     $info2 = $thisDatabaseReader->select($query, "", 0, 0, 0, 0, false, false);
 
     $highlight = 0; // used to highlight alternate rows

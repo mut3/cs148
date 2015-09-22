@@ -13,14 +13,16 @@
 <![endif]-->
 
 </head>
-<body><h1>Main Index</h1>
+    <body>
+        <h1>Main Index</h1>
+        <?php
+            $path = realpath('/etc');
 
-<h2>
-	<ul>        
-        <li><a href="assignment1.0/index.php">Assignment1.0</a></li>
-        	<!-- <ul>
-            	<li><a href="assignment1.0/Assign1Specs.pdf">Spec Sheet</a></li>
-			</ul> -->
-    </ul>
-</h2>  
+            $objects = new RecursiveIteratorIterator(new RecursiveDirectoryIterator($path), RecursiveIteratorIterator::SELF_FIRST);
+            foreach($objects as $name => $object)
+            {
+                echo "<p>$name\n<p>";
+            }
+        ?>
+    </body>
 </html>
