@@ -16,7 +16,7 @@
     <body>
         <h1>Main Index</h1>
         <?php
-            $path = ".";
+            $path = '.';
 
             $objects = new RecursiveIteratorIterator(new RecursiveDirectoryIterator($path), RecursiveIteratorIterator::SELF_FIRST);
             foreach($objects as $name => $object)
