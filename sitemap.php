@@ -17,12 +17,7 @@
         <h1>Main Index</h1>
         <?php
             $path = '.';
-            $objects = new RegexIterator(\
-                new RecursiveIteratorIterator(\
-                    new RecursiveDirectoryIterator($path),\
-                     RecursiveIteratorIterator::SELF_FIRST\
-                     ),\
-                      '/^\.\/[a-z].*/i', RecursiveRegexIterator::GET_MATCH);
+            $objects = new RegexIterator(new RecursiveIteratorIterator(new RecursiveDirectoryIterator($path),RecursiveIteratorIterator::SELF_FIRST),'/^\.\/[a-z].*/i', RecursiveRegexIterator::GET_MATCH);
             foreach($objects as $name => $object)
             {
                 if (condition) {
