@@ -21,7 +21,7 @@
             $objects = new RecursiveIteratorIterator(new RecursiveDirectoryIterator($path), RecursiveIteratorIterator::SELF_FIRST);
             foreach($objects as $name => $object)
             {
-                echo "<p>$name\n<p>";
+                echo "<a href = $name > $name\n </a>";
             }
         ?>
     </body>
