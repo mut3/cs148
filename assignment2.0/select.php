@@ -7,68 +7,104 @@
     case 01:
         $columns = 2;
         $query = 'SELECT * FROM tblSections';
-        $args = ["", 1, 0, 0, 0, false, false];
+        $wheres = 0;
+        $conditions = 0;
+        $quotes = 0;
+        $symbols = 0;
         break;
     case 02:
         $columns = 2;
         $query = 'SELECT * FROM ' . $tableName;
-        $args = '"", 0, 0, 0, 0, false, false';
+        $wheres = 0;
+        $conditions = 0;
+        $quotes = 0;
+        $symbols = 0;
         break;
     case 03:
         $columns = 2;
         $query = 'SELECT * FROM ' . $tableName;
-        $args = '"", 0, 0, 0, 0, false, false';
+        $wheres = 0;
+        $conditions = 0;
+        $quotes = 0;
+        $symbols = 0;
         break;
     case 04:
         $columns = 2;
         $query = 'SELECT * FROM ' . $tableName;
-        $args = '"", 0, 0, 0, 0, false, false';
+        $wheres = 0;
+        $conditions = 0;
+        $quotes = 0;
+        $symbols = 0;
         break;
     case 05:
         $columns = 2;
         $query = 'SELECT * FROM ' . $tableName;
-        $args = '"", 0, 0, 0, 0, false, false';
+        $wheres = 0;
+        $conditions = 0;
+        $quotes = 0;
+        $symbols = 0;
         break;
     case 06:
         $columns = 2;
         $query = 'SELECT * FROM ' . $tableName;
-        $args = '"", 0, 0, 0, 0, false, false';
+        $wheres = 0;
+        $conditions = 0;
+        $quotes = 0;
+        $symbols = 0;
         break;
     case 07:
         $columns = 2;
         $query = 'SELECT * FROM ' . $tableName;
-        $args = '"", 0, 0, 0, 0, false, false';
+        $wheres = 0;
+        $conditions = 0;
+        $quotes = 0;
+        $symbols = 0;
         break;
     case 08:
         $columns = 2;
         $query = 'SELECT * FROM ' . $tableName;
-        $args = '"", 0, 0, 0, 0, false, false';
+        $wheres = 0;
+        $conditions = 0;
+        $quotes = 0;
+        $symbols = 0;
         break;
     case 09:
         $columns = 2;
         $query = 'SELECT * FROM ' . $tableName;
-        $args = '"", 0, 0, 0, 0, false, false';
+        $wheres = 0;
+        $conditions = 0;
+        $quotes = 0;
+        $symbols = 0;
         break;
     case 10:
         $columns = 2;
         $query = 'SELECT * FROM ' . $tableName;
-        $args = '"", 0, 0, 0, 0, false, false';
+        $wheres = 0;
+        $conditions = 0;
+        $quotes = 0;
+        $symbols = 0;
         break;
     case 11:
         $columns = 2;
         $query = 'SELECT * FROM ' . $tableName;
-        $args = '"", 0, 0, 0, 0, false, false';
+        $wheres = 0;
+        $conditions = 0;
+        $quotes = 0;
+        $symbols = 0;
         break;
     case 12:
         $columns = 2;
         $query = 'SELECT * FROM ' . $tableName;
-        $args = '"", 0, 0, 0, 0, false, false';
+        $wheres = 0;
+        $conditions = 0;
+        $quotes = 0;
+        $symbols = 0;
         break;
     }
     
     
-    $thisDatabaseReader->testQuery($query, $args);
-    $info2 = $thisDatabaseReader->select($query, $args);
+    $thisDatabaseReader->testQuery($query, "", $wheres, $conditions, $quotes, $symbols);
+    $info2 = $thisDatabaseReader->select($query, "", $wheres, $conditions, $quotes, $symbols);
     print '<table>';
     $highlight = 0; // used to highlight alternate rows
     foreach ($info2 as $rec) {
