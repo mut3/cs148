@@ -13,14 +13,14 @@
         <![endif]-->
 
         <link rel="stylesheet" href="css/base.css" type="text/css" media="screen">
-        // <?php
+        <?php
         //     if (!empty($_GET)) {
         //     	$_GET = filter_input_array(INPUT_GET, FILTER_SANITIZE_STRING);
         //     	foreach ($_GET as $key => $value) {
         //         $_GET[$key] = sanitize($value, false);
         //     }
         // }
-        // ?>
+        ?>
     </head>
     <body>
     	<!-- Assignment Here -->
