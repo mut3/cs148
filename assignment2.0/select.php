@@ -69,7 +69,7 @@
     
     <p>
         q09. 
-        <a href="?q=09">
+        <a href="?q=9">
             SQL:
         </a>
         SELECT fldBuilding,SUM(fldNumStudents) FROM tblSections WHERE fldDays LIKE '%W%' GROUP BY fldBuilding ORDER BY SUM(fldNumStudents) desc
@@ -160,15 +160,14 @@
             $symbols = 0;
             break;
         case 8:
-            echo "wut?";
             $columns = 2;
             $query = "SELECT fldBuilding, COUNT(fldSection) FROM tblSections GROUP BY fldBuilding";
             $wheres = 0;
-            $conditions = 1;
+            $conditions = 0;
             $quotes = 0;
             $symbols = 0;
             break;
-        case 09:
+        case 9:
             $columns = 2;
             $query = "SELECT fldBuilding,SUM(fldNumStudents) FROM tblSections WHERE fldDays LIKE '%W%' GROUP BY fldBuilding ORDER BY SUM(fldNumStudents) desc";
             $wheres = 1;
