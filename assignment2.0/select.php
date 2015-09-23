@@ -61,7 +61,7 @@
     
     <p>
         q08. 
-        <a href="?q=08">
+        <a href="?q=8">
             SQL:
         </a>
         SELECT fldBuilding, COUNT(fldSection) FROM tblSections GROUP BY fldBuilding
@@ -159,7 +159,7 @@
             $quotes = 0;
             $symbols = 0;
             break;
-        case 08:
+        case 8:
             echo "wut?";
             $columns = 2;
             $query = "SELECT fldBuilding, COUNT(fldSection) FROM tblSections GROUP BY fldBuilding";
