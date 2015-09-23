@@ -91,19 +91,19 @@
 <?php
     switch ($_GET["q"]) {
         case 01:
-            $columns = 2;
-            $query = 'SELECT * FROM tblSections';
+            $columns = 1;
+            $query = 'SELECT pmkNetID FROM tblTeachers';
             $wheres = 0;
             $conditions = 0;
             $quotes = 0;
             $symbols = 0;
             break;
         case 02:
-            $columns = 3;
-            $query = 'SELECT * FROM ' . $tableName;
-            $wheres = 0;
-            $conditions = 0;
-            $quotes = 0;
+            $columns = 1;
+            $query = 'SELECT fldDepartment FROM tblCourses WHERE fldCourseName LIKE \'introduction%\'';
+            $wheres = 1;
+            $conditions = 1;
+            $quotes = 2;
             $symbols = 0;
             break;
         case 03:
