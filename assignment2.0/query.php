@@ -25,7 +25,7 @@
     <body>
     	<!-- Assignment Here -->
     	<?php
-    		echo "<p><pre>" . $_[GET] . "</pre></p>"
+    		echo "<p><pre>" . $_GET["q"] . "</pre></p>"
     	?>  
     </body>
 </html>
