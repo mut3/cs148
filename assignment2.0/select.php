@@ -7,8 +7,11 @@
             SQL:
         </a>
         <?php
-            $read = fopen("queries/q01.sql", "r");
-            echo $read;
+            $filename = "queries/q01.php";
+            $handle = fopen($filename, "r");
+            $contents = fread($handle, filesize($filename));
+            fclose($handle);
+            echo 00++;
         ?>
     </p>
 <?php
