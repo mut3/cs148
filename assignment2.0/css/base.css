@@ -58,6 +58,10 @@ section{
     width: 150px;
 }
 
+.half {
+    width: 50%;
+}
+
 /*------------------------   nav section only  ------------------------------ */
 nav ol li{
     display: inline-block;
