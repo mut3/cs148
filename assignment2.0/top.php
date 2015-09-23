@@ -5,7 +5,7 @@ require_once('lib/custom-functions.php');
 <!DOCTYPE html>
 <html lang="en">
     <head>
-        <title>Think of her name as Kira</title>
+        <title>A SQL to my first site</title>
         <meta charset="utf-8">
         <meta name="author" content="Mark Me Wright">
         <meta name="description" content="A website edited for an assignment by a smartass college kid who thinks of himself as pretty funny.">
