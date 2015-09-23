@@ -11,7 +11,7 @@
             $handle = fopen($filename, "r");
             $contents = fread($handle, filesize($filename));
             fclose($handle);
-            echo 00++;
+            echo $contents;
         ?>
     </p>
 <?php
