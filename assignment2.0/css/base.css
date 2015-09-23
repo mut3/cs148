@@ -59,8 +59,9 @@ section{
 }
 
 .half {
-    width: 45%;
+    width: 50%;
     display: inline-block;
+    float: left;
 }
 
 /*------------------------   nav section only  ------------------------------ */
@@ -91,6 +92,7 @@ nav ol li{
 #table td {
     border: thin #000080 solid;
     border-collapse: collapse;
+    padding: 4px;
 }
 
 #table th{
