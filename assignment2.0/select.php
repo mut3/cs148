@@ -6,9 +6,9 @@
         <a href="?q=01">
             SQL:
         </a>
-        <?php 
-            echo fopen("queries/q01.sql", "r");
-            echo 00++;
+        <?php
+            $read = fopen("queries/q01.sql", "r");
+            echo $read;
         ?>
     </p>
 <?php
