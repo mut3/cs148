@@ -25,7 +25,7 @@
     <body>
     	<!-- Assignment Here -->
     	<?php
-    		echo $_GET["q"]
+    		echo $_GET["q"];
     	?>  
     </body>
 </html>
