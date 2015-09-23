@@ -1,2 +1,1 @@
-SELECT *
-FROM tlbSections
+SELECT fldDepartment FROM tblCourses WHERE fldCourseName LIKE 'introduction%'

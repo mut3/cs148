@@ -1,2 +1,1 @@
-SELECT *
-FROM tlbSections
+SELECT pmkNetID FROM tblTeachers
