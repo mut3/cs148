@@ -101,6 +101,7 @@
 </div>
 <div class="half">
 <?php
+    echo $_GET["q"];
     switch ($_GET["q"]) {
         case 01:
             $columns = 1;
