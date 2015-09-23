@@ -59,7 +59,8 @@ section{
 }
 
 .half {
-    width: 50%;
+    width: 45%;
+    display: inline-block;
 }
 
 /*------------------------   nav section only  ------------------------------ */

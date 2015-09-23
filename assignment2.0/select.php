@@ -1,7 +1,7 @@
 <?php
     include "top.php";
 ?>
-<span class="half">
+<div class="half">
     <p>
         q01. 
         <a href="?q=01">
@@ -86,8 +86,8 @@
         </a>
         
     </p>
-</span>
-<span class="half">
+</div>
+<div class="half">
 <?php
     switch ($_GET["q"]) {
         case 01:
@@ -207,6 +207,6 @@
         print '</tr>';
     }
     print '</table>';
-print '</span>';
+print '</div>';
 include "footer.php";
 ?>
