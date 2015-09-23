@@ -160,6 +160,7 @@
             $symbols = 0;
             break;
         case 08:
+            echo "wut?";
             $columns = 2;
             $query = "SELECT fldBuilding, COUNT(fldSection) FROM tblSections GROUP BY fldBuilding";
             $wheres = 0;
