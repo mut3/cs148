@@ -1,19 +1,93 @@
 <?php
     include "top.php";
 ?>
+<span>
     <p>
         q01. 
         <a href="?q=01">
             SQL:
         </a>
-        <?php
-            $filename = "queries/q01.php";
-            $handle = fopen($filename, "r");
-            $contents = fread($handle, filesize($filename));
-            fclose($handle);
-            echo $contents;
-        ?>
+        
     </p>
+    <p>
+        q02. 
+        <a href="?q=02">
+            SQL:
+        </a>
+        
+    </p>
+    <p>
+        q03. 
+        <a href="?q=03">
+            SQL:
+        </a>
+        
+    </p>
+    <p>
+        q04. 
+        <a href="?q=04">
+            SQL:
+        </a>
+        
+    </p>
+    <p>
+        q05. 
+        <a href="?q=05">
+            SQL:
+        </a>
+        
+    </p>
+    <p>
+        q06. 
+        <a href="?q=06">
+            SQL:
+        </a>
+        
+    </p>
+    <p>
+        q07. 
+        <a href="?q=07">
+            SQL:
+        </a>
+        
+    </p>
+    <p>
+        q08. 
+        <a href="?q=08">
+            SQL:
+        </a>
+        
+    </p>
+    <p>
+        q09. 
+        <a href="?q=09">
+            SQL:
+        </a>
+        
+    </p>
+    <p>
+        q10. 
+        <a href="?q=10">
+            SQL:
+        </a>
+        
+    </p>
+    <p>
+        q11. 
+        <a href="?q=11">
+            SQL:
+        </a>
+        
+    </p>
+    <p>
+        q12. 
+        <a href="?q=12">
+            SQL:
+        </a>
+        
+    </p>
+</span>
+<span>
 <?php
     switch ($_GET["q"]) {
         case 01:
@@ -133,4 +207,6 @@
         print '</tr>';
     }
     print '</table>';
+print '</span>';
+include 'footer.php';
 ?>
