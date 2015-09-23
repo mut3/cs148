@@ -1,105 +1,114 @@
 <?php
     include "top.php";
-
-    //List files here
-
+?>
+    <p>
+        q01. 
+        <a href="?q=01">
+            SQL:
+        </a>
+        <?php 
+            echo fopen("queries/q01.sql", "r");
+            echo 00++;
+        ?>
+    </p>
+<?php
     switch ($_GET["q"]) {
-    case 01:
-        $columns = 2;
-        $query = 'SELECT * FROM tblSections';
-        $wheres = 0;
-        $conditions = 0;
-        $quotes = 0;
-        $symbols = 0;
-        break;
-    case 02:
-        $columns = 2;
-        $query = 'SELECT * FROM ' . $tableName;
-        $wheres = 0;
-        $conditions = 0;
-        $quotes = 0;
-        $symbols = 0;
-        break;
-    case 03:
-        $columns = 2;
-        $query = 'SELECT * FROM ' . $tableName;
-        $wheres = 0;
-        $conditions = 0;
-        $quotes = 0;
-        $symbols = 0;
-        break;
-    case 04:
-        $columns = 2;
-        $query = 'SELECT * FROM ' . $tableName;
-        $wheres = 0;
-        $conditions = 0;
-        $quotes = 0;
-        $symbols = 0;
-        break;
-    case 05:
-        $columns = 2;
-        $query = 'SELECT * FROM ' . $tableName;
-        $wheres = 0;
-        $conditions = 0;
-        $quotes = 0;
-        $symbols = 0;
-        break;
-    case 06:
-        $columns = 2;
-        $query = 'SELECT * FROM ' . $tableName;
-        $wheres = 0;
-        $conditions = 0;
-        $quotes = 0;
-        $symbols = 0;
-        break;
-    case 07:
-        $columns = 2;
-        $query = 'SELECT * FROM ' . $tableName;
-        $wheres = 0;
-        $conditions = 0;
-        $quotes = 0;
-        $symbols = 0;
-        break;
-    case 08:
-        $columns = 2;
-        $query = 'SELECT * FROM ' . $tableName;
-        $wheres = 0;
-        $conditions = 0;
-        $quotes = 0;
-        $symbols = 0;
-        break;
-    case 09:
-        $columns = 2;
-        $query = 'SELECT * FROM ' . $tableName;
-        $wheres = 0;
-        $conditions = 0;
-        $quotes = 0;
-        $symbols = 0;
-        break;
-    case 10:
-        $columns = 2;
-        $query = 'SELECT * FROM ' . $tableName;
-        $wheres = 0;
-        $conditions = 0;
-        $quotes = 0;
-        $symbols = 0;
-        break;
-    case 11:
-        $columns = 2;
-        $query = 'SELECT * FROM ' . $tableName;
-        $wheres = 0;
-        $conditions = 0;
-        $quotes = 0;
-        $symbols = 0;
-        break;
-    case 12:
-        $columns = 2;
-        $query = 'SELECT * FROM ' . $tableName;
-        $wheres = 0;
-        $conditions = 0;
-        $quotes = 0;
-        $symbols = 0;
-        break;
+        case 01:
+            $columns = 2;
+            $query = 'SELECT * FROM tblSections';
+            $wheres = 0;
+            $conditions = 0;
+            $quotes = 0;
+            $symbols = 0;
+            break;
+        case 02:
+            $columns = 3;
+            $query = 'SELECT * FROM ' . $tableName;
+            $wheres = 0;
+            $conditions = 0;
+            $quotes = 0;
+            $symbols = 0;
+            break;
+        case 03:
+            $columns = 2;
+            $query = 'SELECT * FROM ' . $tableName;
+            $wheres = 0;
+            $conditions = 0;
+            $quotes = 0;
+            $symbols = 0;
+            break;
+        case 04:
+            $columns = 2;
+            $query = 'SELECT * FROM ' . $tableName;
+            $wheres = 0;
+            $conditions = 0;
+            $quotes = 0;
+            $symbols = 0;
+            break;
+        case 05:
+            $columns = 2;
+            $query = 'SELECT * FROM ' . $tableName;
+            $wheres = 0;
+            $conditions = 0;
+            $quotes = 0;
+            $symbols = 0;
+            break;
+        case 06:
+            $columns = 2;
+            $query = 'SELECT * FROM ' . $tableName;
+            $wheres = 0;
+            $conditions = 0;
+            $quotes = 0;
+            $symbols = 0;
+            break;
+        case 07:
+            $columns = 2;
+            $query = 'SELECT * FROM ' . $tableName;
+            $wheres = 0;
+            $conditions = 0;
+            $quotes = 0;
+            $symbols = 0;
+            break;
+        case 08:
+            $columns = 2;
+            $query = 'SELECT * FROM ' . $tableName;
+            $wheres = 0;
+            $conditions = 0;
+            $quotes = 0;
+            $symbols = 0;
+            break;
+        case 09:
+            $columns = 2;
+            $query = 'SELECT * FROM ' . $tableName;
+            $wheres = 0;
+            $conditions = 0;
+            $quotes = 0;
+            $symbols = 0;
+            break;
+        case 10:
+            $columns = 2;
+            $query = 'SELECT * FROM ' . $tableName;
+            $wheres = 0;
+            $conditions = 0;
+            $quotes = 0;
+            $symbols = 0;
+            break;
+        case 11:
+            $columns = 2;
+            $query = 'SELECT * FROM ' . $tableName;
+            $wheres = 0;
+            $conditions = 0;
+            $quotes = 0;
+            $symbols = 0;
+            break;
+        case 12:
+            $columns = 2;
+            $query = 'SELECT * FROM ' . $tableName;
+            $wheres = 0;
+            $conditions = 0;
+            $quotes = 0;
+            $symbols = 0;
+            break;
     }
     
     
