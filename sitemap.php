@@ -21,7 +21,7 @@
             foreach($objects as $name => $object)
             {
                 if (condition) {
-                    echo "<a href = $name > $name </a>\n";
+                    echo "<a href = $name > $name </a><p>\n</p>";
                 }
                 
             }
