@@ -7,7 +7,7 @@
     case 01:
         $columns = 2;
         $query = 'SELECT * FROM tblSections';
-        $args = '"", 1, 0, 0, 0, false, false';
+        $args = ["", 1, 0, 0, 0, false, false];
         break;
     case 02:
         $columns = 2;
