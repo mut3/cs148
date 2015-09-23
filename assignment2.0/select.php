@@ -202,8 +202,9 @@
     }
     
     
-    $thisDatabaseReader->testQuery($query, "", $wheres, $conditions, $quotes, $symbols);
+    //$thisDatabaseReader->testQuery($query, "", $wheres, $conditions, $quotes, $symbols);
     $info2 = $thisDatabaseReader->select($query, "", $wheres, $conditions, $quotes, $symbols);
+    echo "<h2> Records: " . count($info2) . "</h2>";
     print '<table>';
     $highlight = 0; // used to highlight alternate rows
     foreach ($info2 as $rec) {
