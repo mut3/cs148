@@ -1,2 +1,1 @@
-SELECT *
-FROM tlbSections
+SELECT * FROM tblSections WHERE fldCRN=91954

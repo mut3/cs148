@@ -1,2 +1,1 @@
-SELECT *
-FROM tlbSections
+SELECT fldCourseName FROM tblCourses WHERE fldCourseName LIKE '%data%' AND NOT fldDepartment='CS'

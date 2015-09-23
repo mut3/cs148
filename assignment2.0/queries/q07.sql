@@ -1,2 +1,1 @@
-SELECT *
-FROM tlbSections
+SELECT COUNT( DISTINCT fldDepartment) FROM tblCourses
