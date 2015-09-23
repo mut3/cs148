@@ -122,7 +122,7 @@
             $columns = 12;
             $query = "SELECT * FROM tblSections WHERE fldStart='13:10:00' AND fldBuilding='KALKIN'";
             $wheres = 1;
-            $conditions = 0;
+            $conditions = 1;
             $quotes = 4;
             $symbols = 0;
             break;
@@ -146,7 +146,7 @@
             $columns = 1;
             $query = "SELECT fldCourseName FROM tblCourses WHERE fldCourseName LIKE '%data%' AND NOT fldDepartment='CS'";
             $wheres = 1;
-            $conditions = 0;
+            $conditions = 2;
             $quotes = 4;
             $symbols = 0;
             break;
@@ -156,7 +156,7 @@
             $wheres = 0;
             $conditions = 0;
             $quotes = 0;
-            $symbols = 2;
+            $symbols = 0;
             break;
         case 08:
             $columns = 2;
@@ -164,7 +164,7 @@
             $wheres = 0;
             $conditions = 1;
             $quotes = 0;
-            $symbols = 2;
+            $symbols = 0;
             break;
         case 09:
             $columns = 2;
