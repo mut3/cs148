@@ -21,6 +21,9 @@
     //$thisDatabaseReader->testQuery($query, "", $wheres, $conditions, $quotes, $symbols);
     $info2 = $thisDatabaseReader->select($query, "", $wheres, $conditions, $quotes, $symbols);
     $headerArray = array_keys($info2);
+
+    echo $headerArray;
+
     echo "<h2> Records: " . count($info2) . "</h2>";
     print '<table>';
 
