@@ -4,7 +4,7 @@
 <div class="half">
     
     <p>
-        SQL: SELECT pmkNetID FROM tblTeachers
+        SQL: SELECT * FROM tblStudents ORDER BY fldLastName, fldFirstName LIMIT 1000, 10
     </p>
     
 </div>
@@ -12,7 +12,7 @@
 <?php
     
     $columns = 1;
-    $query = "SELECT pmkNetID FROM tblTeachers";
+    $query = "SELECT * FROM tblStudents ORDER BY fldLastName, fldFirstName LIMIT 1000, 10";
     $wheres = 0;
     $conditions = 0;
     $quotes = 0;
