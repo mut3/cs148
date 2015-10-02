@@ -20,9 +20,10 @@
     
     //$thisDatabaseReader->testQuery($query, "", $wheres, $conditions, $quotes, $symbols);
     $info2 = $thisDatabaseReader->select($query, "", $wheres, $conditions, $quotes, $symbols);
-    $headerArray = array_keys($info2);
-
-    echo $headerArray;
+    $headerFields = array_keys($info2[0]);
+    echo '<pre><p>' . $headerFields . '</p></pre>';
+    $headerArray = array_filter($headerFields, "is_string");
+    echo '<pre><p>' . $headerArray . '</p></pre>';
 
     echo "<h2> Records: " . count($info2) . "</h2>";
     print '<table>';
