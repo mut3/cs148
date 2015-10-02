@@ -18,7 +18,7 @@
     $quotes = 0;
     $symbols = 0;
     
-    //$thisDatabaseReader->testQuery($query, "", $wheres, $conditions, $quotes, $symbols);
+    $thisDatabaseReader->testQuery($query, "", $wheres, $conditions, $quotes, $symbols);
     $info2 = $thisDatabaseReader->select($query, "", $wheres, $conditions, $quotes, $symbols);
     $headerFields = array_keys($info2[0]);
     print_r '<pre><p>' . $headerFields . '</p></pre>';
