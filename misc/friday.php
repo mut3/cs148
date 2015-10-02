@@ -11,10 +11,10 @@
 <div class="half">
 <?php
     
-    $columns = 1;
+    $columns = 8;
     $query = "SELECT * FROM tblStudents ORDER BY fldLastName, fldFirstName LIMIT 1000, 10";
     $wheres = 0;
-    $conditions = 0;
+    $conditions = 1;
     $quotes = 0;
     $symbols = 0;
     
