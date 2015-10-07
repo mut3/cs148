@@ -10,6 +10,8 @@
         fclose($fileHandle);
     }
 
+    print_r($queries);
+
     echo '<div class="half">';
 
     for ($i=1; $i < count($queries)+1; $i++) { 
