@@ -10,7 +10,7 @@
         fclose($fileHandle);
     }
 
-    echo '<div class="half">'
+    echo '<div class="half">';
 
     for ($i=1; $i < count($queries)+1; $i++) { 
         echo '<p> q' . $i . '. <a href="?q=' . $i .'"> SQL: </a> ' . $queries[$i] . ' </p>';
@@ -118,7 +118,7 @@
  -->
  <?php
     echo "</div>";
-    echo '<div class="half">'
+    echo '<div class="half">';
     // echo $_GET["q"];
     switch ($_GET["q"]) {
         case 01:
