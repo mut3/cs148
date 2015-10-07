@@ -5,11 +5,14 @@
     foreach (new DirectoryIterator('queries/') as $file) {
         if($file->isDot()) continue;
         $fileName = $file->getFilename();
-        echo "<p>" . $fileName;
         $fileNum = substr($fileName, 1, -4);
-        echo "<p>" . $fileNum;
-        $fileHandle = fopen( "queries/" . $fileName, "r");
-        $queries[$fileNum] = fread($fileHandle, filesize($fileName));
+        $fileLoc = "queries/" . $fileName;
+        $fileHandle = fopen( $fileLoc, "r");
+        echo "<p>" . $fileLoc;
+        echo "<p>" . $fileHandle;
+        $fileCont = fread($fileHandle, filesize($fileName));
+        echo "<p>" . $fileCont;
+        $queries[$fileNum] = $fileCont;
         fclose($fileHandle);
     }
 
@@ -125,10 +128,12 @@
     echo "</div>";
     echo '<div class="half">';
     // echo $_GET["q"];
+
+    $query = $queries[$_GET["q"]];
+
     switch ($_GET["q"]) {
         case 01:
             $columns = 1;
-            $query = $queries[$_GET["q"]];
             $wheres = 0;
             $conditions = 0;
             $quotes = 0;
@@ -136,7 +141,6 @@
             break;
         case 02:
             $columns = 1;
-            $query = $queries[$_GET["q"]];
             $wheres = 1;
             $conditions = 0;
             $quotes = 2;
@@ -144,7 +148,6 @@
             break;
         case 03:
             $columns = 12;
-            $query = $queries[$_GET["q"]];
             $wheres = 1;
             $conditions = 1;
             $quotes = 4;
@@ -152,7 +155,6 @@
             break;
         case 04:
             $columns = 12;
-            $query = $queries[$_GET["q"]];
             $wheres = 1;
             $conditions = 0;
             $quotes = 0;
@@ -160,7 +162,6 @@
             break;
         case 05:
             $columns = 2;
-            $query = $queries[$_GET["q"]];
             $wheres = 1;
             $conditions = 0;
             $quotes = 2;
@@ -168,7 +169,6 @@
             break;
         case 06:
             $columns = 1;
-            $query = $queries[$_GET["q"]];
             $wheres = 1;
             $conditions = 2;
             $quotes = 4;
@@ -176,7 +176,6 @@
             break;
         case 07:
             $columns = 1;
-            $query = $queries[$_GET["q"]];
             $wheres = 0;
             $conditions = 0;
             $quotes = 0;
@@ -184,15 +183,13 @@
             break;
         case 08:
             $columns = 2;
-            $query = $queries[$_GET["q"]];
             $wheres = 0;
             $conditions = 0;
             $quotes = 0;
             $symbols = 0;
             break;
     }
-    
-    
+
     $thisDatabaseReader->testQuery($query, "", $wheres, $conditions, $quotes, $symbols);
     $info2 = $thisDatabaseReader->select($query, "", $wheres, $conditions, $quotes, $symbols);
     $headerFields = array_keys($info2[0]);
