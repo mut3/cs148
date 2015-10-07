@@ -6,7 +6,7 @@
         if($file->isDot()) continue;
         $fileName = $file->getFilename();
         $fileNum = substr($fileName, 1, -4);
-        $fileLoc = "queries/" . $fileName;
+        $fileLoc = "./queries/" . $fileName;
         $fileHandle = fopen( $fileLoc, "r");
         echo "<p>" . $fileLoc;
         echo "<p>" . $fileHandle;
