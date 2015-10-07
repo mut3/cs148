@@ -10,7 +10,7 @@
         $fileHandle = fopen( $fileLoc, "r");
         echo "<p>" . $fileLoc;
         echo "<p>" . $fileHandle;
-        $fileCont = file_get_contents($fileName);
+        $fileCont = file_get_contents($fileLoc);
         echo "<p>" . $fileCont;
         $queries[$fileNum] = $fileCont;
         fclose($fileHandle);
