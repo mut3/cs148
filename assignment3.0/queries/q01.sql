@@ -1,1 +1,1 @@
-SELECT fldCourseName, tblEnrolls.fldGrade FROM tblCourses RIGHT JOIN tblEnrolls ON pmkCourseId=fnkCourseId WHERE tblEnrolls.fldGrade = 100 GROUP BY fldCourseName
+SELECT fldCourseName FROM tblCourses RIGHT JOIN tblEnrolls ON pmkCourseId=fnkCourseId WHERE tblEnrolls.fldGrade = 100 GROUP BY fldCourseName

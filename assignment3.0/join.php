@@ -23,7 +23,7 @@
 
     switch ($_GET["q"]) {
         case 01:
-            $columns = 2;
+            $columns = 1;
             $wheres = 1;
             $conditions = 0;
             $quotes = 0;
