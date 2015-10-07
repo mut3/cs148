@@ -5,8 +5,9 @@
     $i = 1;
     foreach (new DirectoryIterator('queries/') as $file) {
         if($file->isDot()) continue;
-        $fileHandle = fopen($file, "r");
-        $queries[$i] = fread($fileHandle, filesize($file));
+        echo "<p>" . $file->getFilename();
+        $fileHandle = fopen($file->getFilename(), "r");
+        $queries[$i] = fread($fileHandle, filesize($file->getFilename()));
         fclose($fileHandle);
     }
 
