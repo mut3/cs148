@@ -5,7 +5,7 @@ require_once('lib/custom-functions.php');
 <!DOCTYPE html>
 <html lang="en">
     <head>
-        <title>A SQL to my first site</title>
+        <title>Too busy to make up a joke title</title>
         <meta charset="utf-8">
         <meta name="author" content="Mark Me Wright">
         <meta name="description" content="A website edited for an assignment by a smartass college kid who thinks of himself as pretty funny.">
@@ -128,6 +128,4 @@ require_once('lib/custom-functions.php');
     <!-- **********************     Body section      ********************** -->
     <?php
     print '<body id="' . $path_parts['filename'] . '">';
-    include "header.php";
-    include "nav.php";
     ?>
