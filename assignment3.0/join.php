@@ -9,120 +9,12 @@
         $fileLoc = "./queries/" . $fileName;
         $queries[$fileNum] = file_get_contents("./queries/" . $fileName);
     }
-    echo '<pre>';
-    print_r($queries);
-    echo '</pre>';
     ksort($queries);
-    echo '<pre>';
-    print_r($queries);
-    echo '</pre>';
     echo '<div class="half">';
 
     foreach ($queries as $qNum => $q) {
-        echo '<p> q' . $qNum . '. <a href="?q=' . $qNum .'"> SQL: </a> ' . $q . ' </p>';
+        echo '<p class = "query"> q' . $qNum . '. <a href="?q=' . $qNum .'"> SQL: </a> ' . $q . ' </p>';
     }
-?>
-<!-- 
-<div class="half">
-    
-    <p>
-        q01. 
-        <a href="?q=01">
-            SQL:
-        </a>
-        SELECT pmkNetID FROM tblTeachers
-    </p>
-    
-    <p>
-        q02. 
-        <a href="?q=02">
-            SQL:
-        </a>
-        SELECT fldDepartment FROM tblCourses WHERE fldCourseName LIKE 'introduction%'
-    </p>
-    
-    <p>
-        q03. 
-        <a href="?q=03">
-            SQL:
-        </a>
-        SELECT * FROM tblSections WHERE fldStart='13:10:00' AND fldBuilding='KALKIN'
-    </p>
-    
-    <p>
-        q04. 
-        <a href="?q=04">
-            SQL:
-        </a>
-        SELECT * FROM tblSections WHERE fldCRN=91954
-    </p>
-    
-    <p>
-        q05. 
-        <a href="?q=05">
-            SQL:
-        </a>
-        SELECT fldFirstName,fldLastName FROM tblTeachers WHERE pmkNetID LIKE 'r%o'
-    </p>
-    
-    <p>
-        q06. 
-        <a href="?q=06">
-            SQL:
-        </a>
-        SELECT fldCourseName FROM tblCourses WHERE fldCourseName LIKE '%data%' AND NOT fldDepartment='CS'
-    </p>
-    
-    <p>
-        q07. 
-        <a href="?q=07">
-            SQL:
-        </a>
-        SELECT COUNT( DISTINCT fldDepartment) FROM tblCourses
-    </p>
-    
-    <p>
-        q08. 
-        <a href="?q=08">
-            SQL:
-        </a>
-        SELECT fldBuilding, COUNT(fldSection) FROM tblSections GROUP BY fldBuilding
-    </p>
-    
-    <p>
-        q09. 
-        <a href="?q=9">
-            SQL:
-        </a>
-        SELECT fldBuilding,SUM(fldNumStudents) FROM tblSections WHERE fldDays LIKE '%W%' GROUP BY fldBuilding ORDER BY SUM(fldNumStudents) desc
-    </p>
-    
-    <p>
-        q10. 
-        <a href="?q=10">
-            SQL:
-        </a>
-        SELECT fldBuilding,SUM(fldNumStudents) FROM tblSections WHERE fldDays LIKE '%F%' GROUP BY fldBuilding ORDER BY SUM(fldNumStudents) desc
-    </p>
-    
-    <p>
-        q11. 
-        <a href="?q=11">
-            SQL:
-        </a>
-        
-    </p>
-    
-    <p>
-        q12. 
-        <a href="?q=12">
-            SQL:
-        </a>
-        
-    </p>
-</div>
- -->
- <?php
     echo "</div>";
     echo '<div class="half">';
     // echo $_GET["q"];

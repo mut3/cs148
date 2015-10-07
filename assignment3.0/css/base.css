@@ -64,6 +64,10 @@ section{
     float: left;
 }
 
+.query {
+    padding: 1em;
+}
+
 /*------------------------   nav section only  ------------------------------ */
 nav ol li{
     display: inline-block;
