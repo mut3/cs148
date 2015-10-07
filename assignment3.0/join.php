@@ -23,46 +23,46 @@
 
     switch ($_GET["q"]) {
         case 01:
-            $columns = 1;
-            $wheres = 0;
+            $columns = 2;
+            $wheres = 2;
             $conditions = 0;
             $quotes = 0;
             $symbols = 0;
             break;
         case 02:
-            $columns = 1;
-            $wheres = 1;
-            $conditions = 0;
-            $quotes = 2;
-            $symbols = 0;
-            break;
-        case 03:
-            $columns = 12;
+            $columns = 3;
             $wheres = 1;
             $conditions = 1;
             $quotes = 4;
             $symbols = 0;
             break;
+        case 03:
+            $columns = 4;
+            $wheres = 1;
+            $conditions = 0;
+            $quotes = 2;
+            $symbols = 0;
+            break;
         case 04:
-            $columns = 12;
+            $columns = 3;
             $wheres = 1;
             $conditions = 0;
             $quotes = 0;
             $symbols = 0;
             break;
         case 05:
-            $columns = 2;
+            $columns = 4;
             $wheres = 1;
-            $conditions = 0;
+            $conditions = 2;
             $quotes = 2;
             $symbols = 0;
             break;
         case 06:
-            $columns = 1;
+            $columns = 3;
             $wheres = 1;
-            $conditions = 2;
-            $quotes = 4;
-            $symbols = 0;
+            $conditions = 0;
+            $quotes = 0;
+            $symbols = 1;
             break;
         case 07:
             $columns = 1;
