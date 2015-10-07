@@ -12,6 +12,10 @@
     echo '<pre>';
     print_r($queries);
     echo '</pre>';
+    asort($queries);
+    echo '<pre>';
+    print_r($queries);
+    echo '</pre>';
     echo '<div class="half">';
 
     foreach ($queries as $qNum => $q) {
