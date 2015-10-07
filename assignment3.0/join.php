@@ -24,7 +24,7 @@
     switch ($_GET["q"]) {
         case 01:
             $columns = 2;
-            $wheres = 2;
+            $wheres = 1;
             $conditions = 0;
             $quotes = 0;
             $symbols = 0;
