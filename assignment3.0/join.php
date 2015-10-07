@@ -9,9 +9,9 @@
         $fileLoc = "./queries/" . $fileName;
         $queries[$fileNum] = file_get_contents("./queries/" . $fileName);
     }
-    echo '<pre>'
+    echo '<pre>';
     print_r($queries);
-    echo '</pre>'
+    echo '</pre>';
     echo '<div class="half">';
 
     foreach ($queries as $qNum => $q) {
