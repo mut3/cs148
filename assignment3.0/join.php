@@ -7,17 +7,11 @@
         $fileName = $file->getFilename();
         $fileNum = substr($fileName, 1, -4);
         $fileLoc = "./queries/" . $fileName;
-        $fileHandle = fopen( $fileLoc, "r");
-        echo "<p>" . $fileLoc;
-        echo "<p>" . $fileHandle;
-        $fileCont = file_get_contents($fileLoc);
-        echo "<p>" . $fileCont;
-        $queries[$fileNum] = $fileCont;
-        fclose($fileHandle);
+        $queries[$fileNum] = file_get_contents("./queries/" . $fileName);
     }
-
+    echo '<pre>'
     print_r($queries);
-
+    echo '</pre>'
     echo '<div class="half">';
 
     for ($i=1; $i < count($queries)+1; $i++) { 
