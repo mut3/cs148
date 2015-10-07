@@ -1,1 +1,1 @@
-SELECT * FROM tblSections WHERE fldStart='13:10:00' AND fldBuilding='KALKIN'
+SELECT fldCourseName, fldStart, fldStop, fldDays FROM tblCourses LEFT JOIN tblSections ON tblCourses.pmkCourseId = tblSections.fnkCourseId WHERE fnkTeacherNetId = 'jlhorton' GROUP BY fldCourseName, fldStart, fldStop, fldDays

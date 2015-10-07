@@ -1,1 +1,1 @@
-SELECT fldCourseName FROM tblCourses WHERE fldCourseName LIKE '%data%' AND NOT fldDepartment='CS'
+SELECT fldFirstName, fldPhone, fldSalary FROM tblTeachers WHERE fldSalary < (SELECT avg(fldSalary) FROM tblTeachers) 

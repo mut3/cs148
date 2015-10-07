@@ -1,1 +1,1 @@
-SELECT * FROM tblSections WHERE fldCRN=91954
+SELECT fnkSectionId, fldFirstName, fldLastName FROM tblEnrolls LEFT JOIN tblStudents ON tblEnrolls.fnkStudentId = tblStudents.pmkStudentId WHERE tblEnrolls.fnkCourseId = 392

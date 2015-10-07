@@ -1,1 +1,1 @@
-SELECT fldDepartment FROM tblCourses WHERE fldCourseName LIKE 'introduction%'
+SELECT fldStart, fldStop, fldDays FROM tblTeachers LEFT JOIN tblSections ON tblTeachers.pmkNetId = tblSections.fnkTeacherNetId WHERE fldFirstName = 'Robert Raymond' AND fldLastName = 'Snapp' GROUP BY fldStart
