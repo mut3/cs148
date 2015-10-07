@@ -6,7 +6,7 @@
         if($file->isDot()) continue;
         $fileName = $file->getFilename();
         echo "<p>" . $fileName;
-        $fileNum = substr($fileName, 1, -3);
+        $fileNum = substr($fileName, 1, -4);
         echo "<p>" . $fileNum;
         $fileHandle = fopen( "queries/" . $fileName, "r");
         $queries[$fileNum] = fread($fileHandle, filesize($fileName));
@@ -128,7 +128,7 @@
     switch ($_GET["q"]) {
         case 01:
             $columns = 1;
-            $query = $queries[1];
+            $query = $queries[$_GET["q"]];
             $wheres = 0;
             $conditions = 0;
             $quotes = 0;
@@ -136,7 +136,7 @@
             break;
         case 02:
             $columns = 1;
-            $query = $queries[2];
+            $query = $queries[$_GET["q"]];
             $wheres = 1;
             $conditions = 0;
             $quotes = 2;
@@ -144,7 +144,7 @@
             break;
         case 03:
             $columns = 12;
-            $query = $queries[3];
+            $query = $queries[$_GET["q"]];
             $wheres = 1;
             $conditions = 1;
             $quotes = 4;
@@ -152,7 +152,7 @@
             break;
         case 04:
             $columns = 12;
-            $query = $queries[4];
+            $query = $queries[$_GET["q"]];
             $wheres = 1;
             $conditions = 0;
             $quotes = 0;
@@ -160,7 +160,7 @@
             break;
         case 05:
             $columns = 2;
-            $query = $queries[5];
+            $query = $queries[$_GET["q"]];
             $wheres = 1;
             $conditions = 0;
             $quotes = 2;
@@ -168,7 +168,7 @@
             break;
         case 06:
             $columns = 1;
-            $query = $queries[6];
+            $query = $queries[$_GET["q"]];
             $wheres = 1;
             $conditions = 2;
             $quotes = 4;
@@ -176,15 +176,15 @@
             break;
         case 07:
             $columns = 1;
-            $query = $queries[7];
+            $query = $queries[$_GET["q"]];
             $wheres = 0;
             $conditions = 0;
             $quotes = 0;
             $symbols = 0;
             break;
-        case 8:
+        case 08:
             $columns = 2;
-            $query = $queries[8];
+            $query = $queries[$_GET["q"]];
             $wheres = 0;
             $conditions = 0;
             $quotes = 0;
