@@ -14,8 +14,8 @@
     echo '</pre>'
     echo '<div class="half">';
 
-    for ($i=1; $i < count($queries)+1; $i++) { 
-        echo '<p> q' . $i . '. <a href="?q=' . $i .'"> SQL: </a> ' . $queries[$i] . ' </p>';
+    foreach ($queries as $qNum => $q) {
+        echo '<p> q' . $qNum . '. <a href="?q=' . $qNum .'"> SQL: </a> ' . $q . ' </p>';
     }
 ?>
 <!-- 
