@@ -12,7 +12,7 @@
     echo '<pre>';
     print_r($queries);
     echo '</pre>';
-    asort($queries);
+    ksort($queries);
     echo '<pre>';
     print_r($queries);
     echo '</pre>';
