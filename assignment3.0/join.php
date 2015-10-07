@@ -2,12 +2,14 @@
     include "top.php";
 
     $queries = [];
-    $i = 1;
     foreach (new DirectoryIterator('queries/') as $file) {
         if($file->isDot()) continue;
-        echo "<p>" . $file->getFilename();
-        $fileHandle = fopen($file->getFilename(), "r");
-        $queries[$i] = fread($fileHandle, filesize($file->getFilename()));
+        $fileName = $file->getFilename();
+        echo "<p>" . $fileName;
+        $fileNum = substr($fileName, 1, -3);
+        echo "<p>" . $fileNum;
+        $fileHandle = fopen( "queries/" . $fileName, "r");
+        $queries[$fileNum] = fread($fileHandle, filesize($fileName));
         fclose($fileHandle);
     }
 
