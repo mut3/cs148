@@ -11,7 +11,7 @@
 <div class="half">
 <?php
     $startRec = 0;
-    int $startRec = $_GET["startRecord"];
+    $startRec =(int) $_GET["startRecord"];
     $vars = [$startRec];
     $columns = 8;
     $query = "SELECT * FROM tblStudents ORDER BY fldLastName, fldFirstName LIMIT ?, 10";
