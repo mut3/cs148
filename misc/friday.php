@@ -12,7 +12,7 @@
 <?php
     $startRec = 0;
     int $startRec = $_GET["startRecord"];
-    $vars = "$startRec";
+    $vars = [$startRec];
     $columns = 8;
     $query = "SELECT * FROM tblStudents ORDER BY fldLastName, fldFirstName LIMIT ?, 10";
     $wheres = 0;
