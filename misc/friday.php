@@ -4,7 +4,7 @@
     $numRec = 0;
     $startRec =(int) $_GET["startRecord"];
     $numRec =(int) $_GET["numRecord"];
-    $vars = [$numRecord, $startRec];
+    $vars = [$numRec, $startRec];
     $columns = 8;
     $query = "SELECT * FROM tblStudents ORDER BY fldLastName, fldFirstName LIMIT ?, ?";
     $wheres = 0;
@@ -18,8 +18,8 @@ echo '<p>';
 echo $query;
 echo '</p>';
 
-echo '<a href="?numRecord = ' . $numRec .'&startRecord=' . ($startRec - 10) . '"> Prev </a>';
-echo '<a href="?numRecord = ' . $numRec .'&startRecord=' . ($startRec + 10) . '"> Next </a>';
+echo '<a href="?numRecord = ' . $numRec . '&startRecord=' . ($startRec - 10) . '"> Prev </a>';
+echo '<a href="?numRecord = ' . $numRec . '&startRecord=' . ($startRec + 10) . '"> Next </a>';
 
 echo '</div>';
 echo '<div class="half">';
