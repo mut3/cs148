@@ -10,16 +10,18 @@
 </div>
 <div class="half">
 <?php
-    
+    $startRec = 0;
+    int $startRec = $_GET["startRecord"];
+    $vars = "$startRec";
     $columns = 8;
-    $query = "SELECT * FROM tblStudents ORDER BY fldLastName, fldFirstName LIMIT 1000, 10";
+    $query = "SELECT * FROM tblStudents ORDER BY fldLastName, fldFirstName LIMIT ?, 10";
     $wheres = 0;
     $conditions = 1;
     $quotes = 0;
     $symbols = 0;
     
     //$thisDatabaseReader->testQuery($query, "", $wheres, $conditions, $quotes, $symbols);
-    $info2 = $thisDatabaseReader->select($query, "", $wheres, $conditions, $quotes, $symbols);
+    $info2 = $thisDatabaseReader->select($query, $vars, $wheres, $conditions, $quotes, $symbols);
     $headerFields = array_keys($info2[0]);
     // echo '<pre><p>';
     // print_r ($headerFields);
