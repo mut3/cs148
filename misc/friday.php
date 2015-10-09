@@ -4,9 +4,9 @@
     $numRec = 0;
     $startRec =(int) $_GET["startRecord"];
     $numRec =(int) $_GET["numRecord"];
-    $vars = [$numRec, $startRec];
+    $vars = "";
     $columns = 8;
-    $query = "SELECT * FROM tblStudents ORDER BY fldLastName, fldFirstName LIMIT ?, ?";
+    $query = "SELECT * FROM tblStudents ORDER BY fldLastName, fldFirstName LIMIT " . $startRec . "," . $numRec;
     $wheres = 0;
     $conditions = 1;
     $quotes = 0;
