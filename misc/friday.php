@@ -4,17 +4,19 @@
 <div class="half">
     
     <p>
-        SQL: SELECT * FROM tblStudents ORDER BY fldLastName, fldFirstName LIMIT 1000, 10
+        SQL: SELECT * FROM tblStudents ORDER BY fldLastName, fldFirstName LIMIT $numRec, $startRec
     </p>
     
 </div>
 <div class="half">
 <?php
     $startRec = 0;
+    $numRec = 0;
     $startRec =(int) $_GET["startRecord"];
-    $vars = [$startRec];
+    $numRec =(int) $_GET["numRecord"];
+    $vars = [$numRecord, $startRec];
     $columns = 8;
-    $query = "SELECT * FROM tblStudents ORDER BY fldLastName, fldFirstName LIMIT ?, 10";
+    $query = "SELECT * FROM tblStudents ORDER BY fldLastName, fldFirstName LIMIT ?, ?";
     $wheres = 0;
     $conditions = 1;
     $quotes = 0;
