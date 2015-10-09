@@ -1,15 +1,5 @@
 <?php
     include "top.php";
-?>
-<div class="half">
-    
-    <p>
-        SQL: SELECT * FROM tblStudents ORDER BY fldLastName, fldFirstName LIMIT $numRec, $startRec
-    </p>
-    
-</div>
-<div class="half">
-<?php
     $startRec = 0;
     $numRec = 0;
     $startRec =(int) $_GET["startRecord"];
@@ -21,6 +11,20 @@
     $conditions = 1;
     $quotes = 0;
     $symbols = 0;
+
+echo '<div class="half">';
+    
+echo '<p>';
+echo $query;
+echo '</p>';
+
+echo '<a href="?numRecord = ' . $numRec .'&startRecord=' . $startRec - 10 . '"> Prev </a>';
+echo '<a href="?numRecord = ' . $numRec .'&startRecord=' . $startRec + 10 . '"> Next </a>';
+
+echo '</div>';
+echo '<div class="half">';
+
+    
     
     $thisDatabaseReader->testQuery($query, $vars, $wheres, $conditions, $quotes, $symbols);
     $info2 = $thisDatabaseReader->select($query, $vars, $wheres, $conditions, $quotes, $symbols);
