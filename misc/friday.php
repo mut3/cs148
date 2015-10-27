@@ -1,9 +1,10 @@
 <?php
     include "top.php";
     $startRec = 0;
-    $numRec = 0;
+    $numRec = 10;
     $startRec =(int) $_GET["startRecord"];
     $numRec =(int) $_GET["numRecord"];
+    if ($startRec > 0){$startRec = 0;}
     $vars = "";
     $columns = 8;
     $query = "SELECT * FROM tblStudents ORDER BY fldLastName, fldFirstName LIMIT " . $startRec . "," . $numRec;
