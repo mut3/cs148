@@ -8,7 +8,7 @@ CREATE TABLE IF NOT EXISTS tblStudents
   fldLastName varchar(63) NOT NULL,
   fldEmail varchar(255) NOT NULL,
   PRIMARY KEY(pmkId)
-);
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 CREATE TABLE IF NOT EXISTS tblAdvisers
 (
@@ -18,7 +18,7 @@ CREATE TABLE IF NOT EXISTS tblAdvisers
   fldLastName varchar(63) NOT NULL,
   fldEmail varchar(255) NOT NULL,
   PRIMARY KEY(pmkId)
-);
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 CREATE TABLE IF NOT EXISTS tbl4yPlan
 (
@@ -28,10 +28,10 @@ CREATE TABLE IF NOT EXISTS tbl4yPlan
   fldMajor varchar(255) NOT NULL,
   fldMinor varchar(255),
   PRIMARY KEY(pmkId)
-);
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
-CREATE TRIGGER tbl4yPlan BEFORE INSERT ON `tbl`
-  FOR EACH ROW SET NEW.fldCreateDate = NOW();
+-- CREATE TRIGGER tbl4yPlan BEFORE INSERT ON `tbl`
+  -- FOR EACH ROW SET NEW.fldCreateDate = NOW();
 
 CREATE TABLE IF NOT EXISTS tblSemesterPlan
 (
@@ -40,7 +40,7 @@ CREATE TABLE IF NOT EXISTS tblSemesterPlan
   fldTerm char(2) NOT NULL,
   fldDisplayOrder tinyInt(2),
   PRIMARY KEY(fnkPlanId, fldYear, fldTerm)
-);
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 CREATE TABLE IF NOT EXISTS tblSemesterPlanCourses
 (
@@ -50,7 +50,7 @@ CREATE TABLE IF NOT EXISTS tblSemesterPlanCourses
   fnkCourseId int NOT NULL,
   fldDisplayOrder tinyInt(2),
   PRIMARY KEY(fnkPlanId, fnkYear, fnkTerm, fnkCourseId)
-);
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 CREATE TABLE IF NOT EXISTS tblCourses
 (
@@ -60,5 +60,5 @@ CREATE TABLE IF NOT EXISTS tblCourses
   fldName varchar(255) NOT NULL,
   fldCredits tinyInt(1) NOT NULL,
   PRIMARY KEY(pmkId)
-);
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
