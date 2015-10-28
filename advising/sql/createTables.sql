@@ -2,7 +2,7 @@ DROP TABLE IF EXISTS tblStudents, tblAdvisers, tbl4yPlan, tblSemesterPlan, tblSe
 
 CREATE TABLE IF NOT EXISTS tblStudents
 (
-  pmkId int NOT NULL AUTO_INCREMENT,
+  pmkNetId varchar(8) NOT NULL,
   fldFirstName varchar(63) NOT NULL,
   fldMinit varchar(7),
   fldLastName varchar(63) NOT NULL,
@@ -12,7 +12,7 @@ CREATE TABLE IF NOT EXISTS tblStudents
 
 CREATE TABLE IF NOT EXISTS tblAdvisers
 (
-  pmkId int NOT NULL AUTO_INCREMENT,
+  pmkNetId varchar(8) NOT NULL,
   fldFirstName varchar(63) NOT NULL,
   fldMinit varchar(7),
   fldLastName varchar(63) NOT NULL,
@@ -23,6 +23,8 @@ CREATE TABLE IF NOT EXISTS tblAdvisers
 CREATE TABLE IF NOT EXISTS tbl4yPlan
 (
   pmkId int NOT NULL AUTO_INCREMENT,
+  fnkAdviserNetId varchar(8),
+  fnkStudentNetId varchar(8),
   fldCreateDate Date NOT NULL,
   fldCatalogYear tinyInt(4) NOT NULL,
   fldMajor varchar(255) NOT NULL,
