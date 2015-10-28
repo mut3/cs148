@@ -20,7 +20,7 @@ function securityCheck($path_parts, $yourURL, $form = false) {
     $whiteListPages = array();
     $whiteListPages[] = "tables.php";
     $whiteListPages[] = "index.php";
-    $whiteListPages[] = "join.php";
+    $whiteListPages[] = "plan.php";
     $whiteListPages[] = "tryme.php";
 
     //add all the folders to this array
