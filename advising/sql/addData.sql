@@ -21,8 +21,7 @@ INSERT INTO tblSemesterPlanCourses (fnkPlanId, fnkYear, fnkTerm, fnkCourseId, fl
 (1, 2014, "Sp", 7, 2),
 (1, 2014, "Sp", 8, 3),
 (1, 2014, "Sp", 9, 4),
-(1, 2014, "Sp", 10, 5),
-;
+(1, 2014, "Sp", 10, 5);
 
 INSERT INTO tblCourses (fldDepartment, fldNumber, fldName, fldCredits) VALUES
 ("CS", 008, "Intro to Web Design", "2"),
