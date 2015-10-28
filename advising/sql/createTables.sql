@@ -26,7 +26,7 @@ CREATE TABLE IF NOT EXISTS tbl4yPlan
   fnkAdviserNetId varchar(8),
   fnkStudentNetId varchar(8),
   fldCreateDate Date NOT NULL,
-  fldCatalogYear tinyInt(4) NOT NULL,
+  fldCatalogYear int(4) NOT NULL,
   fldMajor varchar(255) NOT NULL,
   fldMinor varchar(255),
   PRIMARY KEY(pmkId)
@@ -38,7 +38,7 @@ CREATE TABLE IF NOT EXISTS tbl4yPlan
 CREATE TABLE IF NOT EXISTS tblSemesterPlan
 (
   fnkPlanId int NOT NULL,
-  fldYear tinyInt(4) NOT NULL,
+  fldYear int(4) NOT NULL,
   fldTerm char(2) NOT NULL,
   fldDisplayOrder tinyInt(2),
   PRIMARY KEY(fnkPlanId, fldYear, fldTerm)
@@ -47,7 +47,7 @@ CREATE TABLE IF NOT EXISTS tblSemesterPlan
 CREATE TABLE IF NOT EXISTS tblSemesterPlanCourses
 (
   fnkPlanId int NOT NULL,
-  fnkYear tinyInt(4) NOT NULL,
+  fnkYear int(4) NOT NULL,
   fnkTerm char(2) NOT NULL,
   fnkCourseId int NOT NULL,
   fldDisplayOrder tinyInt(2),
@@ -58,7 +58,7 @@ CREATE TABLE IF NOT EXISTS tblCourses
 (
   pmkId int NOT NULL AUTO_INCREMENT,
   fldDepartment varchar(4) NOT NULL,
-  fldNumber tinyInt(3) NOT NULL,
+  fldNumber int(3) NOT NULL,
   fldName varchar(255) NOT NULL,
   fldCredits tinyInt(1) NOT NULL,
   PRIMARY KEY(pmkId)
