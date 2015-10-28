@@ -17,19 +17,19 @@ CREATE TABLE IF NOT EXISTS tblAdvisers
   fldAdvMinit varchar(7),
   fldAdvLastName varchar(63) NOT NULL,
   fldAdvEmail varchar(255) NOT NULL,
-  PRIMARY KEY(pmkNetId)
+  PRIMARY KEY(pmkAdvNetId)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 CREATE TABLE IF NOT EXISTS tbl4yPlan
 (
-  pmkId int NOT NULL AUTO_INCREMENT,
+  pmkPlanId int NOT NULL AUTO_INCREMENT,
   fnkAdviserNetId varchar(8),
   fnkStudentNetId varchar(8),
   fldCreateDate Date NOT NULL,
   fldCatalogYear int(4) NOT NULL,
   fldMajor varchar(255) NOT NULL,
   fldMinor varchar(255),
-  PRIMARY KEY(pmkId)
+  PRIMARY KEY(pmkPlanId)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 -- CREATE TRIGGER tbl4yPlan BEFORE INSERT ON `tbl`
@@ -56,11 +56,11 @@ CREATE TABLE IF NOT EXISTS tblSemesterPlanCourses
 
 CREATE TABLE IF NOT EXISTS tblCourses
 (
-  pmkId int NOT NULL AUTO_INCREMENT,
+  pmkCourseId int NOT NULL AUTO_INCREMENT,
   fldDepartment varchar(4) NOT NULL,
   fldNumber int(3) NOT NULL,
   fldName varchar(255) NOT NULL,
   fldCredits tinyInt(1) NOT NULL,
-  PRIMARY KEY(pmkId)
+  PRIMARY KEY(pmkCourseId)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
