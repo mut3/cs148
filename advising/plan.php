@@ -9,13 +9,13 @@
 
     $query = "
         SELECT DISTINCT tblStudents.fldFirstName, tblStudents.fldLastName, tbl4yPlan.fldMajor, tbl4yPlan.fldMinor,
-            tblAdvisors.fldAdvisorFirstName, tblAdvisors.fldAdvisorLastName, tblSemesterPlan.fnkYear, tblSemesterPlan.fnkTerm, tblCourses.fldCourseName, tblCourses.fldDepartment, tblCourses.fldCourseNumber 
+            tblAdvisers.fldAdviserFirstName, tblAdvisers.fldAdviserLastName, tblSemesterPlan.fnkYear, tblSemesterPlan.fnkTerm, tblCourses.fldCourseName, tblCourses.fldDepartment, tblCourses.fldCourseNumber 
             FROM tblCourses 
             INNER JOIN tblSemesterPlanCourses ON tblCourses.pmkCourseId = tblSemesterPlanCourses.fnkCourseId 
             INNER JOIN tblSemesterPlan ON tblSemesterPlanCourses.fnkTerm = tblSemesterPlan.fnkTerm AND tblSemesterPlanCourses.fnkYear = tblSemesterPlan.fnkYear 
             INNER JOIN tbl4yPlan ON tblSemesterPlan.fnkPlanId = tbl4yPlan.pmkPlanId 
             INNER JOIN tblStudents ON tbl4yPlan.fnkStudentNetId = tblStudents.pmkNetId 
-            INNER JOIN tblAdvisors ON tbl4yPlan.fnkAdvisorNetId = tblAdvisors.pmkNetId 
+            INNER JOIN tblAdvisers ON tbl4yPlan.fnkAdviserNetId = tblAdvisers.pmkNetId 
             ORDER BY tblSemesterPlanCourses.fldDisplayOrder 
         ";
     echo '<div class="half">';
