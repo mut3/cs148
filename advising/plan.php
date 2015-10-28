@@ -8,8 +8,8 @@
     $symbols = 0;
 
     $query = "
-        SELECT DISTINCT tblStudents.fldFirstName, tblStudents.fldLastName, tbl4yPlan.fldMajor, tbl4yPlan.fldMinor,
-            tblAdvisers.fldAdviserFirstName, tblAdvisers.fldAdviserLastName, tblSemesterPlan.fnkYear, tblSemesterPlan.fnkTerm, tblCourses.fldCourseName, tblCourses.fldDepartment, tblCourses.fldCourseNumber 
+        SELECT DISTINCT tblStudents.fldFname, tblStudents.fldLname, tbl4yPlan.fldMajor, tbl4yPlan.fldMinor,
+            tblAdvisers.fldFname, tblAdvisers.fldLname, tblSemesterPlan.fnkYear, tblSemesterPlan.fnkTerm, tblCourses.fldCourseName, tblCourses.fldDepartment, tblCourses.fldCourseNumber 
             FROM tblCourses 
             INNER JOIN tblSemesterPlanCourses ON tblCourses.pmkCourseId = tblSemesterPlanCourses.fnkCourseId 
             INNER JOIN tblSemesterPlan ON tblSemesterPlanCourses.fnkTerm = tblSemesterPlan.fnkTerm AND tblSemesterPlanCourses.fnkYear = tblSemesterPlan.fnkYear 
