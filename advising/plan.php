@@ -2,8 +2,8 @@
     include "top.php";   
 
     $columns = 1;
-    $wheres = 1;
-    $conditions = 0;
+    $wheres = 0;
+    $conditions = 2;
     $quotes = 0;
     $symbols = 0;
 
