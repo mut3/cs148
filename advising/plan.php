@@ -1,7 +1,7 @@
  <?php
     include "top.php";   
 
-    $columns = 1;
+    $columns = 17;
     $wheres = 0;
     $conditions = 2;
     $quotes = 0;
