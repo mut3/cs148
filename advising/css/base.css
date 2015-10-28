@@ -64,6 +64,10 @@ section{
     float: left;
 }
 
+.half > *{
+    max-width: 100%;
+}
+
 .query {
     padding: 1em;
 }
