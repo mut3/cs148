@@ -7,7 +7,7 @@ CREATE TABLE IF NOT EXISTS tblStudents
   fldMinit varchar(7),
   fldLastName varchar(63) NOT NULL,
   fldEmail varchar(255) NOT NULL,
-  PRIMARY KEY(pmkId)
+  PRIMARY KEY(pmkNetId)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 CREATE TABLE IF NOT EXISTS tblAdvisers
@@ -17,7 +17,7 @@ CREATE TABLE IF NOT EXISTS tblAdvisers
   fldMinit varchar(7),
   fldLastName varchar(63) NOT NULL,
   fldEmail varchar(255) NOT NULL,
-  PRIMARY KEY(pmkId)
+  PRIMARY KEY(pmkNetId)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 CREATE TABLE IF NOT EXISTS tbl4yPlan
