@@ -19,8 +19,8 @@ echo '<p>';
 echo $query;
 echo '</p>';
 
-echo '<a href="?numRecord=' . $numRec . '&startRecord=' . ($startRec - 10) . '"> Prev </a>';
-echo '<a href="?numRecord=' . $numRec . '&startRecord=' . ($startRec + 10) . '"> Next </a>';
+echo '<a href="?numRecord=' . $numRec . '&startRecord=' . ($startRec - 10) . '"> Prev 10</a>';
+echo '<a href="?numRecord=' . $numRec . '&startRecord=' . ($startRec + 10) . '"> Next 10 </a>';
 
 echo '</div>';
 echo '<div class="half">';
