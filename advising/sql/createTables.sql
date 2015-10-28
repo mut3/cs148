@@ -12,11 +12,11 @@ CREATE TABLE IF NOT EXISTS tblStudents
 
 CREATE TABLE IF NOT EXISTS tblAdvisers
 (
-  pmkNetId varchar(8) NOT NULL,
-  fldFirstName varchar(63) NOT NULL,
-  fldMinit varchar(7),
-  fldLastName varchar(63) NOT NULL,
-  fldEmail varchar(255) NOT NULL,
+  pmkAdvNetId varchar(8) NOT NULL,
+  fldAdvFirstName varchar(63) NOT NULL,
+  fldAdvMinit varchar(7),
+  fldAdvLastName varchar(63) NOT NULL,
+  fldAdvEmail varchar(255) NOT NULL,
   PRIMARY KEY(pmkNetId)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 

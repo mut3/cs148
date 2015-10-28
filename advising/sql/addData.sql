@@ -1,7 +1,7 @@
 INSERT INTO tblStudents (pmkNetId, fldFirstName, fldMinit, fldLastName, fldEmail) VALUES
 ("wbarnwel", "Will", "", "Barnwell", "wbarnwel@uvm.edu");
 
-INSERT INTO tblAdvisers (pmkNetId, fldFirstName, fldMinit, fldLastName, fldEmail) VALUES
+INSERT INTO tblAdvisers (pmkAdvNetId, fldAdvFirstName, fldAdvMinit, fldAdvLastName, fldAdvEmail) VALUES
 ("jlhorton", "Jacky", "L", "Horton", "jlhorton@uvm.edu");
 
 INSERT INTO tbl4yPlan (fnkAdviserNetId, fnkStudentNetId, fldCatalogYear, fldMajor, fldMinor) VALUES
