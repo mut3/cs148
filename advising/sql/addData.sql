@@ -1,7 +1,7 @@
-INSERT INTO tblStudents (pmkNetId, fldFirstName, fldMinit, fldLastName, fldEmail) VALUES
+INSERT INTO tblStudent (pmkNetId, fldFirstName, fldMinit, fldLastName, fldEmail) VALUES
 ("wbarnwel", "Will", "", "Barnwell", "wbarnwel@uvm.edu");
 
-INSERT INTO tblAdvisers (pmkAdvNetId, fldAdvFirstName, fldAdvMinit, fldAdvLastName, fldAdvEmail) VALUES
+INSERT INTO tblAdviser (pmkAdvNetId, fldAdvFirstName, fldAdvMinit, fldAdvLastName, fldAdvEmail) VALUES
 ("jlhorton", "Jacky", "L", "Horton", "jlhorton@uvm.edu");
 
 INSERT INTO tbl4yPlan (fnkAdviserNetId, fnkStudentNetId, fldCatalogYear, fldMajor, fldMinor) VALUES
@@ -17,7 +17,7 @@ INSERT INTO tblSemesterPlan (fnkPlanId, fldYear, fldTerm, fldDisplayOrder) VALUE
 (1, 2016, "Fa", 7),
 (1, 2017, "Sp", 8);
 
-INSERT INTO tblSemesterPlanCourses (fnkPlanId, fnkYear, fnkTerm, fnkCourseId, fldDisplayOrder) VALUES
+INSERT INTO tblSemesterPlanCourse (fnkPlanId, fnkYear, fnkTerm, fnkCourseId, fldDisplayOrder) VALUES
 (1, 2013, "Fa", 1, 1),
 (1, 2013, "Fa", 2, 2),
 (1, 2013, "Fa", 3, 3),
@@ -59,7 +59,7 @@ INSERT INTO tblSemesterPlanCourses (fnkPlanId, fnkYear, fnkTerm, fnkCourseId, fl
 (1, 2017, "Sp", 8, 4);
 (1, 2017, "Sp", 8, 5);
 
-INSERT INTO tblCourses (fldDepartment, fldNumber, fldName, fldCredits) VALUES
+INSERT INTO tblCourse (fldDepartment, fldNumber, fldName, fldCredits) VALUES
 (1712, 0, 'OSSP  Fall', 'OSSP', 12),
 (1713, 0, 'OSSP Fall Cont from Summer', 'OSSP', 12),
 (1757, 0, 'Varsity: Women''s X-Country', 'PEAC', 1),

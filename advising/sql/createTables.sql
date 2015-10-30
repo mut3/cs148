@@ -1,6 +1,6 @@
 DROP TABLE IF EXISTS tblStudents, tblAdvisers, tbl4yPlan, tblSemesterPlan, tblSemesterPlanCourses, tblCourses;
 
-CREATE TABLE IF NOT EXISTS tblStudents
+CREATE TABLE IF NOT EXISTS tblStudent
 (
   pmkNetId varchar(8) NOT NULL,
   fldFirstName varchar(63) NOT NULL,
@@ -10,7 +10,7 @@ CREATE TABLE IF NOT EXISTS tblStudents
   PRIMARY KEY(pmkNetId)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
-CREATE TABLE IF NOT EXISTS tblAdvisers
+CREATE TABLE IF NOT EXISTS tblAdviser
 (
   pmkAdvNetId varchar(8) NOT NULL,
   fldAdvFirstName varchar(63) NOT NULL,
@@ -29,6 +29,8 @@ CREATE TABLE IF NOT EXISTS tbl4yPlan
   fldCatalogYear int(4) NOT NULL,
   fldMajor varchar(255) NOT NULL,
   fldMinor varchar(255),
+  CONSTRAINT fk_4yAdvNetId FOREIGN KEY (fnkAdviserNetId) REFERENCES tblAdviser(pmkAdvNetId),
+  CONSTRAINT fk_4yStdNetId FOREIGN KEY (fnkStudentNetId) REFERENCES tblEmployee(pmkNetId),
   PRIMARY KEY(pmkPlanId)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
@@ -41,20 +43,25 @@ CREATE TABLE IF NOT EXISTS tblSemesterPlan
   fldYear int(4) NOT NULL,
   fldTerm char(2) NOT NULL,
   fldDisplayOrder tinyInt(2),
+  CONSTRAINT fk_SmpPlanId FOREIGN KEY (fnkPlanId) REFERENCES tbl4yPlan(pmkPlanId),
   PRIMARY KEY(fnkPlanId, fldYear, fldTerm)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
-CREATE TABLE IF NOT EXISTS tblSemesterPlanCourses
+CREATE TABLE IF NOT EXISTS tblSemesterPlanCourse
 (
   fnkPlanId int NOT NULL,
   fnkYear int(4) NOT NULL,
   fnkTerm char(2) NOT NULL,
   fnkCourseId int NOT NULL,
   fldDisplayOrder tinyInt(2),
+  CONSTRAINT fk_SpcPlanId FOREIGN KEY (fnkPlanId) REFERENCES tbl4yPlan(pmkPlanId),
+  CONSTRAINT fk_SpcYear FOREIGN KEY (fnkYear) REFERENCES tblSemesterPlan(fnkYear),
+  CONSTRAINT fk_SpcTerm FOREIGN KEY (fnkTerm) REFERENCES tblSemesterPlan(fldTerm),
+  CONSTRAINT fk_SpcCourseId FOREIGN KEY (fnkCourseId) REFERENCES tblCourse(pmkCourseId),
   PRIMARY KEY(fnkPlanId, fnkYear, fnkTerm, fnkCourseId)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
-CREATE TABLE IF NOT EXISTS tblCourses
+CREATE TABLE IF NOT EXISTS tblCourse
 (
   pmkCourseId int NOT NULL AUTO_INCREMENT,
   fldDepartment varchar(4) NOT NULL,
