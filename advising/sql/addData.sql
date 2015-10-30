@@ -53,10 +53,10 @@ INSERT INTO tblSemesterPlanCourse (fnkPlanId, fnkYear, fnkTerm, fnkCourseId, fld
 (1, 2016, "Fa", 7, 3),
 (1, 2016, "Fa", 7, 4),
 (1, 2016, "Fa", 7, 5),
-(1, 2017, "Sp", 8, 1);
-(1, 2017, "Sp", 8, 2);
-(1, 2017, "Sp", 8, 3);
-(1, 2017, "Sp", 8, 4);
+(1, 2017, "Sp", 8, 1),
+(1, 2017, "Sp", 8, 2),
+(1, 2017, "Sp", 8, 3),
+(1, 2017, "Sp", 8, 4),
 (1, 2017, "Sp", 8, 5);
 
 INSERT INTO tblCourse (fldDepartment, fldNumber, fldName, fldCredits) VALUES
