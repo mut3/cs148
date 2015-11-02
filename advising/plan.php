@@ -8,15 +8,15 @@
     $symbols = 0;
 
     $query = "
-        SELECT DISTINCT tblStudents.fldFirstName, tblStudents.fldLastName, tbl4yPlan.fldMajor, tbl4yPlan.fldMinor,
-            tblAdvisers.fldAdvFirstName, tblAdvisers.fldAdvLastName, tblSemesterPlan.fldYear, tblSemesterPlan.fldTerm, tblCourses.fldName, tblCourses.fldDepartment, tblCourses.fldNumber 
-            FROM tblCourses 
-            INNER JOIN tblSemesterPlanCourses ON tblCourses.pmkCourseId = tblSemesterPlanCourses.fnkCourseId 
-            INNER JOIN tblSemesterPlan ON tblSemesterPlanCourses.fnkTerm = tblSemesterPlan.fldTerm AND tblSemesterPlanCourses.fnkYear = tblSemesterPlan.fldYear 
+        SELECT DISTINCT tblStudent.fldFirstName, tblStudent.fldLastName, tbl4yPlan.fldMajor, tbl4yPlan.fldMinor,
+            tblAdviser.fldAdvFirstName, tblAdviser.fldAdvLastName, tblSemesterPlan.fldYear, tblSemesterPlan.fldTerm, tblCourse.fldName, tblCourse.fldDepartment, tblCourse.fldNumber 
+            FROM tblCourse 
+            INNER JOIN tblSemesterPlanCourse ON tblCourse.pmkCourseId = tblSemesterPlanCourse.fnkCourseId 
+            INNER JOIN tblSemesterPlan ON tblSemesterPlanCourse.fnkTerm = tblSemesterPlan.fldTerm AND tblSemesterPlanCourse.fnkYear = tblSemesterPlan.fldYear 
             INNER JOIN tbl4yPlan ON tblSemesterPlan.fnkPlanId = tbl4yPlan.pmkPlanId 
-            INNER JOIN tblStudents ON tbl4yPlan.fnkStudentNetId = tblStudents.pmkNetId 
-            INNER JOIN tblAdvisers ON tbl4yPlan.fnkAdviserNetId = tblAdvisers.pmkAdvNetId 
-            ORDER BY tblSemesterPlanCourses.fldDisplayOrder 
+            INNER JOIN tblStudent ON tbl4yPlan.fnkStudentNetId = tblStudent.pmkNetId 
+            INNER JOIN tblAdviser ON tbl4yPlan.fnkAdviserNetId = tblAdviser.pmkAdvNetId 
+            ORDER BY tblSemesterPlanCourse.fldDisplayOrder 
         ";
     echo '<div class="half">';
 
@@ -68,5 +68,37 @@
     }
     print '</table>';
 print '</div>';
+
+print '<div>';
+
+//print plan in proper format
+
+//initialize both credit counters
+
+//initialize currentTerm to blank
+
+//grab semseter started
+
+//foreach row in record array
+foreach ($info2 as $row) {
+    //if new term close previous term, open new turn
+    $thisTerm = $row['fldTerm'] . $row['fldYear'];
+    if ($thisTerm != $currentTerm) {
+        //if beginning of plan dont close previous block as it doesnt exist
+        if ($currentTerm != '') {
+            //close previous block
+        }
+        $currentTerm = $thisTerm;
+        //open new block
+    }
+    //print out row contents
+    //add to credit counters
+}
+//close last block
+//print total credits
+print '</div>';
+
+
 include "footer.php";
 ?>
+
