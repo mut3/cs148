@@ -64,9 +64,9 @@ CREATE TABLE IF NOT EXISTS tblSemesterPlanCourse
 CREATE TABLE IF NOT EXISTS tblCourse
 (
   pmkCourseId int NOT NULL AUTO_INCREMENT,
+  fldCourseNumber int(3) NOT NULL,
+  fldCourseName varchar(255) NOT NULL,
   fldDepartment varchar(4) NOT NULL,
-  fldNumber int(3) NOT NULL,
-  fldName varchar(255) NOT NULL,
   fldCredits tinyInt(1) NOT NULL,
   PRIMARY KEY(pmkCourseId)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
