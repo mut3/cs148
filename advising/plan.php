@@ -9,7 +9,7 @@
 
     $query = "
         SELECT DISTINCT tblStudent.fldFirstName, tblStudent.fldLastName, tbl4yPlan.fldMajor, tbl4yPlan.fldMinor,
-            tblAdviser.fldAdvFirstName, tblAdviser.fldAdvLastName, tblSemesterPlan.fldYear, tblSemesterPlan.fldTerm, tblCourse.fldName, tblCourse.fldDepartment, tblCourse.fldNumber 
+            tblAdviser.fldAdvFirstName, tblAdviser.fldAdvLastName, tblSemesterPlan.fldYear, tblSemesterPlan.fldTerm, tblCourse.fldCourseName, tblCourse.fldDepartment, tblCourse.fldCourseNumber 
             FROM tblCourse 
             INNER JOIN tblSemesterPlanCourse ON tblCourse.pmkCourseId = tblSemesterPlanCourse.fnkCourseId 
             INNER JOIN tblSemesterPlan ON tblSemesterPlanCourse.fnkTerm = tblSemesterPlan.fldTerm AND tblSemesterPlanCourse.fnkYear = tblSemesterPlan.fldYear 
