@@ -59,7 +59,7 @@ INSERT INTO tblSemesterPlanCourse (fnkPlanId, fnkYear, fnkTerm, fnkCourseId, fld
 (1, 2017, "Sp", 8, 4),
 (1, 2017, "Sp", 8, 5);
 
-INSERT INTO tblCourse (fldDepartment, fldNumber, fldName, fldCredits) VALUES
+INSERT INTO tblCourse (pmkCourseId, fldCourseNumber, fldCourseName, fldDepartment, fldCredits) VALUES
 (1712, 0, 'OSSP  Fall', 'OSSP', 12),
 (1713, 0, 'OSSP Fall Cont from Summer', 'OSSP', 12),
 (1757, 0, 'Varsity: Women''s X-Country', 'PEAC', 1),
