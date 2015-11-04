@@ -17,47 +17,47 @@ INSERT INTO tblSemesterPlan (fnkPlanId, fldYear, fldTerm, fldDisplayOrder) VALUE
 (1, 2016, "Fa", 7),
 (1, 2017, "Sp", 8);
 
-INSERT INTO tblSemesterPlanCourse (fnkPlanId, fnkYear, fnkTerm, fnkCourseId, fldDisplayOrder) VALUES
-(1, 2013, "Fa", 1, 1),
-(1, 2013, "Fa", 2, 2),
-(1, 2013, "Fa", 3, 3),
-(1, 2013, "Fa", 4, 4),
-(1, 2013, "Fa", 5, 5),
-(1, 2014, "Sp", 6, 1),
-(1, 2014, "Sp", 7, 2),
-(1, 2014, "Sp", 8, 3),
-(1, 2014, "Sp", 9, 4),
-(1, 2014, "Sp", 10, 5),
-(1, 2014, "Fa", 3, 1),
-(1, 2014, "Fa", 3, 2),
-(1, 2014, "Fa", 3, 3),
-(1, 2014, "Fa", 3, 4),
-(1, 2014, "Fa", 3, 5),
-(1, 2015, "Sp", 4, 1),
-(1, 2015, "Sp", 4, 2),
-(1, 2015, "Sp", 4, 3),
-(1, 2015, "Sp", 4, 4),
-(1, 2015, "Sp", 4, 5),
-(1, 2015, "Fa", 5, 1),
-(1, 2015, "Fa", 5, 2),
-(1, 2015, "Fa", 5, 3),
-(1, 2015, "Fa", 5, 4),
-(1, 2015, "Fa", 5, 5),
-(1, 2016, "Sp", 6, 1),
-(1, 2016, "Sp", 6, 2),
-(1, 2016, "Sp", 6, 3),
-(1, 2016, "Sp", 6, 4),
-(1, 2016, "Sp", 6, 5),
-(1, 2016, "Fa", 7, 1),
-(1, 2016, "Fa", 7, 2),
-(1, 2016, "Fa", 7, 3),
-(1, 2016, "Fa", 7, 4),
-(1, 2016, "Fa", 7, 5),
-(1, 2017, "Sp", 8, 1),
-(1, 2017, "Sp", 8, 2),
-(1, 2017, "Sp", 8, 3),
-(1, 2017, "Sp", 8, 4),
-(1, 2017, "Sp", 8, 5);
+INSERT INTO tblSemesterPlanCourse (fnkPlanId, fnkYear, fnkTerm, fnkCourseId, fldDisplayOrder, fldReq) VALUES
+(1, 2013, "Fa", 381, 1, 1), -- CS008
+(1, 2013, "Fa", 383, 2, 1), -- CS021
+(1, 2013, "Fa", 1272, 3, 1),-- MATH022
+(1, 2013, "Fa", 461, 4, 2), -- EC011
+(1, 2013, "Fa", 640, 5, 1), -- ENGS001
+(1, 2014, "Sp", 388, 1, 1), -- CS110
+(1, 2014, "Sp", 386, 2, 1), -- CS064
+(1, 2014, "Sp", 462, 3, 2), -- EC012
+(1, 2014, "Sp", 2229, 4, 1), -- CS142
+(1, 2014, "Sp", 2145, 5, 0), -- STAT151
+(1, 2014, "Fa", 3, 1, 0),
+(1, 2014, "Fa", 3, 2, 0),
+(1, 2014, "Fa", 3, 3, 0),
+(1, 2014, "Fa", 3, 4, 0),
+(1, 2014, "Fa", 3, 5, 0),
+(1, 2015, "Sp", 4, 1, 0),
+(1, 2015, "Sp", 4, 2, 0),
+(1, 2015, "Sp", 4, 3, 0),
+(1, 2015, "Sp", 4, 4, 0),
+(1, 2015, "Sp", 4, 5, 0),
+(1, 2015, "Fa", 5, 1, 0),
+(1, 2015, "Fa", 5, 2, 0),
+(1, 2015, "Fa", 5, 3, 0),
+(1, 2015, "Fa", 5, 4, 0),
+(1, 2015, "Fa", 5, 5, 0),
+(1, 2016, "Sp", 6, 1, 0),
+(1, 2016, "Sp", 6, 2, 0),
+(1, 2016, "Sp", 6, 3, 0),
+(1, 2016, "Sp", 6, 4, 0),
+(1, 2016, "Sp", 6, 5, 0),
+(1, 2016, "Fa", 7, 1, 0),
+(1, 2016, "Fa", 7, 2, 0),
+(1, 2016, "Fa", 7, 3, 0),
+(1, 2016, "Fa", 7, 4, 0),
+(1, 2016, "Fa", 7, 5, 0),
+(1, 2017, "Sp", 8, 1, 0),
+(1, 2017, "Sp", 8, 2, 0),
+(1, 2017, "Sp", 8, 3, 0),
+(1, 2017, "Sp", 8, 4, 0),
+(1, 2017, "Sp", 8, 5, 0);
 
 INSERT INTO tblCourse (pmkCourseId, fldCourseNumber, fldCourseName, fldDepartment, fldCredits) VALUES
 (1712, 0, 'OSSP  Fall', 'OSSP', 12),
@@ -894,6 +894,7 @@ INSERT INTO tblCourse (pmkCourseId, fldCourseNumber, fldCourseName, fldDepartmen
 (808, 142, 'Film & Video Production II', 'FTS', 3),
 (1130, 142, 'Healing Touch Level 2', 'HLTH', 1),
 (2130, 142, 'Intro To Lit Spanish America', 'SPAN', 3),
+(2229, 142, 'Surfing the Web', 'CS', 3),
 (96, 143, 'Forage and Pasture Mgmnt', 'ASCI', 4),
 (339, 143, 'Organic Chemistry for Majors 1', 'CHEM', 4),
 (473, 143, 'International Econ I: Trade', 'EC', 3),
