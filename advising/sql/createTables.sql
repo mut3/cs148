@@ -54,6 +54,7 @@ CREATE TABLE IF NOT EXISTS tblSemesterPlanCourse
   fnkTerm char(2) NOT NULL,
   fnkCourseId int NOT NULL,
   fldDisplayOrder tinyInt(2),
+  fldReq ENUM('major', 'minor'),
   CONSTRAINT fk_SpcPlanId FOREIGN KEY (fnkPlanId) REFERENCES tbl4yPlan(pmkPlanId),
   CONSTRAINT fk_SpcYear FOREIGN KEY (fnkYear) REFERENCES tblSemesterPlan(fnkYear),
   CONSTRAINT fk_SpcTerm FOREIGN KEY (fnkTerm) REFERENCES tblSemesterPlan(fldTerm),
