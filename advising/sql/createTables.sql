@@ -1,4 +1,4 @@
-DROP TABLE IF EXISTS tblStudents, tblAdvisers, tbl4yPlan, tblSemesterPlan, tblSemesterPlanCourses, tblCourses;
+DROP TABLE IF EXISTS tblStudent, tblAdviser, tbl4yPlan, tblSemesterPlan, tblSemesterPlanCourse, tblCourse;
 
 CREATE TABLE IF NOT EXISTS tblStudent
 (
