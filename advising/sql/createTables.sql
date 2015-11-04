@@ -29,8 +29,8 @@ CREATE TABLE IF NOT EXISTS tbl4yPlan
   fldCatalogYear int(4) NOT NULL,
   fldMajor varchar(255) NOT NULL,
   fldMinor varchar(255),
-  CONSTRAINT fk_4yAdvNetId FOREIGN KEY (fnkAdviserNetId) REFERENCES tblAdviser(pmkAdvNetId),
-  CONSTRAINT fk_4yStdNetId FOREIGN KEY (fnkStudentNetId) REFERENCES tblEmployee(pmkNetId),
+  -- CONSTRAINT fk_4yAdvNetId FOREIGN KEY (fnkAdviserNetId) REFERENCES tblAdviser(pmkAdvNetId),
+  -- CONSTRAINT fk_4yStdNetId FOREIGN KEY (fnkStudentNetId) REFERENCES tblEmployee(pmkNetId),
   PRIMARY KEY(pmkPlanId)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
@@ -43,7 +43,7 @@ CREATE TABLE IF NOT EXISTS tblSemesterPlan
   fldYear int(4) NOT NULL,
   fldTerm char(2) NOT NULL,
   fldDisplayOrder tinyInt(2),
-  CONSTRAINT fk_SmpPlanId FOREIGN KEY (fnkPlanId) REFERENCES tbl4yPlan(pmkPlanId),
+  -- CONSTRAINT fk_SmpPlanId FOREIGN KEY (fnkPlanId) REFERENCES tbl4yPlan(pmkPlanId),
   PRIMARY KEY(fnkPlanId, fldYear, fldTerm)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
@@ -55,10 +55,10 @@ CREATE TABLE IF NOT EXISTS tblSemesterPlanCourse
   fnkCourseId int NOT NULL,
   fldDisplayOrder tinyInt(2),
   fldReq ENUM('major', 'minor'),
-  CONSTRAINT fk_SpcPlanId FOREIGN KEY (fnkPlanId) REFERENCES tbl4yPlan(pmkPlanId),
-  CONSTRAINT fk_SpcYear FOREIGN KEY (fnkYear) REFERENCES tblSemesterPlan(fnkYear),
-  CONSTRAINT fk_SpcTerm FOREIGN KEY (fnkTerm) REFERENCES tblSemesterPlan(fldTerm),
-  CONSTRAINT fk_SpcCourseId FOREIGN KEY (fnkCourseId) REFERENCES tblCourse(pmkCourseId),
+  -- CONSTRAINT fk_SpcPlanId FOREIGN KEY (fnkPlanId) REFERENCES tbl4yPlan(pmkPlanId),
+  -- CONSTRAINT fk_SpcYear FOREIGN KEY (fnkYear) REFERENCES tblSemesterPlan(fnkYear),
+  -- CONSTRAINT fk_SpcTerm FOREIGN KEY (fnkTerm) REFERENCES tblSemesterPlan(fldTerm),
+  -- CONSTRAINT fk_SpcCourseId FOREIGN KEY (fnkCourseId) REFERENCES tblCourse(pmkCourseId),
   PRIMARY KEY(fnkPlanId, fnkYear, fnkTerm, fnkCourseId)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
