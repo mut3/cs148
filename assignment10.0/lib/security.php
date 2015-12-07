@@ -18,18 +18,20 @@ function securityCheck($path_parts, $yourURL, $form = false) {
     
     // add all your page names to this array
     $whiteListPages = array();
-    $whiteListPages[] = "tables.php";
+    $whiteListPages[] = "about.php";
+    $whiteListPages[] = "alerts.php";
+    $whiteListPages[] = "admin.php";
     $whiteListPages[] = "index.php";
-    $whiteListPages[] = "plan.php";
-    $whiteListPages[] = "tryme.php";
+    $whiteListPages[] = "restock.php";
+    $whiteListPages[] = "use.php";
 
     //add all the folders to this array
     $whiteListFolders = array();
     $whiteListFolders[] = "/cs148";
     
-    $whiteListFolders[] = "/education/cs148/advising";
-    $whiteListFolders[] = "/cs148develop/cs148/advising";
-    $whiteListFolders[] = "/cs148/advising";
+    $whiteListFolders[] = "/education/cs148/assignment10.0";
+    $whiteListFolders[] = "/cs148develop/cs148/assignment10.0";
+    $whiteListFolders[] = "/cs148/assignment10.0";
 
     // Check for valid page name
     if (!in_array($path_parts['basename'], $whiteListPages)) {
