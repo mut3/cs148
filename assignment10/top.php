@@ -32,6 +32,8 @@ require_once('lib/custom-functions.php');
 		//     www-logs
 		//     www-root
 		
+		$username = htmlentities($_SERVER["REMOTE_USER"], ENT_QUOTES, "UTF-8");
+
 		
 		$includeDBPath = "../bin/";
 		$includeLibPath = "../lib/";
