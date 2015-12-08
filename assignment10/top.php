@@ -144,7 +144,7 @@ require_once('lib/custom-functions.php');
 		$quotes = 2;
 		$symbols = 0;
 		$thisDatabaseReader->testQuery($query, $vars, $wheres, $conditions, $quotes, $symbols);
-		$userRecord = $thisDatabaseReader->select($query);
+		$userRecord = $thisDatabaseReader->select($query, $vars, $wheres, $conditions, $quotes, $symbols);
 		echo "<pre>";
 		print_r($userRecord[0]);
 		echo "</pre>";
