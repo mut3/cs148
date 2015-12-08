@@ -80,9 +80,10 @@ require_once('lib/custom-functions.php');
 
 		$username = htmlentities($_SERVER["REMOTE_USER"], ENT_QUOTES, "UTF-8");
 
+		$redirTarget = $absDirPath . "/account.php";
 		//load up userdata for user
 		//if no data for user
-			// echo "<meta http-equiv="refresh" content="0;url=$yourURL">"
+		echo "<meta http-equiv="refresh" content="0;url=$redirTarget">"
 
 		// %^%^%^%^%^%^%^%^%^%^%^%^%^%^%^%^%^%^%^%^%^%^%^%^%^%^%^%^%^%^%^%^%^%^%
 		// sanatize global variables 
