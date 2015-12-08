@@ -1,4 +1,4 @@
-DROP TABLE IF EXISTS tblUser, tblItem;
+DROP TABLE IF EXISTS tblUser, tblItem, tblAdmin;
 CREATE TABLE tblUser
 (
 	pmkUserId int NOT NULL AUTO_INCREMENT,
@@ -15,9 +15,21 @@ CREATE TABLE tblItem
 	PRIMARY KEY(pmkItemId),
 	CONSTRAINT fk_OwnerId FOREIGN KEY (fnkOwnerId) REFERENCES tblUser(pmkUserId)
 );
+CREATE TABLE tblAdmin
+(
+	pmkAdminId int NOT NULL AUTO_INCREMENT,
+	fnkUserId int,
+	fldAdminUsername varchar(8) NOT NULL,
+	PRIMARY KEY(pmkAdminId)
+);
 
--- INSERT INTO tblUser (fldUsername, fldEmail, fldAdmin) VALUES
--- 	('wbarnwel', 'wbarnwel@uvm.edu', TRUE);
+INSERT INTO tblUser (fldUsername, fldEmail, fldAdmin) VALUES
+	('wbarnwel', 'wbarnwel@uvm.edu', TRUE);
 
 -- INSERT INTO tblItem (fnkOwnerId, fldItemName) VALUES
 -- 	(0, 'Dread About This Project');
+
+INSERT INTO tblAdmin (fnkUserId, fldAdminUsername) VALUES
+	(0, 'wbarnwel'),
+	(NULL, 'rerickso'),
+	(NULL, 'adatta');
