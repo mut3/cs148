@@ -83,7 +83,7 @@ require_once('lib/custom-functions.php');
 		$redirTarget = $absDirPath . "/account.php";
 		//load up userdata for user
 		//if no data for user
-		echo "<meta http-equiv="refresh" content="0;url=$redirTarget">"
+		echo "<meta http-equiv=\"refresh\" content=\"0;url=$redirTarget\">";
 
 		// %^%^%^%^%^%^%^%^%^%^%^%^%^%^%^%^%^%^%^%^%^%^%^%^%^%^%^%^%^%^%^%^%^%^%
 		// sanatize global variables 
