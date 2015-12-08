@@ -1,4 +1,4 @@
-DROP TABLE IF EXISTS tblUser, tblItem, tblAdmin;
+DROP TABLE IF EXISTS tblUser, tblItem, tblAdmin CASCADE CONSTRAINTS;
 CREATE TABLE tblUser
 (
 	pmkUserId int NOT NULL AUTO_INCREMENT,
