@@ -32,9 +32,6 @@ require_once('lib/custom-functions.php');
 		//     www-logs
 		//     www-root
 		
-		$username = htmlentities($_SERVER["REMOTE_USER"], ENT_QUOTES, "UTF-8");
-
-		
 		$includeDBPath = "../bin/";
 		$includeLibPath = "../lib/";
 		
@@ -75,6 +72,15 @@ require_once('lib/custom-functions.php');
 		}
 		
 		$yourURL = $domain . $phpSelf;
+
+
+		echo "$yourURL";
+
+		$username = htmlentities($_SERVER["REMOTE_USER"], ENT_QUOTES, "UTF-8");
+
+		//load up userdata for user
+		//if no data for user
+			// echo "<meta http-equiv="refresh" content="0;url=$yourURL">"
 
 		// %^%^%^%^%^%^%^%^%^%^%^%^%^%^%^%^%^%^%^%^%^%^%^%^%^%^%^%^%^%^%^%^%^%^%
 		// sanatize global variables 
