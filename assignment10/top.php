@@ -4,21 +4,21 @@ require_once('lib/custom-functions.php');
 ?>
 <!DOCTYPE html>
 <html lang="en">
-	<head>
-		<title>Pantry Raid</title>
-		<meta charset="utf-8">
-		<meta name="author" content="Will Barnwell wwbarnwell (at) gmail (dot) com">
-		<meta name="description" content="A website edited for an assignment by a smartass college kid who thinks of himself as pretty funny.">
+<head>
+	<title>Pantry Raid</title>
+	<meta charset="utf-8">
+	<meta name="author" content="Will Barnwell wwbarnwell (at) gmail (dot) com">
+	<meta name="description" content="A website edited for an assignment by a smartass college kid who thinks of himself as pretty funny.">
 
-		<meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
 
-		<!--[if lt IE 9]>
-		<script src="//html5shim.googlecode.com/sin/trunk/html5.js"></script>
-		<![endif]-->
+	<!--[if lt IE 9]>
+	<script src="//html5shim.googlecode.com/sin/trunk/html5.js"></script>
+	<![endif]-->
 
-		<link rel="stylesheet" href="css/base.css" type="text/css" media="screen">
+	<link rel="stylesheet" href="css/base.css" type="text/css" media="screen">
 
-		<?php
+	<?php
 		$debug = false;
 
 		// %^%^%^%^%^%^%^%^%^%^%^%^%^%^%^%^%^%^%^%^%^%^%^%^%^%^%^%^%^%^%^%^%^%^%
@@ -73,9 +73,10 @@ require_once('lib/custom-functions.php');
 		
 		$yourURL = $domain . $phpSelf;
 
+		$absDirPath = "https:" . $domain . rtrim(dirname($_SERVER['PHP_SELF']), '/\\');
 
-		echo "$yourURL";
-		echo "$domain";
+		echo "$absDirPath";
+		
 
 		$username = htmlentities($_SERVER["REMOTE_USER"], ENT_QUOTES, "UTF-8");
 
@@ -130,16 +131,16 @@ require_once('lib/custom-functions.php');
 		$dbUserName = get_current_user() . '_admin';
 		$whichPass = "a";
 		$thisDatabaseAdmin = new Database($dbUserName, $whichPass, $dbName);
-		?>	
+	?>	
 
-	</head>
+</head>
 
 
 
-	<!-- **********************     Body section      ********************** -->
-	<?php
+<!-- **********************     Body section      ********************** -->
+<?php
 	include 'nav.php';
 	print '<body id="' . $path_parts['filename'] . '">';
 	include "header.php";
 	include "nav.php";
-	?>
+?>
