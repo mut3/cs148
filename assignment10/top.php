@@ -146,7 +146,7 @@ require_once('lib/custom-functions.php');
 		$thisDatabaseReader->testQuery($query, $vars, $wheres, $conditions, $quotes, $symbols);
 		$userRecord = $thisDatabaseReader->select($query, $vars, $wheres, $conditions, $quotes, $symbols);
 		echo "<pre>";
-		print_r($userRecord[0[0]]);
+		print_r($userRecord);
 		echo "</pre>";
 		//load up userdata for user
 		echo count($userRecord);
