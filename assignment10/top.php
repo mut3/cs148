@@ -75,7 +75,7 @@ require_once('lib/custom-functions.php');
 
 		$absDirPath = "https:" . $domain . rtrim(dirname($_SERVER['PHP_SELF']), '/\\');
 
-		$pageName = (basename($_SERVER["SCRIPT_FILENAME"]);
+		$pageName = (basename($_SERVER["SCRIPT_FILENAME"]));
 
 
 		echo "$pageName";
