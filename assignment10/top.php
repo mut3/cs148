@@ -75,6 +75,7 @@ require_once('lib/custom-functions.php');
 
 
 		echo "$yourURL";
+		echo "$domain";
 
 		$username = htmlentities($_SERVER["REMOTE_USER"], ENT_QUOTES, "UTF-8");
 
