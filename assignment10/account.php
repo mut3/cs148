@@ -6,7 +6,7 @@
 		change or set user preferences
 		form autofills current values if they exist
 	*/
-	echo "<p>$username</p>";
+	echo "<p>Account settings of user: $username</p>";
 ?>
 <?php
 	// include top
