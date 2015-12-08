@@ -139,7 +139,9 @@ require_once('lib/custom-functions.php');
 		// query user table for record of this user
 		$query = "SELECT pmkUserId, fldUsername, fldEmail, fldAdmin FROM tblUser WHERE fldUsername = \"$username\"";
 		$userRecord = $thisDatabaseReader->select($query);
+		echo "<pre>";
 		print_r($userRecord);
+		echo "</pre>";
 		//load up userdata for user
 		echo count($userRecord);
 		if (count($userRecord) == 0 && $pageName != "account.php") {
