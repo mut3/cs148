@@ -137,7 +137,7 @@ require_once('lib/custom-functions.php');
 
 		$redirTarget = $absDirPath . "/account.php";
 		// query user table for record of this user
-		$query = "SELECT pmkUserId, fldUsername, fldEmail, fldAdmin FROM tblUser WHERE fldUsername = \"$username\"";
+		$query = "SELECT pmkUserId, fldUsername, fldEmail, fldAdmin FROM tblUser WHERE fldUsername = '$username'";
 		$userRecord = $thisDatabaseReader->select($query);
 		echo "<pre>";
 		print_r($userRecord[0]);
@@ -162,6 +162,7 @@ require_once('lib/custom-functions.php');
 	print '<body id="' . $path_parts['filename'] . '">';
 	include "header.php";
 	include "nav.php";
+
 	$headerFields = array_keys($userRecord[0]);
     // echo '<pre><p>';
     // print_r ($headerFields);
