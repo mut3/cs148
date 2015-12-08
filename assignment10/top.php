@@ -203,7 +203,7 @@ require_once('lib/custom-functions.php');
             $style = ' even ';
         }
         print '<tr class="' . $style . '">';
-        for ($i = 0; $i < $columns; $i++) {
+        for ($i = 0; $i < 4; $i++) {
             print '<td>' . $rec[$i] . '</td>';
         }
         print '</tr>';
