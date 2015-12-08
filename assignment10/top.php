@@ -75,15 +75,8 @@ require_once('lib/custom-functions.php');
 
 		$absDirPath = "https:" . $domain . rtrim(dirname($_SERVER['PHP_SELF']), '/\\');
 
-		echo "$absDirPath";
+		// echo "$absDirPath";
 		
-
-		$username = htmlentities($_SERVER["REMOTE_USER"], ENT_QUOTES, "UTF-8");
-
-		$redirTarget = $absDirPath . "/account.php";
-		//load up userdata for user
-		//if no data for user
-		//echo "<meta http-equiv=\"refresh\" content=\"0;url=$redirTarget\">";
 
 		// %^%^%^%^%^%^%^%^%^%^%^%^%^%^%^%^%^%^%^%^%^%^%^%^%^%^%^%^%^%^%^%^%^%^%
 		// sanatize global variables 
@@ -132,6 +125,24 @@ require_once('lib/custom-functions.php');
 		$dbUserName = get_current_user() . '_admin';
 		$whichPass = "a";
 		$thisDatabaseAdmin = new Database($dbUserName, $whichPass, $dbName);
+
+
+
+		// *********&*&*&*&*&&*&*&*&*&*&*&*&*&*&*&*&*&*&*&*&**&*
+		$username = htmlentities($_SERVER["REMOTE_USER"], ENT_QUOTES, "UTF-8");
+
+		$redirTarget = $absDirPath . "/account.php";
+		// query user table for record of this user
+		$query = "SELECT pmkId, fldUsername, fldEmail, fldAdmin FROM tblUser WHERE fldUsername = \"$username\""
+		$userRecord = $thisDatabaseReader->select($query);
+		print_r($userRecord);
+		//load up userdata for user
+		if (count($userRecord) == 0 && !(__FILE__ == "account.php")) {
+		 	//if no data for user
+		 	//re-direct to account.php
+			echo "<meta http-equiv=\"refresh\" content=\"0;url=$redirTarget\">";
+		} 
+		
 	?>	
 
 </head>
