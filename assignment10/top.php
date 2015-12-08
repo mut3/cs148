@@ -140,7 +140,7 @@ require_once('lib/custom-functions.php');
 		$query = "SELECT pmkUserId, fldUsername, fldEmail, fldAdmin FROM tblUser WHERE fldUsername = \"$username\"";
 		$userRecord = $thisDatabaseReader->select($query);
 		echo "<pre>";
-		print_r($userRecord);
+		print_r($userRecord[0]);
 		echo "</pre>";
 		//load up userdata for user
 		echo count($userRecord);
