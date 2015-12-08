@@ -1,4 +1,3 @@
-DROP CONSTRAINT IF EXISTS fk_OwnerId;
 DROP TABLE IF EXISTS tblUser;
 DROP TABLE IF EXISTS tblItem;
 DROP TABLE IF EXISTS tblAdmin;
@@ -15,8 +14,7 @@ CREATE TABLE tblItem
 	pmkItemId int NOT NULL AUTO_INCREMENT,
 	fnkOwnerId int NOT NULL,
 	fldItemName varchar(255) NOT NULL,
-	PRIMARY KEY(pmkItemId),
-	CONSTRAINT fk_OwnerId FOREIGN KEY (fnkOwnerId) REFERENCES tblUser(pmkUserId)
+	PRIMARY KEY(pmkItemId)
 );
 CREATE TABLE tblAdmin
 (
