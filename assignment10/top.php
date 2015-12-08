@@ -138,7 +138,12 @@ require_once('lib/custom-functions.php');
 		$redirTarget = $absDirPath . "/account.php";
 		// query user table for record of this user
 		$query = "SELECT pmkUserId, fldUsername, fldEmail, fldAdmin FROM tblUser WHERE fldUsername = '$username'";
-		$thisDatabaseReader->testQuery($query);
+		$vars = "";
+		$wheres = 1;
+		$conditions = 0;
+		$quotes = 2;
+		$symbols = 0;
+		$thisDatabaseReader->testQuery($query, $vars, $wheres, $conditions, $quotes, $symbols);
 		$userRecord = $thisDatabaseReader->select($query);
 		echo "<pre>";
 		print_r($userRecord[0]);
