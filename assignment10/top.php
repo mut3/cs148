@@ -75,6 +75,10 @@ require_once('lib/custom-functions.php');
 
 		$absDirPath = "https:" . $domain . rtrim(dirname($_SERVER['PHP_SELF']), '/\\');
 
+		$pageName = ($_SERVER["SCRIPT_FILENAME"]);
+
+
+		echo "$pageName";
 		// echo "$absDirPath";
 		
 
@@ -137,7 +141,7 @@ require_once('lib/custom-functions.php');
 		$userRecord = $thisDatabaseReader->select($query);
 		print_r($userRecord);
 		//load up userdata for user
-		if (count($userRecord) == 0 && !(__FILE__ == "account.php")) {
+		if (count($userRecord) == 0 && $pageName != "account.php") {
 		 	//if no data for user
 		 	//re-direct to account.php
 			echo "<meta http-equiv=\"refresh\" content=\"0;url=$redirTarget\">";
