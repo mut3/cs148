@@ -13,8 +13,8 @@ CREATE TABLE tblItem
 	fldItemName varchar(255) NOT NULL
 );
 
-INSERT INTO tblUser (fldUsername, fldEmail, fldAdmin) VALUES
-	('wbarnwel', 'wbarnwel@uvm.edu', TRUE);
+-- INSERT INTO tblUser (fldUsername, fldEmail, fldAdmin) VALUES
+-- 	('wbarnwel', 'wbarnwel@uvm.edu', TRUE);
 
-INSERT INTO tblItem (fnkOwnerId, fldItemName) VALUES
-	(0, 'Dread About This Project');
+-- INSERT INTO tblItem (fnkOwnerId, fldItemName) VALUES
+-- 	(0, 'Dread About This Project');
