@@ -8,6 +8,11 @@
 
 	*/
 ?>
+<?php // load units and items
+	$units = array("cups","pounds","tbsp","tsp");
+	$itemQuery = "SELECT pmkItemId, fnkOwnerId, fldItemName, fldAmtTot, fldAmtRem, fldAmtUnit FROM tblItem WHERE fnkOwnerId = $userData[id]";
+	$itemResults = thisDatabaseReader->select($itemQuery, "", 1);
+?>
 <?php // form validate and save data
 	//%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 	// Variable initialization done in top
@@ -129,18 +134,39 @@
 	<!-- Item Name - text Entry= new, drop down = update -->
 	<fieldset class="itemName">
 		<legend>Either enter a new item name or choose an existing item to update</legend>
-		<label for="txtItemName">Item Name: <input type="text" id="txtItemName" name="itemName" value="<?php echo "$itemName"; ?>"></label>
+		<label for="txtItemName">New Item Name: <input type="text" id="txtItemName" name="newItemName" value="<?php echo "$newItemName"; ?>"></label>
+		<label for="sltItemName"> or: 
+			<select id="sltItemName" name="extItemName" size="5">
+				<option <?php echo ($extItemName == "") ? "selected" : ""; ?>>Select an existing item...</option>
+				<?php
+					foreach ($itemResults as $rec) {
+						echo "<option value=" . $rec[pmkItemId] . " " . ($extItemName == $rec[pmkItemId]) ? "selected" : "" . ">" . $rec[fldItemName] . "</option>";
+					}
+				?>
+			</select>
+		</label>
+
 	</fieldset>
 	<!-- Amount Total - numerical text entry and units drop down -->
-	<fieldset class="amtTot">
+	<fieldset class="amount">
 		<legend>How much do you have? Select a unit</legend>
 		<label for="txtAmtTot">Amount (Total): <input type="number" id="txtAmtTot" name="amtTot" min="0" step=".1" max="100" value="<?php echo "$amtTot"; ?>"></label>
-
+		<legend>Already used some?</legend>
+		<label for="txtAmtRem">Amount (Remaining): <input type="number" id="txtAmtRem" name="amtRem" min="0" step=".1" max="100" value="<?php echo "$amtRem"; ?>"></label>
+		<label for="sltAmtUnit"> Units: 
+			<select id="sltAmtUnit" name="amtUnit" size="5">
+				<option <?php echo ($amtUnit == "") ? "selected" : ""; ?>>Select Unit...</option>
+				<?php
+					foreach ($units as $unit) {
+						echo "<option value=" . $unit . " " . ($amtUnit == $unit) ? "selected" : "" . ">" . $unit . "</option>";
+					}
+				?>
+			</select>
+		</label>
 	</fieldset>
 	<!-- Amount Remaining (opt) - numerical text entry and units drop down -->
 	<fieldset class="amtRem">
-		<legend>Already used some?</legend>
-		<label for="txtAmtRem">Amount (Remaining): <input type="number" id="txtAmtRem" name="amtRem" min="0" step=".1" max="100" value="<?php echo "$amtRem"; ?>"></label>
+		
 	</fieldset>
 	<fieldset class="buttons">
     <input type="submit" id="btnSubmit" name="btnSubmit" value="Save" tabindex="900" class="button">
