@@ -13,7 +13,7 @@
 	$itemQuery = "SELECT pmkItemId, fnkOwnerId, fldItemName, fldAmtTot, fldAmtRem, fldAmtUnit FROM tblItem WHERE fnkOwnerId = $userData[id]";
 	$itemResults = thisDatabaseReader->select($itemQuery, "", 1);
 ?>
-<?php // form validate and save data
+<!--<?php // form validate and save data
 	//%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 	// Variable initialization done in top
 		//if there are values in the post
@@ -126,7 +126,7 @@
 			} // end form is valid
 		} // ends if form was submitted.
 
-?> 
+?> -->
 <!-- Form -->
 <form action="<?php print $phpSelf; ?>"
       method="post"
