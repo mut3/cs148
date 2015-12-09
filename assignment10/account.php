@@ -92,7 +92,7 @@
 						echo "<p>dbg: entering silly-land";
 						//otherwise we have to ask the Admin table
 						$admQuery = "SELECT pmkAdminId, fnkUserId, fldUsername FROM tblAdmin";
-						$admResults = $thisDatabaseReader->select($admQuery);
+						$admResults = $thisDatabaseReader->select($admQuery, "", 0);
 						echo "<p>dbg: tried to grab admins<pre>" . var_dump($admresults) . "</pre>";
 						foreach ($admResults as $row) {
 							echo "<p>dbg: checking . . ." . $row['fldUsername'];
