@@ -12,6 +12,10 @@
 	$units = array("cups","pounds","tbsp","tsp");
 	$itemQuery = "SELECT pmkItemId, fnkOwnerId, fldItemName, fldAmtTot, fldAmtRem, fldAmtUnit FROM tblItem WHERE fnkOwnerId = $userData[id]";
 	$itemResults = $thisDatabaseReader->select($itemQuery, "", 1);
+	$itemRef = array();
+	foreach ($itemResults as $row) {
+		$itemRef[$row[pmkItemId]] = $row[fldItemName];
+	}
 ?>
 <?php // form validate and save data
 	//%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -21,6 +25,7 @@
 	$amtTot = "";
 	$amtRem = "";
 	$amtUnit = "";
+	$itemName ="";
 	echo sanitize("this is a test", true);
 		//if there are values in the post
 		if (isset($_POST["btnSubmit"])) {
@@ -78,6 +83,7 @@
 					}
 					if ($update) {
 						$query = 'UPDATE tblItem SET ';
+						$itemName = $itemRef[$extItemId];
 					} else {
 						$query = 'INSERT INTO tblItem SET ';
 					}
@@ -88,9 +94,12 @@
 						$query .= 'fnkOwnerId = ?, ';
 						$data[] = $userData['id'];
 					}
-					$query .= 'fldFirstName = ?, ';
-					$query .= 'fldLastName = ?, ';
-					$query .= 'fldBirthDate = ? ';
+					$query .= 'fldAmtTot = ?, ';
+					$data[] = $amtTot;
+					$query .= 'fldAmtRem = ?, ';
+					$data[] = $amtRem;
+					$query .= 'fldAmtUnit = ? ';
+					$data[] = $amtUnit;
 
 					if ($update) {
 						$query .= 'WHERE pmkItemId = ?';
@@ -102,6 +111,7 @@
 						
 						$results = $thisDatabase->insert($query, $data);
 						$primaryKey = $thisDatabase->lastInsert();
+						!itemName = $newItemName
 						if ($debug) {
 							print "<p>pmk= " . $primaryKey;
 						}
@@ -110,6 +120,7 @@
 					// all sql statements are done so lets commit to our changes
 					//if($_SERVER["REMOTE_USER"]=='rerickso'){
 					$dataEntered = $thisDatabase->db->commit();
+					$successMessage = "Successfully stocked " . $itemName;
 					// }else{
 					//     $thisDatabase->db->rollback();
 					// }
