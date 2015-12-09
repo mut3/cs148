@@ -15,6 +15,7 @@ require_once('lib/custom-functions.php');
 	<!--[if lt IE 9]>
 	<script src="//html5shim.googlecode.com/sin/trunk/html5.js"></script>
 	<![endif]-->
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
 	<!-- Latest compiled and minified CSS -->
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
 
@@ -189,6 +190,5 @@ require_once('lib/custom-functions.php');
 <!-- **********************     Body section      ********************** -->
 <?php
 	print '<body id="' . $path_parts['filename'] . '">';
-	include "header.php";
 	include "nav.php";
 ?>

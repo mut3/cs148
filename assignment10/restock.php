@@ -20,6 +20,7 @@
 <?php // form validate and save data
 	//%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 	// Variable initialization
+	$errorMsg = array();
 	$newItemName = "";
 	$extItemId = "";
 	$amtTot = "";
@@ -179,8 +180,8 @@
 			<select id="sltAmtUnit" name="amtUnit" size="5">
 				<option <?php echo ($amtUnit == "") ? "selected" : ""; ?>>Select Unit...</option>
 				<?php
-					foreach ($units as $unit) {
-						echo "<option value=" . $unit . " " . ($amtUnit == $unit) ? "selected" : "" . ">" . $unit . "</option>";
+					for ($i=0; $i < count($units); $i++) { 
+						echo "<option value=" . $units[$i] . " " . ($amtUnit == $units[$i]) ? "selected" : "" . ">" . $units[$i] . "</option>";
 					}
 				?>
 			</select>
