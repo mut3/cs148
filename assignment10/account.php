@@ -15,10 +15,10 @@
 		$email = $userData["email"];
 		$radSciFi = $userData["sf"];
 		if (isset($_POST["btnSubmit"])) {
-			echo "<p>dbg: posted";
+			// echo "<p>dbg: posted";
 			$update = false;
 			if (!$newUser) {
-				echo "<p>dbg: updating existing user";
+				// echo "<p>dbg: updating existing user";
 				$update = true;
 			}
 		//@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
@@ -44,7 +44,7 @@
 				$sciFiERROR = true;
 			} 
 
-			echo "<p>invalid? ". $sciFiERROR . "-" . $emailERROR;
+			// echo "<p>dbg: invalid? ". $sciFiERROR . "-" . $emailERROR;
 		//@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
 		//
 		// SECTION: 2d Process Form - Passed Validation
@@ -63,7 +63,7 @@
 
 				$dataEntered = false;
 				try {
-					echo "<p>dbg: trying";
+					// echo "<p>dbg: trying";
 					$thisDatabaseWriter->db->beginTransaction();
 
 					if ($update) {
@@ -84,25 +84,25 @@
 					$wannabe = false;
 					// not set? false
 					if (!isset($_POST['chkAdmin'])) {
-						echo "<p>dbg: no admin check";
+						// echo "<p>dbg: no admin check";
 						$data[] = false;
 					} elseif ($userData['admin']) {
 						//already an admin? true
-						echo "<p>dbg: already admin";
+						// echo "<p>dbg: already admin";
 						$data[] = true;
 					} else {
-						echo "<p>dbg: entering silly-land";
+						// echo "<p>dbg: entering silly-land";
 						//otherwise we have to ask the Admin table
 						$admQuery = "SELECT pmkAdminId, fnkUserId, fldAdminUsername FROM tblAdmin";
 						$thisDatabaseReader->testquery($admQuery, "", 0);
 						$admResults = $thisDatabaseReader->select($admQuery, "", 0);
-						echo "<p>dbg: tried to grab admins<pre>" . var_dump($admResults) . "</pre>";
+						// echo "<p>dbg: tried to grab admins<pre>" . var_dump($admResults) . "</pre>";
 						foreach ($admResults as $row) {
-							echo "<p>dbg: checking . . ." . $row['fldUsername'];
+							// echo "<p>dbg: checking . . ." . $row['fldUsername'];
 							if($row['fldAdminUsername']==$username) {
 								// get the record we need to update, we'll use this later
 								$updateRecId = $row[pmkAdminId];
-								echo "<p>dbg: triggered: " . $updateRecId;
+								// echo "<p>dbg: triggered: " . $updateRecId;
 								break;
 							}
 						}
@@ -119,7 +119,7 @@
 						$data[] = $userData['id'];
 						$results = $thisDatabaseWriter->update($query, $data, 1, 0, 0, 0, false, false);
 						$primaryKey = $userData['id'];
-						echo "<p>dbg: tried to update<pre>" . var_dump($results) . "</pre>";
+						// echo "<p>dbg: tried to update<pre>" . var_dump($results) . "</pre>";
 						
 					} else {
 						$results = $thisDatabaseWriter->insert($query, $data);
@@ -127,16 +127,16 @@
 						if ($debug) {
 							print "<p>pmk= " . $primaryKey;
 						}
-						echo "<p>dbg: tried to insert<pre>" . var_dump($results) . "</pre>";
+						// echo "<p>dbg: tried to insert<pre>" . var_dump($results) . "</pre>";
 					}
 					if ($updateRecId != "") {
-						echo "<p>dbg: trying to update admin record";
+						// echo "<p>dbg: trying to update admin record";
 						//gotta update the admin database to point the fnk to the right place
 						$adUpQuery = "UPDATE tblAdmin SET fnkUserId = $primaryKey WHERE pmkAdminId = $updateRecId";
 						$thisDatabaseWriter->update($adUpQuery, "", 1, 0, 0, 0, false, false);
 					}
 					if ($wannabe) {
-						echo "<p>dbg: wannabe noob!";
+						// echo "<p>dbg: wannabe noob!";
 						// if they didnt make the cut add them to the sad place
 						$wnbQuery = "INSERT INTO tblWannabeAdmin (fnkLuserId) VALUES ($primaryKey)";
 						$thisDatabaseWriter->insert($wnbQuery, "", 1, 0, 0, 0, false, false);
@@ -145,7 +145,7 @@
 					// all sql statements are done so lets commit to our changes
 					//if($_SERVER["REMOTE_USER"]=='rerickso'){
 					$dataEntered = $thisDatabaseWriter->db->commit();
-					echo "<p>dbg: commited<pre>" . var_dump($dataEntered) . "</pre>";
+					// echo "<p>dbg: commited<pre>" . var_dump($dataEntered) . "</pre>";
 					// }else{
 					//     $thisDatabaseWriter->db->rollback();
 					// }
@@ -153,7 +153,7 @@
 						print "<p>transaction complete ";
 				} catch (PDOExecption $e) {
 					$thisDatabaseWriter->db->rollback();
-					echo "<p>dbg: AHHHHHHHHHH " . $e->getMessage();
+					// echo "<p>dbg: AHHHHHHHHHH " . $e->getMessage();
 					if ($debug)
 						print "Error!: " . $e->getMessage() . "</br>";
 					$errorMsg[] = "There was a problem with accepting your data please contact us directly.";

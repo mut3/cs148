@@ -159,11 +159,11 @@ require_once('lib/custom-functions.php');
 			"sf" => $firstRecord[fldSciFi],
 			"admin" => $firstRecord[fldAdmin]
 		);
-		echo "<p>dbg: User data: "; var_dump($userData);
+		// echo "<p>dbg: User data: "; var_dump($userData);
 		// echo count($userRecord);
 		$newUser = false;
 		if ($userData[id] == NULL) {
-			echo "<p>dbg: newUser triggered " . $userData[id];
+			// echo "<p>dbg: newUser triggered " . $userData[id];
 		 	//if no data for user
 		 	$newUser = true;
 		 	//re-direct to account.php
