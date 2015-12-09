@@ -160,10 +160,15 @@ require_once('lib/custom-functions.php');
 			"admin" => $firstRecord[fldAdmin]
 		);
 		// echo count($userRecord);
-		if (($userData[id] == NULL) && $pageName != "account.php") {
+		$newUser = false;
+		if ($userData[id] == NULL) {
 		 	//if no data for user
+		 	$newUser = true;
 		 	//re-direct to account.php
-			echo "<meta http-equiv=\"refresh\" content=\"0;url=$redirTarget\">";
+		 	if ($pageName != "account.php") {
+				echo "<meta http-equiv=\"refresh\" content=\"0;url=$redirTarget\">";
+		 	}
+		 	
 		} 
 		// var_dump($userData);
 	?>	
