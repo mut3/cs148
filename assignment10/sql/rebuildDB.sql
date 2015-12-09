@@ -29,7 +29,7 @@ CREATE TABLE tblWannabeAdmin
 (
 	pmkAdminId int NOT NULL AUTO_INCREMENT,
 	fnkLuserId int,
-	PRIMARY KEY(pmkAdminId)
+	PRIMARY KEY(pmkAdminId, fnkLuserId)
 );
 
 INSERT INTO tblUser (fldUsername, fldEmail, fldSciFi, fldAdmin) VALUES

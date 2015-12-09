@@ -110,7 +110,8 @@
 					}
 					if ($updateRecId != "") {
 						//gotta update the admin database to point the fnk to the right place
-						$adUpQuery = ""
+						$adUpQuery = "UPDATE tblAdmin SET fnkUserId = $primaryKey WHERE pmkAdminId = $updateRecId";
+						$thisDatabaseWriter->update($adUpQuery, "", 1, 0, 0, 0, false, false);
 					}
 					// all sql statements are done so lets commit to our changes
 					//if($_SERVER["REMOTE_USER"]=='rerickso'){
