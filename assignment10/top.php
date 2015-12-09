@@ -137,25 +137,35 @@ require_once('lib/custom-functions.php');
 
 		$redirTarget = $absDirPath . "/account.php";
 		// query user table for record of this user
-		$query = "SELECT pmkUserId, fldUsername, fldEmail, fldAdmin FROM tblUser WHERE fldUsername = '$username'";
-		$vars = "";
-		$wheres = 1;
-		$conditions = 0;
-		$quotes = 2;
-		$symbols = 0;
-		$thisDatabaseReader->testQuery($query, $vars, $wheres, $conditions, $quotes, $symbols);
-		$userRecord = $thisDatabaseReader->select($query, $vars, $wheres, $conditions, $quotes, $symbols);
-		echo "<pre>";
-		print_r($userRecord);
-		echo "</pre>";
-		//load up userdata for user
-		echo count($userRecord);
-		if (count($userRecord) == 0 && $pageName != "account.php") {
+		$UQquery = "SELECT pmkUserId, fldUsername, fldEmail, fldAdmin FROM tblUser WHERE fldUsername = '$username'";
+		$UQvars = "";
+		$UQwheres = 1;
+		$UQconditions = 0;
+		$UQquotes = 2;
+		$UQsymbols = 0;
+		// $thisDatabaseReader->testQuery($query, $vars, $wheres, $conditions, $quotes, $symbols);
+		$userRecord = $thisDatabaseReader->select($UQquery, $UQvars, $UQwheres, $UQconditions, $UQquotes, $UQsymbols);
+		// echo "<pre>";
+		// print_r($userRecord);
+		// echo "</pre>";
+
+		//place first record array into var
+		$firstRecord = $userRecord[0];
+		// echo count($userRecord);
+		if (/*no record exists for user*/ false && $pageName != "account.php") {
 		 	//if no data for user
 		 	//re-direct to account.php
 			echo "<meta http-equiv=\"refresh\" content=\"0;url=$redirTarget\">";
 		} 
-		
+		//load up userdata for user
+		$userData = array(
+			"id" => $firstRecord[pmkUserId],
+			"username" => $username,
+			"email" => $firstRecord[fldEmail],
+			"admin" => $firstRecord[fldAdmin],
+			"sf" => $firstRecord[fldSciFi]
+		)
+		var_dump($userData);
 	?>	
 
 </head>
