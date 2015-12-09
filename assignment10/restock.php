@@ -37,10 +37,10 @@
 		// remove any potential JavaScript or html code from users input on the
 		// form. Note it is best to follow the same order as declared in section 1c.
 			// I am not putting the ID in the $data array at this time
-
+			echo $_POST["newItemName"];
 			$newItemName = htmlentities($_POST["newItemName"], ENT_QUOTES, "UTF-8");
 
-			$extItemId = htmlentities($_POST["extItemId"], ENT_QUOTES, "UTF-8");
+			$extItemId = (int) $_POST["extItemId"];
 			
 		//@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
 		//
