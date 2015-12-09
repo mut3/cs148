@@ -16,8 +16,8 @@ CREATE TABLE tblItem
 	pmkItemId int NOT NULL AUTO_INCREMENT,
 	fnkOwnerId int NOT NULL,
 	fldItemName varchar(255) NOT NULL,
-	fldAmtTot number,
-	fldAmtRem number,
+	fldAmtTot DECIMAL(3,2),
+	fldAmtRem DECIMAL(3,2),
 	fldAmtUnit varchar(255),
 	PRIMARY KEY(pmkItemId)
 );
