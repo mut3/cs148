@@ -94,9 +94,11 @@
 						$admQuery = "SELECT pmkAdminId, fnkUserId, fldUsername FROM tblAdmin";
 						$admResults = $thisDatabaseReader->select($admQuery);
 						foreach ($admResults as $row) {
+							echo "<p>dbg: checking . . ." . $row['fldUsername'];
 							if($row['fldUsername']==$username) {
 								// get the record we need to update, we'll use this later
 								$updateRecId = $row[pmkAdminId];
+								echo "<p>dbg: triggered: " . $updateRecId;
 								break;
 							}
 						}
