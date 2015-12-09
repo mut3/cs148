@@ -164,7 +164,7 @@ require_once('lib/custom-functions.php');
 			"email" => $firstRecord[fldEmail],
 			"admin" => $firstRecord[fldAdmin],
 			"sf" => $firstRecord[fldSciFi]
-		)
+		);
 		var_dump($userData);
 	?>	
 
