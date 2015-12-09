@@ -111,7 +111,7 @@
 						
 						$results = $thisDatabase->insert($query, $data);
 						$primaryKey = $thisDatabase->lastInsert();
-						!itemName = $newItemName
+						$itemName = $newItemName;
 						if ($debug) {
 							print "<p>pmk= " . $primaryKey;
 						}
