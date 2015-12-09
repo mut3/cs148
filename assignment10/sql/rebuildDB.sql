@@ -6,6 +6,7 @@ CREATE TABLE tblUser
 	pmkUserId int NOT NULL AUTO_INCREMENT,
 	fldUsername varchar(8) NOT NULL,
 	fldEmail varchar(255),
+	fldSciFi int,
 	fldAdmin boolean,
 	PRIMARY KEY(pmkUserId)
 );
@@ -24,8 +25,8 @@ CREATE TABLE tblAdmin
 	PRIMARY KEY(pmkAdminId)
 );
 
-INSERT INTO tblUser (fldUsername, fldEmail, fldAdmin) VALUES
-	('wbarnwel', 'wbarnwel@uvm.edu', TRUE);
+INSERT INTO tblUser (fldUsername, fldEmail, fldSciFi, fldAdmin) VALUES
+	('wbarnwel', 'wbarnwel@uvm.edu', 0, TRUE);
 
 -- INSERT INTO tblItem (fnkOwnerId, fldItemName) VALUES
 -- 	(0, 'Dread About This Project');
