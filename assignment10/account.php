@@ -12,7 +12,7 @@
 	//%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 	// Variable initialization done in top
 		//if there are values in the post
-		$email = "$username@uvm.edu";
+		$email = "$userData['email']";
 		if (isset($_POST["btnSubmit"])) {
 			echo "<p>dbg: posted";
 			$update = false;
@@ -92,7 +92,7 @@
 						$admQuery = "SELECT pmkAdminId, fnkUserId, fldUsername FROM tblAdmin";
 						$admResults = $thisDatabaseReader->select($admQuery);
 						foreach ($admResults as $row) {
-							if($row[fldUsername]==$username) {
+							if($row['fldUsername']==$username) {
 								// get the record we need to update, we'll use this later
 								$updateRecId = $row[pmkAdminId];
 								break;
@@ -111,7 +111,7 @@
 						$data[] = $userData['id'];
 						$results = $thisDatabaseWriter->update($query, $data, 1, 0, 0, 0, false, false);
 						$primaryKey = $userData['id'];
-						echo "<p>dbg: tried to update<pre>"; var_dump($results);
+						echo "<p>dbg: tried to update<pre>" . var_dump($results) . "</pre>";
 						
 					} else {
 						$results = $thisDatabaseWriter->insert($query, $data);
@@ -119,7 +119,7 @@
 						if ($debug) {
 							print "<p>pmk= " . $primaryKey;
 						}
-						echo "<p>dbg: tried to insert<pre>"; var_dump($results);
+						echo "<p>dbg: tried to insert<pre>" . var_dump($results) . "</pre>";
 					}
 					if ($updateRecId != "") {
 						echo "<p>dbg: trying to update admin record";
@@ -137,7 +137,7 @@
 					// all sql statements are done so lets commit to our changes
 					//if($_SERVER["REMOTE_USER"]=='rerickso'){
 					$dataEntered = $thisDatabaseWriter->db->commit();
-					echo "<p>dbg: commited<pre>"; var_dump($dataEntered);
+					echo "<p>dbg: commited<pre>" . var_dump($dataEntered) . "</pre>";
 					// }else{
 					//     $thisDatabaseWriter->db->rollback();
 					// }
