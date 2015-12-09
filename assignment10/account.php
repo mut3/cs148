@@ -155,7 +155,7 @@
 					//     $thisDatabaseWriter->db->rollback();
 					// }
 					$messageA = "<p>Hello $username</p>";
-					$messageA .= "<p>Your settings as of the sending of this message: </p>"
+					$messageA .= "<p>Your settings as of the sending of this message: </p>";
 					$messageB = "<pre>Your Preferred SciFi Quote is: $quoteArray[$radSciFi]
 					You are " . ($isAdmin) ? "" : "not" ;" an Admin.</pre>";
 					$messageC = "<p>Make it a great day!</p>";
