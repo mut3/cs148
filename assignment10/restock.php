@@ -13,9 +13,10 @@
 	$itemQuery = "SELECT pmkItemId, fnkOwnerId, fldItemName, fldAmtTot, fldAmtRem, fldAmtUnit FROM tblItem WHERE fnkOwnerId = $userData[id]";
 	$itemResults = $thisDatabaseReader->select($itemQuery, "", 1);
 ?>
-<!--<?php // form validate and save data
+<?php // form validate and save data
 	//%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-	// Variable initialization done in top
+	// Variable initialization
+
 		//if there are values in the post
 		if (isset($_POST["btnSubmit"])) {
 		//@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
@@ -126,7 +127,7 @@
 			} // end form is valid
 		} // ends if form was submitted.
 
-?> -->
+?>
 <!-- Form -->
 <form action="<?php print $phpSelf; ?>"
       method="post"
@@ -151,6 +152,7 @@
 	<fieldset class="amount">
 		<legend>How much do you have? Select a unit</legend>
 		<label for="txtAmtTot">Amount (Total): <input type="number" id="txtAmtTot" name="amtTot" min="0" step=".1" max="100" value="<?php echo "$amtTot"; ?>"></label>
+		<!-- Amount Remaining (opt) - numerical text entry and units drop down -->
 		<legend>Already used some?</legend>
 		<label for="txtAmtRem">Amount (Remaining): <input type="number" id="txtAmtRem" name="amtRem" min="0" step=".1" max="100" value="<?php echo "$amtRem"; ?>"></label>
 		<label for="sltAmtUnit"> Units: 
@@ -164,12 +166,8 @@
 			</select>
 		</label>
 	</fieldset>
-	<!-- Amount Remaining (opt) - numerical text entry and units drop down -->
-	<fieldset class="amtRem">
-		
-	</fieldset>
 	<fieldset class="buttons">
-    <input type="submit" id="btnSubmit" name="btnSubmit" value="Save" tabindex="900" class="button">
+    <input type="submit" id="btnSubmit" name="btnSubmit" value="Stock it!" tabindex="900" class="button">
   </fieldset>
 </form>
 <?php
