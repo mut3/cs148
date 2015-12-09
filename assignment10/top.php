@@ -137,7 +137,7 @@ require_once('lib/custom-functions.php');
 
 		$redirTarget = $absDirPath . "/account.php";
 		// query user table for record of this user
-		$UQquery = "SELECT pmkUserId, fldUsername, fldEmail, fldAdmin FROM tblUser WHERE fldUsername = '$username'";
+		$UQquery = "SELECT pmkUserId, fldUsername, fldEmail, fldAdmin FROM tblUser WHERE fldUsername = 'adatta'";
 		$UQvars = "";
 		$UQwheres = 1;
 		$UQconditions = 0;
