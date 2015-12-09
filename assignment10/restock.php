@@ -82,7 +82,7 @@
 
 				$dataEntered = false;
 				try {
-					$thisDatabase->db->beginTransaction();
+					$thisDatabaseWriter->db->beginTransaction();
 					if ($extItemId != "") {
 						$update = true;
 					}
@@ -110,12 +110,12 @@
 						$query .= 'WHERE pmkItemId = ?';
 						$data[] = $extItemId;
 
-						$results = $thisDatabase->update($query, $data, 1, 0, 0, 0, false, false);
+						$results = $thisDatabaseWriter->update($query, $data, 1, 0, 0, 0, false, false);
 						
 					} else {
 						
-						$results = $thisDatabase->insert($query, $data);
-						$primaryKey = $thisDatabase->lastInsert();
+						$results = $thisDatabaseWriter->insert($query, $data);
+						$primaryKey = $thisDatabaseReader->lastInsert();
 						$itemName = $newItemName;
 						if ($debug) {
 							print "<p>pmk= " . $primaryKey;
@@ -124,10 +124,10 @@
 
 					// all sql statements are done so lets commit to our changes
 					//if($_SERVER["REMOTE_USER"]=='rerickso'){
-					$dataEntered = $thisDatabase->db->commit();
+					$dataEntered = $thisDatabaseWriter->db->commit();
 					$successMessage = "Successfully stocked " . $itemName;
 					// }else{
-					//     $thisDatabase->db->rollback();
+					//     $thisDatabaseWriter->db->rollback();
 					// }
 					if ($debug)
 						print "<p>transaction complete ";
