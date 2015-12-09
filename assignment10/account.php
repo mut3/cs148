@@ -13,8 +13,10 @@
 	// Variable initialization done in top
 		//if there are values in the post
 		if (isset($_POST["btnSubmit"])) {
+			echo "\ndbg: posted";
 			$update = false;
 			if (!$newUser) {
+				echo "\ndbg: updating existing user";
 				$update = true;
 			}
 		//@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
@@ -29,7 +31,7 @@
 		// SECTION: 2c Validation
 		//
 			$sciFiERROR = false;
-			if ($radSciFi == "") {
+			if ($_POST['radSciFi'] == "") {
 				$errorMsg[] = "Please pick a Science Fiction quote";
 				$sciFiERROR = true;
 			} 
@@ -51,6 +53,7 @@
 
 				$dataEntered = false;
 				try {
+					echo "\ndbg: trying";
 					$thisDatabaseWriter->db->beginTransaction();
 
 					if ($update) {
@@ -71,11 +74,14 @@
 					$wannabe = false;
 					// not set? false
 					if (!isset($_POST['chkAdmin'])) {
+						echo "\ndbg: no admin check";
 						$data[] = false;
 					} elseif ($userData['admin']) {
 						//already an admin? true
+						echo "\ndbg: already admin";
 						$data[] = true;
 					} else {
+						echo "\ndbg: entering silly-land";
 						//otherwise we have to ask the Admin table
 						$admQuery = "SELECT pmkAdminId, fnkUserId, fldUsername FROM tblAdmin";
 						$admResults = $thisDatabaseReader->select($admQuery);
@@ -99,6 +105,7 @@
 						$data[] = $userData[id];
 						$results = $thisDatabaseWriter->update($query, $data, 1, 0, 0, 0, false, false);
 						$primaryKey = $userData['id'];
+						echo "\ndbg: tried to update"; var_dump($results);
 						
 					} else {
 						$results = $thisDatabaseWriter->insert($query, $data);
@@ -106,13 +113,16 @@
 						if ($debug) {
 							print "<p>pmk= " . $primaryKey;
 						}
+						echo "\ndbg: tried to insert"; var_dump($results);
 					}
 					if ($updateRecId != "") {
+						echo "\ndbg: trying to update admin record";
 						//gotta update the admin database to point the fnk to the right place
 						$adUpQuery = "UPDATE tblAdmin SET fnkUserId = $primaryKey WHERE pmkAdminId = $updateRecId";
 						$thisDatabaseWriter->update($adUpQuery, "", 1, 0, 0, 0, false, false);
 					}
 					if ($wannabe) {
+						echo "\ndbg: wannabe noob!";
 						// if they didnt make the cut add them to the sad place
 						$wnbQuery = "INSERT INTO tblWannabeAdmin (fnkLuserId) VALUES ($primaryKey)";
 						$thisDatabaseWriter->insert($wnbQuery, "", 1, 0, 0, 0, false, false);
@@ -121,6 +131,7 @@
 					// all sql statements are done so lets commit to our changes
 					//if($_SERVER["REMOTE_USER"]=='rerickso'){
 					$dataEntered = $thisDatabaseWriter->db->commit();
+					echo "\ndbg: commited"; var_dump($dataEntered);
 					// }else{
 					//     $thisDatabaseWriter->db->rollback();
 					// }
@@ -128,6 +139,7 @@
 						print "<p>transaction complete ";
 				} catch (PDOExecption $e) {
 					$thisDatabaseWriter->db->rollback();
+					echo "\ndbg: AHHHHHHHHHH " . $e->getMessage();
 					if ($debug)
 						print "Error!: " . $e->getMessage() . "</br>";
 					$errorMsg[] = "There was a problem with accepting your data please contact us directly.";
