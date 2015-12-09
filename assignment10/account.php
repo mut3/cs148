@@ -8,7 +8,7 @@
 	form autofills current values if they exist
 	*/
 ?>
-<!--<?php // form validate and save data
+<?php // form validate and save data
 	//%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 	// Variable initialization done in top
 		//if there are values in the post
@@ -93,19 +93,18 @@
 							$wannabe = true;
 						}
 					}
-
+					$primaryKey = "";
 					if ($update) {
 						$query .= 'WHERE pmkUserId = ?';
 						$data[] = $userData[id];
 						$results = $thisDatabaseWriter->update($query, $data, 1, 0, 0, 0, false, false);
+						$primaryKey = $userData['id']
 						
 					} else {
-						if ($_SERVER["REMOTE_USER"] == 'rerickso'){
-							$results = $thisDatabaseWriter->insert($query, $data);
-							$primaryKey = $thisDatabaseReader->lastInsert();
-							if ($debug) {
-								print "<p>pmk= " . $primaryKey;
-							}
+						$results = $thisDatabaseWriter->insert($query, $data);
+						$primaryKey = $thisDatabaseReader->lastInsert();
+						if ($debug) {
+							print "<p>pmk= " . $primaryKey;
 						}
 					}
 					if ($updateRecId != "") {
@@ -113,6 +112,12 @@
 						$adUpQuery = "UPDATE tblAdmin SET fnkUserId = $primaryKey WHERE pmkAdminId = $updateRecId";
 						$thisDatabaseWriter->update($adUpQuery, "", 1, 0, 0, 0, false, false);
 					}
+					if ($wannabe) {
+						// if they didnt make the cut add them to the sad place
+						$wnbQuery = "INSERT INTO tblWannabeAdmin (fnkLuserId) VALUES ($primaryKey)";
+						$thisDatabaseWriter->insert($wnbQuery, "", 1, 0, 0, 0, false, false);
+					}
+
 					// all sql statements are done so lets commit to our changes
 					//if($_SERVER["REMOTE_USER"]=='rerickso'){
 					$dataEntered = $thisDatabaseWriter->db->commit();
@@ -130,8 +135,9 @@
 			} // end form is valid
 		} // ends if form was submitted.
 
-?> -->
+?>
 <?php // Page Content & Form
+
 	echo "<p>Account settings of user: $username</p>";
 	if ($newUser) {
 		echo "<h2>New Account Setup</h2>";
