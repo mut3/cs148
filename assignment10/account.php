@@ -98,7 +98,7 @@
 						$query .= 'WHERE pmkUserId = ?';
 						$data[] = $userData[id];
 						$results = $thisDatabaseWriter->update($query, $data, 1, 0, 0, 0, false, false);
-						$primaryKey = $userData['id']
+						$primaryKey = $userData['id'];
 						
 					} else {
 						$results = $thisDatabaseWriter->insert($query, $data);
@@ -162,7 +162,7 @@
     </fieldset>
 		<!-- SciFi Radio -->
 	
-		<fieldset class="radio <?php if ($sciFiERROR) print 'mistake';?>">
+		<fieldset class="radio <?php if ($sciFiERROR) {print 'mistake';}?>">
 		  <legend>Pick one:</legend>
 
 		  <label for="radHitch">
