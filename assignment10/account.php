@@ -13,50 +13,26 @@
 	// Variable initialization done in top
 		//if there are values in the post
 		if (isset($_POST["btnSubmit"])) {
+			update = false;
+			if (!$newUser) {
+				$update = true;
+			}
 		//@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
 		//
 		// SECTION: 2b Sanitize (clean) data
 		// remove any potential JavaScript or html code from users input on the
 		// form. Note it is best to follow the same order as declared in section 1c.
-			if (!$newUser) {
-				$update = true;
-			}
-			// I am not putting the ID in the $data array at this time
-
-			$firstName = htmlentities($_POST["txtFirstName"], ENT_QUOTES, "UTF-8");
-			$data[] = $firstName;
-
-			$lastName = htmlentities($_POST["txtLastName"], ENT_QUOTES, "UTF-8");
-			$data[] = $lastName;
-
-			$birthday = htmlentities($_POST["txtBirthday"], ENT_QUOTES, "UTF-8");
-			$data[] = $birthday;
+		
 
 		//@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
 		//
 		// SECTION: 2c Validation
 		//
-
-			if ($firstName == "") {
-				$errorMsg[] = "Please enter your first name";
-				$firstNameERROR = true;
-			} elseif (!verifyAlphaNum($firstName)) {
-				$errorMsg[] = "Your first name appears to have extra character.";
-				$firstNameERROR = true;
-			}
-
-			if ($lastName == "") {
-				$errorMsg[] = "Please enter your last name";
-				$lastNameERROR = true;
-			} elseif (!verifyAlphaNum($lastName)) {
-				$errorMsg[] = "Your last name appears to have extra character.";
-				$lastNameERROR = true;
-			}
-
-			if ($birthday == "") {
-				$errorMsg[] = "Please enter the poets birthday";
-				$birthdayERROR = true;
-			}// should check to make sure its the correct date format
+			$sciFiERROR = false;
+			if ($radSciFi == "") {
+				$errorMsg[] = "Please pick a Science Fiction quote";
+				$sciFiERROR = true;
+			} 
 		//@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
 		//
 		// SECTION: 2d Process Form - Passed Validation
@@ -75,29 +51,56 @@
 
 				$dataEntered = false;
 				try {
-					$thisDatabase->db->beginTransaction();
+					$thisDatabaseWriter->db->beginTransaction();
 
 					if ($update) {
-						$query = 'UPDATE tblPoet SET ';
+						$query = 'UPDATE tblUser SET ';
 					} else {
-						$query = 'INSERT INTO tblPoet SET ';
+						$query = 'INSERT INTO tblUser SET ';
+					}
+					
+					$query .= 'fldUsername = ?, ';
+					$data[] = $userData[username];
+					$query .= 'fldEmail = ?, ';
+					$data[] = $_POST['email'];
+					$query .= 'fldSciFi = ?, ';
+					$data[] = $_POST['radSciFi'];
+					$query .= 'fldAdmin = ? ';
+					// now comes the super annoying Admin bit
+					// not set? false
+					if (!isset($_POST['chkAdmin'])) {
+						$data[] = false;
+					} elseif ($userData['admin']) {
+						//already an admin? true
+						$data[] = true;
+					} else {
+						//otherwise we have to ask the Admin table
+						$admQuery = "SELECT pmkAdminId, fnkUserId, fldUsername FROM tblAdmin";
+						$admResults = $thisDatabaseReader->select($admQuery);
+						$updateRecId = "";
+						foreach ($admResults as $row) {
+							if($row[fldUsername]==$username) {
+								// get the record we need to update, we'll use this later
+								$updateRecId = $row[pmkAdminId];
+								break;
+							}
+						}
+						if ($updateRecId != "") {
+							$data[] = true;
+						} else {
+							$data[] = false;
+						}
 					}
 
-					$query .= 'fldFirstName = ?, ';
-					$query .= 'fldLastName = ?, ';
-					$query .= 'fldBirthDate = ? ';
-
 					if ($update) {
-						$query .= 'WHERE pmkPoetId = ?';
-						$data[] = $pmkPoetId;
-
-						if ($_SERVER["REMOTE_USER"] == 'rerickso') {
-							$results = $thisDatabase->update($query, $data, 1, 0, 0, 0, false, false);
-						}
+						$query .= 'WHERE pmkUserId = ?';
+						$data[] = $userData[id];
+						$results = $thisDatabaseWriter->update($query, $data, 1, 0, 0, 0, false, false);
+						
 					} else {
 						if ($_SERVER["REMOTE_USER"] == 'rerickso'){
-							$results = $thisDatabase->insert($query, $data);
-							$primaryKey = $thisDatabase->lastInsert();
+							$results = $thisDatabaseWriter->insert($query, $data);
+							$primaryKey = $thisDatabaseReader->lastInsert();
 							if ($debug) {
 								print "<p>pmk= " . $primaryKey;
 							}
@@ -106,14 +109,14 @@
 
 					// all sql statements are done so lets commit to our changes
 					//if($_SERVER["REMOTE_USER"]=='rerickso'){
-					$dataEntered = $thisDatabase->db->commit();
+					$dataEntered = $thisDatabaseWriter->db->commit();
 					// }else{
-					//     $thisDatabase->db->rollback();
+					//     $thisDatabaseWriter->db->rollback();
 					// }
 					if ($debug)
 						print "<p>transaction complete ";
 				} catch (PDOExecption $e) {
-					$thisDatabase->db->rollback();
+					$thisDatabaseWriter->db->rollback();
 					if ($debug)
 						print "Error!: " . $e->getMessage() . "</br>";
 					$errorMsg[] = "There was a problem with accepting your data please contact us directly.";
@@ -147,7 +150,7 @@
     </fieldset>
 		<!-- SciFi Radio -->
 	
-		<fieldset class="radio">
+		<fieldset class="radio <?php if ($sciFiERROR) print 'mistake';?>">
 		  <legend>Pick one:</legend>
 
 		  <label for="radHitch">
