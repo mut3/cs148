@@ -126,7 +126,7 @@
 	echo "<p>Account settings of user: $username</p>";
 	if ($newUser) {
 		echo "<h2>New Account Setup</h2>";
-		echo "<p>Please setup your account before attempting to use the site</p>"
+		echo "<p>Please setup your account before attempting to use the site</p>";
 	} else {
 		echo "<h2>Account Settings</h2>";
 	}
