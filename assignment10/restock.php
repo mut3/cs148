@@ -122,6 +122,13 @@
 		} // ends if form was submitted.
 
 ?> 
+<!-- Form -->
+<form action="<?php print $phpSelf; ?>"
+      method="post"
+      id="frmRestock">
+	<!-- Item Name - text Entry= new, drop down = update -->
+	<!-- Amount Total - numerical text entry and units drop down -->
+	<!-- Amount Remaining (opt) - numerical text entry and units drop down -->
 <?php
 	// include bottom
 	include 'bottom.php';
