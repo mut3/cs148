@@ -16,7 +16,11 @@
 <?php // form validate and save data
 	//%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 	// Variable initialization
-
+	$newItemName = "";
+	$extItemName = "";
+	$amtTot = "";
+	$amtRem = "";
+	$amtUnit = "";
 		//if there are values in the post
 		if (isset($_POST["btnSubmit"])) {
 		//@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
@@ -24,9 +28,6 @@
 		// SECTION: 2b Sanitize (clean) data
 		// remove any potential JavaScript or html code from users input on the
 		// form. Note it is best to follow the same order as declared in section 1c.
-			if (!$newUser) {
-				$update = true;
-			}
 			// I am not putting the ID in the $data array at this time
 
 			$firstName = htmlentities($_POST["txtFirstName"], ENT_QUOTES, "UTF-8");
@@ -97,16 +98,14 @@
 						$query .= 'WHERE pmkPoetId = ?';
 						$data[] = $pmkPoetId;
 
-						if ($_SERVER["REMOTE_USER"] == 'rerickso') {
-							$results = $thisDatabase->update($query, $data, 1, 0, 0, 0, false, false);
-						}
+						$results = $thisDatabase->update($query, $data, 1, 0, 0, 0, false, false);
+						
 					} else {
-						if ($_SERVER["REMOTE_USER"] == 'rerickso'){
-							$results = $thisDatabase->insert($query, $data);
-							$primaryKey = $thisDatabase->lastInsert();
-							if ($debug) {
-								print "<p>pmk= " . $primaryKey;
-							}
+						
+						$results = $thisDatabase->insert($query, $data);
+						$primaryKey = $thisDatabase->lastInsert();
+						if ($debug) {
+							print "<p>pmk= " . $primaryKey;
 						}
 					}
 
