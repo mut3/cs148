@@ -39,12 +39,12 @@
         $emailERROR = true;
     	}
 			$sciFiERROR = false;
-			if ($radSciFi == "") {
+			if (!in_array($radSciFi, [0,1,2])) {
 				$errorMsg[] = "Please pick a Science Fiction quote";
 				$sciFiERROR = true;
 			} 
 
-			echo "<p>invalid? ". $sciFiERROR . " " . $emailERROR;
+			echo "<p>invalid? ". $sciFiERROR . "-" . $emailERROR;
 		//@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
 		//
 		// SECTION: 2d Process Form - Passed Validation
