@@ -28,8 +28,7 @@ CREATE TABLE tblAdmin
 CREATE TABLE tblWannabeAdmin
 (
 	pmkAdminId int NOT NULL AUTO_INCREMENT,
-	fnkUserId int,
-	fldAdminUsername varchar(8) NOT NULL,
+	fnkLuserId int,
 	PRIMARY KEY(pmkAdminId)
 );
 
