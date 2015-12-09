@@ -8,7 +8,7 @@
 	form autofills current values if they exist
 	*/
 ?>
-<?php // form validate and save data
+<!--<?php // form validate and save data
 	//%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 	// Variable initialization done in top
 		//if there are values in the post
@@ -121,7 +121,7 @@
 			} // end form is valid
 		} // ends if form was submitted.
 
-?>
+?> -->
 <?php // Page Content & Form
 	echo "<p>Account settings of user: $username</p>";
 	if ($newUser) {
@@ -130,7 +130,41 @@
 	} else {
 		echo "<h2>Account Settings</h2>";
 	}
+
+
+
+	// &&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&
+	// Begin Form
+	$output = array();
+	$output[] = '<form>';
+
+	// SciFi Radio
 ?>
+	<fieldset class="radio">
+	  <legend>Pick one:</legend>
+
+	  <label for="radHitch">
+	    <input type="radio" 
+	           id="radHitch" 
+	           name="radSciFi" 
+	           value="0">Don't Panic
+	  </label>
+	  
+	  <label for="radSwars">
+	    <input type="radio" 
+	           id="radSwars" 
+	           name="radSciFi" 
+	           value="1">May the Force be with you
+	  </label>
+
+	  <label for="radTrek">
+	    <input type="radio" 
+	           id="radTrek" 
+	           name="radSciFi" 
+	           value="2">Live Long and Prosper
+	  </label>
+
+	</fieldset>
 <?php //foot
 	// include bottom
 	include 'bottom.php';
