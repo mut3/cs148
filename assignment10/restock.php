@@ -17,7 +17,7 @@
 	//%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 	// Variable initialization
 	$newItemName = "";
-	$extItemName = "";
+	$extItemId = "";
 	$amtTot = "";
 	$amtRem = "";
 	$amtUnit = "";
@@ -31,40 +31,29 @@
 		// form. Note it is best to follow the same order as declared in section 1c.
 			// I am not putting the ID in the $data array at this time
 
-			$firstName = htmlentities($_POST["txtFirstName"], ENT_QUOTES, "UTF-8");
-			$data[] = $firstName;
+			$newItemName = htmlentities($_POST["newItemName"], ENT_QUOTES, "UTF-8");
 
-			$lastName = htmlentities($_POST["txtLastName"], ENT_QUOTES, "UTF-8");
-			$data[] = $lastName;
-
-			$birthday = htmlentities($_POST["txtBirthday"], ENT_QUOTES, "UTF-8");
-			$data[] = $birthday;
-
+			$extItemId = htmlentities($_POST["extItemId"], ENT_QUOTES, "UTF-8");
+			
 		//@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
 		//
 		// SECTION: 2c Validation
 		//
 
-			if ($firstName == "") {
-				$errorMsg[] = "Please enter your first name";
-				$firstNameERROR = true;
-			} elseif (!verifyAlphaNum($firstName)) {
-				$errorMsg[] = "Your first name appears to have extra character.";
-				$firstNameERROR = true;
+			if ($newItemName == "" && $extItemId == "") {
+				$errorMsg[] = "Please enter or select an item name";
+				$itemERROR = true;
 			}
 
-			if ($lastName == "") {
-				$errorMsg[] = "Please enter your last name";
-				$lastNameERROR = true;
-			} elseif (!verifyAlphaNum($lastName)) {
-				$errorMsg[] = "Your last name appears to have extra character.";
-				$lastNameERROR = true;
+			if ($amtTot == "") {
+				$errorMsg[] = "Please enter the amount (total)";
+				$amtTotERROR = true;
 			}
 
-			if ($birthday == "") {
-				$errorMsg[] = "Please enter the poets birthday";
-				$birthdayERROR = true;
-			}// should check to make sure its the correct date format
+			if ($amtUnit == "") {
+				$errorMsg[] = "Please select a unit";
+				$amtUnitERROR = true;
+			}
 		//@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
 		//
 		// SECTION: 2d Process Form - Passed Validation
@@ -137,11 +126,11 @@
 		<legend>Either enter a new item name or choose an existing item to update</legend>
 		<label for="txtItemName">New Item Name: <input type="text" id="txtItemName" name="newItemName" value="<?php echo "$newItemName"; ?>"></label>
 		<label for="sltItemName"> or: 
-			<select id="sltItemName" name="extItemName" size="5">
-				<option <?php echo ($extItemName == "") ? "selected" : ""; ?>>Select an existing item...</option>
+			<select id="sltItemName" name="extItemId" size="5">
+				<option <?php echo ($extItemId == "") ? "selected" : ""; ?>>Select an existing item...</option>
 				<?php
 					foreach ($itemResults as $rec) {
-						echo "<option value=" . $rec[pmkItemId] . " " . ($extItemName == $rec[pmkItemId]) ? "selected" : "" . ">" . $rec[fldItemName] . "</option>";
+						echo "<option value=" . $rec[pmkItemId] . " " . ($extItemId == $rec[pmkItemId]) ? "selected" : "" . ">" . $rec[fldItemName] . "</option>";
 					}
 				?>
 			</select>
