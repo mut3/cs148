@@ -142,8 +142,8 @@
 
     <!-- Username/email -->
     <fieldset>
-    	Username: <input type="text" name="username" value="<?php echo '$username'; ?>" readonly>
-    	Email: <input type="text" name="email" value="<?php echo '$username' . '@uvm.edu'; ?>" readonly>
+    	Username: <input type="text" name="username" value="<?php echo "$username"; ?>" readonly>
+    	Email: <input type="text" name="email" value="<?php echo "$username" . '@uvm.edu'; ?>" readonly>
     </fieldset>
 		<!-- SciFi Radio -->
 	
