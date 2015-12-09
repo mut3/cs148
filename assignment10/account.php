@@ -101,7 +101,7 @@
 							// echo "<p>dbg: checking . . ." . $row['fldUsername'];
 							if($row['fldAdminUsername']==$username) {
 								// get the record we need to update, we'll use this later
-								$updateRecId = $row[pmkAdminId];
+								$updateRecId = $row['pmkAdminId'];
 								// echo "<p>dbg: triggered: " . $updateRecId;
 								break;
 							}
@@ -139,7 +139,7 @@
 						// echo "<p>dbg: wannabe noob!";
 						// if they didnt make the cut add them to the sad place
 						$wnbQuery = "INSERT INTO tblWannabeAdmin (fnkLuserId) VALUES ($primaryKey)";
-						$thisDatabaseWriter->insert($wnbQuery, "", 1, 0, 0, 0, false, false);
+						$thisDatabaseWriter->insert($wnbQuery, "", 0, 0, 0, 0, false, false);
 					}
 
 					// all sql statements are done so lets commit to our changes
