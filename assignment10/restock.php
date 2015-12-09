@@ -21,6 +21,7 @@
 	$amtTot = "";
 	$amtRem = "";
 	$amtUnit = "";
+	echo sanitize("this is a test", true);
 		//if there are values in the post
 		if (isset($_POST["btnSubmit"])) {
 		//@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
