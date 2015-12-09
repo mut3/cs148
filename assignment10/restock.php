@@ -73,20 +73,28 @@
 				$dataEntered = false;
 				try {
 					$thisDatabase->db->beginTransaction();
-
+					if ($extItemId != "") {
+						$update = true;
+					}
 					if ($update) {
-						$query = 'UPDATE tblPoet SET ';
+						$query = 'UPDATE tblItem SET ';
 					} else {
-						$query = 'INSERT INTO tblPoet SET ';
+						$query = 'INSERT INTO tblItem SET ';
 					}
 
+					if (!$update) {
+						$query .= 'fldItemName = ?, ';
+						$data[] = $newItemName;
+						$query .= 'fnkOwnerId = ?, ';
+						$data[] = $userData['id'];
+					}
 					$query .= 'fldFirstName = ?, ';
 					$query .= 'fldLastName = ?, ';
 					$query .= 'fldBirthDate = ? ';
 
 					if ($update) {
-						$query .= 'WHERE pmkPoetId = ?';
-						$data[] = $pmkPoetId;
+						$query .= 'WHERE pmkItemId = ?';
+						$data[] = $extItemId;
 
 						$results = $thisDatabase->update($query, $data, 1, 0, 0, 0, false, false);
 						
