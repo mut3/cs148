@@ -118,6 +118,18 @@
 
 ?>
 <!-- Form -->
+<?php
+	//display errors
+	if ($errorMsg) {
+    print '<div id="errors">';
+    print "<ol>\n";
+    foreach ($errorMsg as $err) {
+        print "<li>" . $err . "</li>\n";
+    }
+    print "</ol>\n";
+    print '</div>';
+  }
+?>
 <form action="<?php print $phpSelf; ?>"
       method="post"
       id="frmRestock">
