@@ -12,7 +12,7 @@
 	//%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 	// Variable initialization done in top
 		//if there are values in the post
-		$email = "$userData['email']";
+		$email = "$userData["email"]";
 		if (isset($_POST["btnSubmit"])) {
 			echo "<p>dbg: posted";
 			$update = false;
