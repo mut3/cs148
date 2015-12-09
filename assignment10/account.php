@@ -93,7 +93,7 @@
 						//otherwise we have to ask the Admin table
 						$admQuery = "SELECT pmkAdminId, fnkUserId, fldUsername FROM tblAdmin";
 						$admResults = $thisDatabaseReader->select($admQuery, "", 0);
-						echo "<p>dbg: tried to grab admins<pre>" . var_dump($admresults) . "</pre>";
+						echo "<p>dbg: tried to grab admins<pre>" . var_dump($admResults) . "</pre>";
 						foreach ($admResults as $row) {
 							echo "<p>dbg: checking . . ." . $row['fldUsername'];
 							if($row['fldUsername']==$username) {
