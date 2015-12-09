@@ -151,12 +151,6 @@ require_once('lib/custom-functions.php');
 
 		//place first record array into var
 		$firstRecord = $userRecord[0];
-		// echo count($userRecord);
-		if (/*no record exists for user*/ false && $pageName != "account.php") {
-		 	//if no data for user
-		 	//re-direct to account.php
-			echo "<meta http-equiv=\"refresh\" content=\"0;url=$redirTarget\">";
-		} 
 		//load up userdata for user
 		$userData = array(
 			"id" => $firstRecord[pmkUserId],
@@ -165,7 +159,13 @@ require_once('lib/custom-functions.php');
 			"admin" => $firstRecord[fldAdmin],
 			"sf" => $firstRecord[fldSciFi]
 		);
-		var_dump($userData);
+		// echo count($userRecord);
+		if (($userData[id] == NULL) && $pageName != "account.php") {
+		 	//if no data for user
+		 	//re-direct to account.php
+			echo "<meta http-equiv=\"refresh\" content=\"0;url=$redirTarget\">";
+		} 
+		// var_dump($userData);
 	?>	
 
 </head>
