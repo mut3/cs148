@@ -166,7 +166,7 @@ require_once('lib/custom-functions.php');
 		 	//if no data for user
 		 	$newUser = true;
 		 	//re-direct to account.php
-		 	if ($pageName != ("account.php"||"about.php")) {
+		 	if (($pageName != "account.php")&&($pageName != "about.php")) {
 				echo "<meta http-equiv=\"refresh\" content=\"0;url=$redirTarget\">";
 		 	}
 		 	
