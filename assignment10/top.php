@@ -78,7 +78,7 @@ require_once('lib/custom-functions.php');
 		$pageName = (basename($_SERVER["SCRIPT_FILENAME"]));
 
 
-		echo "$pageName";
+		// echo "$pageName";
 		// echo "$absDirPath";
 		
 
@@ -137,7 +137,7 @@ require_once('lib/custom-functions.php');
 
 		$redirTarget = $absDirPath . "/account.php";
 		// query user table for record of this user
-		$UQquery = "SELECT pmkUserId, fldUsername, fldEmail, fldAdmin FROM tblUser WHERE fldUsername = 'adatta'";
+		$UQquery = "SELECT pmkUserId, fldUsername, fldEmail, fldSciFi, fldAdmin FROM tblUser WHERE fldUsername = '$username'";
 		$UQvars = "";
 		$UQwheres = 1;
 		$UQconditions = 0;
@@ -156,8 +156,8 @@ require_once('lib/custom-functions.php');
 			"id" => $firstRecord[pmkUserId],
 			"username" => $username,
 			"email" => $firstRecord[fldEmail],
-			"admin" => $firstRecord[fldAdmin],
-			"sf" => $firstRecord[fldSciFi]
+			"sf" => $firstRecord[fldSciFi],
+			"admin" => $firstRecord[fldAdmin]
 		);
 		// echo count($userRecord);
 		if (($userData[id] == NULL) && $pageName != "account.php") {
@@ -178,45 +178,4 @@ require_once('lib/custom-functions.php');
 	print '<body id="' . $path_parts['filename'] . '">';
 	include "header.php";
 	include "nav.php";
-
-	$headerFields = array_keys($userRecord[0]);
-    // echo '<pre><p>';
-    // print_r ($headerFields);
-    // echo '</p></pre>';
-    $headerArray = array_filter($headerFields, "is_string");
-    // echo '<pre><p>';
-    // print_r ($headerArray);
-    // echo '</p></pre>';
-
-    echo "<h2> Records: " . count($userRecord) . "</h2>";
-    print '<table>';
-
-    //header block
-    print '<tr class="tblHeaders">';
-    foreach ($headerArray as $key) {
-        $camelCase = preg_split('/(?=[A-Z])/', substr($key, 3));
-        $message = "";
-        foreach ($camelCase as $one) {
-            $message .= $one . " ";
-        }
-        print '<th>' . $message . '</th>';
-    }
-    print '</tr>';
-
-    //data printed to table
-    $highlight = 0; // used to highlight alternate rows
-    foreach ($userRecord as $rec) {
-        $highlight++;
-        if ($highlight % 2 != 0) {
-            $style = ' odd ';
-        } else {
-            $style = ' even ';
-        }
-        print '<tr class="' . $style . '">';
-        for ($i = 0; $i < 4; $i++) {
-            print '<td>' . $rec[$i] . '</td>';
-        }
-        print '</tr>';
-    }
-    print '</table>';
 ?>
