@@ -32,11 +32,11 @@ CREATE TABLE tblWannabeAdmin
 	PRIMARY KEY(pmkAdminId, fnkLuserId)
 );
 
-INSERT INTO tblUser (fldUsername, fldEmail, fldSciFi, fldAdmin) VALUES
-	('wbarnwel', 'wbarnwel@uvm.edu', 0, TRUE);
+-- INSERT INTO tblUser (fldUsername, fldEmail, fldSciFi, fldAdmin) VALUES
+-- 	('wbarnwel', 'wbarnwel@uvm.edu', 0, TRUE);
 
 -- INSERT INTO tblItem (fnkOwnerId, fldItemName) VALUES
--- 	(0, 'Dread About This Project');
+-- 	(1, 'Dread About This Project');
 
 INSERT INTO tblAdmin (fnkUserId, fldAdminUsername) VALUES
 	(NULL, 'wbarnwel'),
