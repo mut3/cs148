@@ -10,7 +10,7 @@
 ?>
 <?php // load units and items
 	$units = array("cups","pounds","tbsp","tsp");
-	var_dump($units);
+	// var_dump($units);
 	$itemQuery = "SELECT pmkItemId, fnkOwnerId, fldItemName, fldAmtTot, fldAmtRem, fldAmtUnit FROM tblItem WHERE fnkOwnerId = $userData[id]";
 	$itemResults = $thisDatabaseReader->select($itemQuery, "", 1);
 	$itemRef = array();
@@ -182,7 +182,8 @@
 				<option <?php echo ($amtUnit == "") ? "selected" : ""; ?>>Select Unit...</option>
 				<?php
 					for ($i=0; $i < count($units); $i++) { 
-						echo "<option value=" . $units[$i] . " " . ($amtUnit == $units[$i]) ? "selected" : "" . ">" . $units[$i] . "</option>";
+						$selected = ($amtUnit == $units[$i]) ? "selected" : "";
+						echo "<option value=" . $units[$i] . " " . $selected . ">" . $units[$i] . "</option>";
 					}
 				?>
 			</select>
