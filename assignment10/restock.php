@@ -127,8 +127,25 @@
       method="post"
       id="frmRestock">
 	<!-- Item Name - text Entry= new, drop down = update -->
+	<fieldset class="itemName">
+		<legend>Either enter a new item name or choose an existing item to update</legend>
+		<label for="txtItemName">Item Name: <input type="text" id="txtItemName" name="itemName" value="<?php echo "$itemName"; ?>"></label>
+	</fieldset>
 	<!-- Amount Total - numerical text entry and units drop down -->
+	<fieldset class="amtTot">
+		<legend>How much do you have? Select a unit</legend>
+		<label for="txtAmtTot">Amount (Total): <input type="number" id="txtAmtTot" name="amtTot" min="0" step=".1" max="100" value="<?php echo "$amtTot"; ?>"></label>
+
+	</fieldset>
 	<!-- Amount Remaining (opt) - numerical text entry and units drop down -->
+	<fieldset class="amtRem">
+		<legend>Already used some?</legend>
+		<label for="txtAmtRem">Amount (Remaining): <input type="number" id="txtAmtRem" name="amtRem" min="0" step=".1" max="100" value="<?php echo "$amtRem"; ?>"></label>
+	</fieldset>
+	<fieldset class="buttons">
+    <input type="submit" id="btnSubmit" name="btnSubmit" value="Save" tabindex="900" class="button">
+  </fieldset>
+</form>
 <?php
 	// include bottom
 	include 'bottom.php';
