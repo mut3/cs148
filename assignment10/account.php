@@ -67,6 +67,8 @@
 					$data[] = $_POST['radSciFi'];
 					$query .= 'fldAdmin = ? ';
 					// now comes the super annoying Admin bit
+					$updateRecId = "";
+					$wannabe = false;
 					// not set? false
 					if (!isset($_POST['chkAdmin'])) {
 						$data[] = false;
@@ -77,7 +79,6 @@
 						//otherwise we have to ask the Admin table
 						$admQuery = "SELECT pmkAdminId, fnkUserId, fldUsername FROM tblAdmin";
 						$admResults = $thisDatabaseReader->select($admQuery);
-						$updateRecId = "";
 						foreach ($admResults as $row) {
 							if($row[fldUsername]==$username) {
 								// get the record we need to update, we'll use this later
@@ -89,6 +90,7 @@
 							$data[] = true;
 						} else {
 							$data[] = false;
+							$wannabe = true;
 						}
 					}
 
@@ -106,7 +108,10 @@
 							}
 						}
 					}
-
+					if ($updateRecId != "") {
+						//gotta update the admin database to point the fnk to the right place
+						$adUpQuery = ""
+					}
 					// all sql statements are done so lets commit to our changes
 					//if($_SERVER["REMOTE_USER"]=='rerickso'){
 					$dataEntered = $thisDatabaseWriter->db->commit();
