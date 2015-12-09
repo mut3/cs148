@@ -43,6 +43,8 @@
 				$errorMsg[] = "Please pick a Science Fiction quote";
 				$sciFiERROR = true;
 			} 
+
+			echo "<p>invalid? ". $sciFiERROR . " " . $emailERROR;
 		//@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
 		//
 		// SECTION: 2d Process Form - Passed Validation
