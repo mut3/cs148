@@ -13,7 +13,7 @@
 	// Variable initialization done in top
 		//if there are values in the post
 		if (isset($_POST["btnSubmit"])) {
-			update = false;
+			$update = false;
 			if (!$newUser) {
 				$update = true;
 			}
