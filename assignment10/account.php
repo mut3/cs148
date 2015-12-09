@@ -12,6 +12,7 @@
 	//%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 	// Variable initialization done in top
 		//if there are values in the post
+		$quoteArray = array("Don't Panic", "May the force be with you", "Live Long and Prosper");
 		$email = $userData["email"];
 		$radSciFi = $userData["sf"];
 		if (isset($_POST["btnSubmit"])) {
@@ -51,6 +52,9 @@
 		//
 		// Process for when the form passes validation (the errorMsg array is empty)
 		//
+			$messageA = "";
+			$messageB = "";
+			$messageC = "";			
 			if (!$errorMsg) {
 				if ($debug) {
 					print "<p>Form is valid</p>";
@@ -113,6 +117,7 @@
 							$wannabe = true;
 						}
 					}
+					$isAdmin = end($data);
 					$primaryKey = "";
 					if ($update) {
 						$query .= 'WHERE pmkUserId = ?';
@@ -149,6 +154,19 @@
 					// }else{
 					//     $thisDatabaseWriter->db->rollback();
 					// }
+					$messageA = "<p>Hello $username</p>";
+					$messageA .= "<p>Your settings as of the sending of this message: </p>"
+					$messageB = "<pre>Your Preferred SciFi Quote is: $quoteArray[$radSciFi]
+					You are " . ($isAdmin) ? "" : "not" ;" an Admin.</pre>";
+					$messageC = "<p>Make it a great day!</p>";
+					$to = $email; // the person who filled out the form
+          $cc = "";
+          $bcc = "";
+          $from = "Pantry Raid <wbarnwel@uvm.edu>";
+          $subject = "Account Settings Changed or Updated";
+
+          $mailed = sendMail($to, $cc, $bcc, $from, $subject, $messageA . $messageB . $messageC);
+					
 					if ($debug)
 						print "<p>transaction complete ";
 				} catch (PDOExecption $e) {
