@@ -27,7 +27,7 @@
 		// remove any potential JavaScript or html code from users input on the
 		// form. Note it is best to follow the same order as declared in section 1c.
 		$email = filter_var($_POST["email"], FILTER_SANITIZE_EMAIL);
-		$radSciFi = (int) htmlentities($_POST["radSciFi"], ENT_QUOTES, "UTF-8");	
+		$radSciFi = (int) $_POST["radSciFi"];	
 
 		//@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
 		//
@@ -97,7 +97,7 @@
 						echo "<p>dbg: tried to grab admins<pre>" . var_dump($admResults) . "</pre>";
 						foreach ($admResults as $row) {
 							echo "<p>dbg: checking . . ." . $row['fldUsername'];
-							if($row['fldUsername']==$username) {
+							if($row['fldAdminUsername']==$username) {
 								// get the record we need to update, we'll use this later
 								$updateRecId = $row[pmkAdminId];
 								echo "<p>dbg: triggered: " . $updateRecId;
