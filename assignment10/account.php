@@ -184,7 +184,7 @@
     <!-- Username/email -->
     <fieldset class="contact">
     	<label for="txtUsername">Username: <input type="text" id="txtUsername" name="username" value="<?php echo "$username"; ?>" readonly></label>
-    	<label for="txtEmail">Email: <input type="email" id="txtEmail" name="email" value="<?php echo "$username" . '@uvm.edu'; ?>"></label>
+    	<label for="txtEmail">Email: <input type="email" id="txtEmail" name="email" value="<?php echo "$email"; ?>"></label>
     </fieldset>
 		<!-- SciFi Radio -->
 	
