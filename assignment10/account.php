@@ -134,37 +134,52 @@
 
 
 	// &&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&
-	// Begin Form
-	$output = array();
-	$output[] = '<form>';
-
-	// SciFi Radio
 ?>
-	<fieldset class="radio">
-	  <legend>Pick one:</legend>
+	<!-- Begin Form -->
+	<form action="<?php print $phpSelf; ?>"
+        method="post"
+        id="frmRegister">
 
-	  <label for="radHitch">
-	    <input type="radio" 
-	           id="radHitch" 
-	           name="radSciFi" 
-	           value="0">Don't Panic
-	  </label>
-	  
-	  <label for="radSwars">
-	    <input type="radio" 
-	           id="radSwars" 
-	           name="radSciFi" 
-	           value="1">May the Force be with you
-	  </label>
+    <!-- Username/email -->
+    <fieldset>
+    	Username: <input type="text" name="username" value="<?php echo '$username'; ?>" readonly>
+    	Email: <input type="text" name="email" value="<?php echo '$username' . '@uvm.edu'; ?>" readonly>
+    </fieldset>
+		<!-- SciFi Radio -->
+	
+		<fieldset class="radio">
+		  <legend>Pick one:</legend>
 
-	  <label for="radTrek">
-	    <input type="radio" 
-	           id="radTrek" 
-	           name="radSciFi" 
-	           value="2">Live Long and Prosper
-	  </label>
+		  <label for="radHitch">
+		    <input type="radio" 
+		           id="radHitch" 
+		           name="radSciFi"
+		           <?php if ($userData[sf]==0) {echo "checked";}?>
+		           value="0">Don't Panic
+		  </label>
+		  
+		  <label for="radSwars">
+		    <input type="radio" 
+		           id="radSwars" 
+		           name="radSciFi"
+		           <?php if ($userData[sf]==1) {echo "checked";}?> 
+		           value="1">May the Force be with you
+		  </label>
 
-	</fieldset>
+		  <label for="radTrek">
+		    <input type="radio" 
+		           id="radTrek" 
+		           name="radSciFi"
+		           <?php if ($userData[sf]==2) {echo "checked";}?> 
+		           value="2">Live Long and Prosper
+		  </label>
+
+		</fieldset>
+		<fieldset class="buttons">
+      <legend></legend>
+      <input type="submit" id="btnSubmit" name="btnSubmit" value="Save" tabindex="900" class="button">
+	  </fieldset> <
+	</form>
 <?php //foot
 	// include bottom
 	include 'bottom.php';
