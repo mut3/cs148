@@ -98,7 +98,7 @@
 						// echo "<p>dbg: entering silly-land";
 						//otherwise we have to ask the Admin table
 						$admQuery = "SELECT pmkAdminId, fnkUserId, fldAdminUsername FROM tblAdmin";
-						$thisDatabaseReader->testquery($admQuery, "", 0);
+						// $thisDatabaseReader->testquery($admQuery, "", 0);
 						$admResults = $thisDatabaseReader->select($admQuery, "", 0);
 						// echo "<p>dbg: tried to grab admins<pre>" . var_dump($admResults) . "</pre>";
 						foreach ($admResults as $row) {
@@ -157,7 +157,9 @@
 					$messageA = "<p>Hello $username</p>";
 					$messageA .= "<p>Your settings as of the sending of this message: </p>";
 					$messageB = "<pre>Your Preferred SciFi Quote is: $quoteArray[$radSciFi]
-					You are " . ($isAdmin) ? "" : "not" ;" an Admin.</pre>";
+					You are ";
+					$messageB .= ($isAdmin) ? "" : "not" ;
+					$messageB .=" an Admin.</pre>";
 					$messageC = "<p>Make it a great day!</p>";
 					$to = $email; // the person who filled out the form
           $cc = "";
@@ -205,6 +207,9 @@
     }
     print "</ol>\n";
     print '</div>';
+  }
+  if ($mailed) {
+  	echo "Account Updated, email sent.";
   }
 ?>
 	<form action="<?php print $phpSelf; ?>"
