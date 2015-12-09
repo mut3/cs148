@@ -141,9 +141,9 @@
         id="frmRegister">
 
     <!-- Username/email -->
-    <fieldset>
-    	Username: <input type="text" name="username" value="<?php echo "$username"; ?>" readonly>
-    	Email: <input type="text" name="email" value="<?php echo "$username" . '@uvm.edu'; ?>" readonly>
+    <fieldset class="contact">
+    	<label for="txtUsername">Username: <input type="text" id="txtUsername" name="username" value="<?php echo "$username"; ?>" readonly></label>
+    	<label for="txtEmail">Email: <input type="email" id="txtEmail" name="email" value="<?php echo "$username" . '@uvm.edu'; ?>" readonly></label>
     </fieldset>
 		<!-- SciFi Radio -->
 	
@@ -175,10 +175,19 @@
 		  </label>
 
 		</fieldset>
+		<fieldset class="check">
+			<label for="adminChk">
+		    <input type="checkbox" 
+		           id="adminChk" 
+		           name="chkAdmin"
+		           <?php if ($userData[admin]) {echo "checked readonly";}?>
+		           value="Admin">Want to be an Admin?
+		  </label>
+		</fieldset>
 		<fieldset class="buttons">
       <legend></legend>
       <input type="submit" id="btnSubmit" name="btnSubmit" value="Save" tabindex="900" class="button">
-	  </fieldset> <
+	  </fieldset>
 	</form>
 <?php //foot
 	// include bottom
