@@ -18,7 +18,7 @@ CREATE TABLE tblItem
 	fldItemName varchar(255) NOT NULL,
 	fldAmtTot number(3,2),
 	fldAmtRem number(3,2),
-	fldAmtUnit varchar(255)
+	fldAmtUnit varchar(255),
 	PRIMARY KEY(pmkItemId)
 );
 CREATE TABLE tblAdmin
