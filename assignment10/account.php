@@ -91,7 +91,7 @@
 					} else {
 						echo "<p>dbg: entering silly-land";
 						//otherwise we have to ask the Admin table
-						$admQuery = "SELECT pmkAdminId, fnkUserId, fldUsername FROM tblAdmin";
+						$admQuery = "SELECT pmkAdminId, fnkUserId, fldAdminUsername FROM tblAdmin";
 						$thisDatabaseReader->testquery($admQuery, "", 0);
 						$admResults = $thisDatabaseReader->select($admQuery, "", 0);
 						echo "<p>dbg: tried to grab admins<pre>" . var_dump($admResults) . "</pre>";
