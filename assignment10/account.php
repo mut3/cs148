@@ -12,11 +12,12 @@
 	//%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 	// Variable initialization done in top
 		//if there are values in the post
+		$email = "$username@uvm.edu";
 		if (isset($_POST["btnSubmit"])) {
-			echo "\ndbg: posted";
+			echo "<p>dbg: posted";
 			$update = false;
 			if (!$newUser) {
-				echo "\ndbg: updating existing user";
+				echo "<p>dbg: updating existing user";
 				$update = true;
 			}
 		//@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
@@ -24,12 +25,17 @@
 		// SECTION: 2b Sanitize (clean) data
 		// remove any potential JavaScript or html code from users input on the
 		// form. Note it is best to follow the same order as declared in section 1c.
-		
+		$email = filter_var($_POST["email"], FILTER_SANITIZE_EMAIL);		
 
 		//@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
 		//
 		// SECTION: 2c Validation
 		//
+			$emailERROR = false;
+			if ($email == "") {
+        $errorMsg[] = "Please enter your email address";
+        $emailERROR = true;
+    	}
 			$sciFiERROR = false;
 			if ($_POST['radSciFi'] == "") {
 				$errorMsg[] = "Please pick a Science Fiction quote";
@@ -53,7 +59,7 @@
 
 				$dataEntered = false;
 				try {
-					echo "\ndbg: trying";
+					echo "<p>dbg: trying";
 					$thisDatabaseWriter->db->beginTransaction();
 
 					if ($update) {
@@ -74,14 +80,14 @@
 					$wannabe = false;
 					// not set? false
 					if (!isset($_POST['chkAdmin'])) {
-						echo "\ndbg: no admin check";
+						echo "<p>dbg: no admin check";
 						$data[] = false;
 					} elseif ($userData['admin']) {
 						//already an admin? true
-						echo "\ndbg: already admin";
+						echo "<p>dbg: already admin";
 						$data[] = true;
 					} else {
-						echo "\ndbg: entering silly-land";
+						echo "<p>dbg: entering silly-land";
 						//otherwise we have to ask the Admin table
 						$admQuery = "SELECT pmkAdminId, fnkUserId, fldUsername FROM tblAdmin";
 						$admResults = $thisDatabaseReader->select($admQuery);
@@ -102,10 +108,10 @@
 					$primaryKey = "";
 					if ($update) {
 						$query .= 'WHERE pmkUserId = ?';
-						$data[] = $userData[id];
+						$data[] = $userData['id'];
 						$results = $thisDatabaseWriter->update($query, $data, 1, 0, 0, 0, false, false);
 						$primaryKey = $userData['id'];
-						echo "\ndbg: tried to update"; var_dump($results);
+						echo "<p>dbg: tried to update"; var_dump($results);
 						
 					} else {
 						$results = $thisDatabaseWriter->insert($query, $data);
@@ -113,16 +119,16 @@
 						if ($debug) {
 							print "<p>pmk= " . $primaryKey;
 						}
-						echo "\ndbg: tried to insert"; var_dump($results);
+						echo "<p>dbg: tried to insert"; var_dump($results);
 					}
 					if ($updateRecId != "") {
-						echo "\ndbg: trying to update admin record";
+						echo "<p>dbg: trying to update admin record";
 						//gotta update the admin database to point the fnk to the right place
 						$adUpQuery = "UPDATE tblAdmin SET fnkUserId = $primaryKey WHERE pmkAdminId = $updateRecId";
 						$thisDatabaseWriter->update($adUpQuery, "", 1, 0, 0, 0, false, false);
 					}
 					if ($wannabe) {
-						echo "\ndbg: wannabe noob!";
+						echo "<p>dbg: wannabe noob!";
 						// if they didnt make the cut add them to the sad place
 						$wnbQuery = "INSERT INTO tblWannabeAdmin (fnkLuserId) VALUES ($primaryKey)";
 						$thisDatabaseWriter->insert($wnbQuery, "", 1, 0, 0, 0, false, false);
@@ -131,7 +137,7 @@
 					// all sql statements are done so lets commit to our changes
 					//if($_SERVER["REMOTE_USER"]=='rerickso'){
 					$dataEntered = $thisDatabaseWriter->db->commit();
-					echo "\ndbg: commited"; var_dump($dataEntered);
+					echo "<p>dbg: commited"; var_dump($dataEntered);
 					// }else{
 					//     $thisDatabaseWriter->db->rollback();
 					// }
@@ -139,7 +145,7 @@
 						print "<p>transaction complete ";
 				} catch (PDOExecption $e) {
 					$thisDatabaseWriter->db->rollback();
-					echo "\ndbg: AHHHHHHHHHH " . $e->getMessage();
+					echo "<p>dbg: AHHHHHHHHHH " . $e->getMessage();
 					if ($debug)
 						print "Error!: " . $e->getMessage() . "</br>";
 					$errorMsg[] = "There was a problem with accepting your data please contact us directly.";
@@ -170,7 +176,7 @@
     <!-- Username/email -->
     <fieldset class="contact">
     	<label for="txtUsername">Username: <input type="text" id="txtUsername" name="username" value="<?php echo "$username"; ?>" readonly></label>
-    	<label for="txtEmail">Email: <input type="email" id="txtEmail" name="email" value="<?php echo "$username" . '@uvm.edu'; ?>" readonly></label>
+    	<label for="txtEmail">Email: <input type="email" id="txtEmail" name="email" value="<?php echo "$username" . '@uvm.edu'; ?>"></label>
     </fieldset>
 		<!-- SciFi Radio -->
 	
@@ -181,7 +187,7 @@
 		    <input type="radio" 
 		           id="radHitch" 
 		           name="radSciFi"
-		           <?php if ($userData[sf]==0) {echo "checked";}?>
+		           <?php if ($userData['sf']==0) {echo "checked";}?>
 		           value="0">Don't Panic
 		  </label>
 		  
@@ -189,7 +195,7 @@
 		    <input type="radio" 
 		           id="radSwars" 
 		           name="radSciFi"
-		           <?php if ($userData[sf]==1) {echo "checked";}?> 
+		           <?php if ($userData['sf']==1) {echo "checked";}?> 
 		           value="1">May the Force be with you
 		  </label>
 
@@ -197,7 +203,7 @@
 		    <input type="radio" 
 		           id="radTrek" 
 		           name="radSciFi"
-		           <?php if ($userData[sf]==2) {echo "checked";}?> 
+		           <?php if ($userData['sf']==2) {echo "checked";}?> 
 		           value="2">Live Long and Prosper
 		  </label>
 
@@ -207,7 +213,7 @@
 		    <input type="checkbox" 
 		           id="adminChk" 
 		           name="chkAdmin"
-		           <?php if ($userData[admin]) {echo "checked readonly";}?>
+		           <?php if ($userData['admin']) {echo "checked readonly";}?>
 		           value="Admin">Want to be an Admin?
 		  </label>
 		</fieldset>
