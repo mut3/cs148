@@ -13,6 +13,7 @@
 	// Variable initialization done in top
 		//if there are values in the post
 		$email = $userData["email"];
+		$radSciFi = $userData["sf"];
 		if (isset($_POST["btnSubmit"])) {
 			echo "<p>dbg: posted";
 			$update = false;
@@ -25,7 +26,8 @@
 		// SECTION: 2b Sanitize (clean) data
 		// remove any potential JavaScript or html code from users input on the
 		// form. Note it is best to follow the same order as declared in section 1c.
-		$email = filter_var($_POST["email"], FILTER_SANITIZE_EMAIL);		
+		$email = filter_var($_POST["email"], FILTER_SANITIZE_EMAIL);
+		$radSciFi = (int) htmlentities($_POST["radSciFi"], ENT_QUOTES, "UTF-8");	
 
 		//@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
 		//
@@ -37,7 +39,7 @@
         $emailERROR = true;
     	}
 			$sciFiERROR = false;
-			if ($_POST['radSciFi'] == "") {
+			if ($radSciFi == "") {
 				$errorMsg[] = "Please pick a Science Fiction quote";
 				$sciFiERROR = true;
 			} 
@@ -187,7 +189,7 @@
 		    <input type="radio" 
 		           id="radHitch" 
 		           name="radSciFi"
-		           <?php if ($userData['sf']==0) {echo "checked";}?>
+		           <?php if ($radSciFi==0) {echo "checked";}?>
 		           value="0">Don't Panic
 		  </label>
 		  
@@ -195,7 +197,7 @@
 		    <input type="radio" 
 		           id="radSwars" 
 		           name="radSciFi"
-		           <?php if ($userData['sf']==1) {echo "checked";}?> 
+		           <?php if ($radSciFi==1) {echo "checked";}?> 
 		           value="1">May the Force be with you
 		  </label>
 
@@ -203,7 +205,7 @@
 		    <input type="radio" 
 		           id="radTrek" 
 		           name="radSciFi"
-		           <?php if ($userData['sf']==2) {echo "checked";}?> 
+		           <?php if ($radSciFi==2) {echo "checked";}?> 
 		           value="2">Live Long and Prosper
 		  </label>
 
