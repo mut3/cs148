@@ -1,6 +1,7 @@
 DROP TABLE IF EXISTS tblUser;
 DROP TABLE IF EXISTS tblItem;
 DROP TABLE IF EXISTS tblAdmin;
+DROP TABLE IF EXISTS tblWannabeAdmin;
 CREATE TABLE tblUser
 (
 	pmkUserId int NOT NULL AUTO_INCREMENT,
@@ -24,6 +25,13 @@ CREATE TABLE tblAdmin
 	fldAdminUsername varchar(8) NOT NULL,
 	PRIMARY KEY(pmkAdminId)
 );
+CREATE TABLE tblWannabeAdmin
+(
+	pmkAdminId int NOT NULL AUTO_INCREMENT,
+	fnkUserId int,
+	fldAdminUsername varchar(8) NOT NULL,
+	PRIMARY KEY(pmkAdminId)
+);
 
 INSERT INTO tblUser (fldUsername, fldEmail, fldSciFi, fldAdmin) VALUES
 	('wbarnwel', 'wbarnwel@uvm.edu', 0, TRUE);
@@ -32,6 +40,6 @@ INSERT INTO tblUser (fldUsername, fldEmail, fldSciFi, fldAdmin) VALUES
 -- 	(0, 'Dread About This Project');
 
 INSERT INTO tblAdmin (fnkUserId, fldAdminUsername) VALUES
-	(0, 'wbarnwel'),
+	(NULL, 'wbarnwel'),
 	(NULL, 'rerickso'),
 	(NULL, 'adatta');
