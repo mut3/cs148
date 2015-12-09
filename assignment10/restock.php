@@ -11,7 +11,7 @@
 <?php // load units and items
 	$units = array("cups","pounds","tbsp","tsp");
 	$itemQuery = "SELECT pmkItemId, fnkOwnerId, fldItemName, fldAmtTot, fldAmtRem, fldAmtUnit FROM tblItem WHERE fnkOwnerId = $userData[id]";
-	$itemResults = thisDatabaseReader->select($itemQuery, "", 1);
+	$itemResults = $thisDatabaseReader->select($itemQuery, "", 1);
 ?>
 <!--<?php // form validate and save data
 	//%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
